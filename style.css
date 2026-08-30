@@ -183,7 +183,7 @@ button { font:inherit; }
 
 .site-footer {
     min-height: 280px;
-    padding: 55px 24px 40px;
+    padding: 80px 24px 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -191,6 +191,7 @@ button { font:inherit; }
     gap: 18px;
     border-top: 1px solid var(--line);
     background: #080808;
+    transform: translateY(18px);
 }
 
 .footer-logo-window {
