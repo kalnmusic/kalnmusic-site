@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KALN — official artist website. Music, lyrics, visuals, and releases.">
+    <meta name="theme-color" content="#080808">
+    <title>KALN — Official Artist Hub</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+
+    <div class="noise" aria-hidden="true"></div>
+    <div class="cursor-glow" aria-hidden="true"></div>
+
+    <div class="listen-bar">
+        <div class="listen-marquee" aria-label="Lost Count is out now">
+            <div class="listen-track">
+                <div class="listen-group">
+                    <span>LOST COUNT — OUT NOW</span><span>•</span>
+                    <span>STREAM EVERYWHERE</span><span>•</span>
+                    <span>KALN</span><span>•</span>
+                </div>
+                <div class="listen-group" aria-hidden="true">
+                    <span>LOST COUNT — OUT NOW</span><span>•</span>
+                    <span>STREAM EVERYWHERE</span><span>•</span>
+                    <span>KALN</span><span>•</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="site-header">
+        <a class="brand" href="#top">KALN</a>
+        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span>
+        </button>
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a href="#music">Music</a>
+            <a href="#lyrics">Lyrics</a>
+            <a href="#about">About</a>
+            <a href="#visuals">Visuals</a>
+            <a href="#connect">Connect</a>
+        </nav>
+    </header>
+
+    <main id="top">
+        <section class="hero" id="hero">
+            <div class="hero-bg" aria-hidden="true"></div>
+            <div class="hero-shade" aria-hidden="true"></div>
+
+            <div class="hero-copy reveal">
+                <p class="eyebrow">Official Artist Hub</p>
+                
+                <p class="hero-tagline">No fixed sound. Just the feeling.</p>
+                <div class="hero-actions">
+                    <a class="button button-light" href="https://release.landr.com/991048938120" target="_blank" rel="noopener noreferrer">
+                        Listen to Lost Count
+                    </a>
+                    <a class="button button-outline" href="#lyrics">Read the Lyrics</a>
+                </div>
+            </div>
+
+            <div class="scroll-indicator" aria-hidden="true">
+                <span>Scroll</span>
+                <i></i>
+            </div>
+        </section>
+<section class="section music-section" id="music">
+            <div class="section-title reveal">
+                <p class="eyebrow">Music</p>
+                <h2>Now Playing</h2>
+            </div>
+
+            <article class="release-feature reveal">
+                <div class="release-art tilt-card">
+                    <img src="assets/images/lost-count-cover.png" alt="Lost Count cover art by KALN">
+                    <div class="art-reflection" aria-hidden="true"></div>
+                </div>
+
+                <div class="release-info">
+                    <p class="release-kicker">Single · 2026</p>
+                    <h3>Lost Count</h3>
+                    <p class="release-copy">
+                        Late nights, bad decisions, and losing track of time on purpose.
+                    </p>
+                    <div class="release-actions">
+                        <a class="button button-light" href="https://release.landr.com/991048938120" target="_blank" rel="noopener noreferrer">Listen Now</a>
+                        <a class="text-link" href="#lyrics">Lyrics <span>↘</span></a>
+                    </div>
+                    <div class="platform-row">
+                        <a href="https://open.spotify.com/artist/1I97Z1wZc37Bp7zMpgpxWk" target="_blank" rel="noopener noreferrer">Spotify</a>
+                        <a href="https://music.apple.com/us/album/lost-count-single/6806260465" target="_blank" rel="noopener noreferrer">Apple Music</a>
+                        <a href="https://youtu.be/i-gifo6uCsE" target="_blank" rel="noopener noreferrer">YouTube</a>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="section next-section">
+            <div class="coming-wrap reveal">
+                <div class="coming-copy">
+                    <p class="eyebrow">Coming Soon</p>
+                    <p class="coming-date">September 18, 2026</p>
+                    <h2>Fall Into Me</h2>
+                    <p class="release-copy">A softer chapter is coming.</p>
+
+                    <a class="button button-light"
+                       href="https://release.landr.com/991048944886"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Pre-Save Now
+                    </a>
+                </div>
+
+                <div class="coming-art tilt-card">
+                    <img src="assets/images/fall-into-me-cover.png"
+                         alt="Fall Into Me cover art by KALN">
+                </div>
+            </div>
+        </section>
+
+        <section class="lyrics-section" id="lyrics">
+            <div class="lyrics-sticky">
+                <div class="section-title reveal">
+                    <p class="eyebrow">Lyrics</p>
+                    <h2>Words Behind the Music</h2>
+                    <p class="lyrics-intro">
+                        Read along without leaving the site.
+                    </p>
+                </div>
+            </div>
+
+            <div class="lyrics-panel reveal">
+                <div class="lyrics-tabs" role="tablist">
+                    <button class="lyrics-tab active" data-song="lost-count" role="tab" aria-selected="true">Lost Count</button>
+                    <button class="lyrics-tab" data-song="fall-into-me" role="tab" aria-selected="false">Fall Into Me</button>
+                </div>
+
+                <article class="lyrics-content active" id="lost-count" role="tabpanel">
+                    <div class="lyrics-heading">
+                        <h3>Lost Count</h3>
+                        <span>2026</span>
+                    </div>
+                    <div class="lyrics-sequence">
+                        <section class="lyric-block">
+                            <p class="lyric-label">Verse 1</p>
+                            <p>Your drink’s been sweating on the counter<br>
+                            Since you walked in around ten<br>
+                            Said you only had an hour<br>
+                            Now it’s pushing two A.M.<br>
+                            Your phone keeps lighting up behind you<br>
+                            You don’t even turn around<br>
+                            Every time you say you’re leaving<br>
+                            Your body says you’re staying now</p>
+                        </section>
+
+                        <section class="lyric-block">
+                            <p class="lyric-label">Pre-Chorus</p>
+                            <p>Forget the minutes<br>
+                            I’ll give you something else to count<br>
+                            Keep the lights low<br>
+                            I can hear it in you now</p>
+                        </section>
+
+                        <section class="lyric-block">
+                            <p class="lyric-label">Chorus</p>
+                            <p>I’ma make you lose count<br>
+                            Lose count<br>
+                            Every time you think we’re done<br>
+                            I’ma slow it back down<br>
+                            Back down<br>
+                            Make you start again at one<br>
+                            Got the whole room spinning ’round<br>
+                            You don’t wanna leave me now<br>
+                            I’ma make you lose count<br>
+                            Lose count</p>
+                        </section>
+
+                        <section class="lyric-block">
+                            <p class="lyric-label">Verse 2</p>
+                            <p>Your nails are keeping rhythm<br>
+                            Down the center of my back<br>
+                            Every time I change the tempo<br>
+                            You forget where you were at<br>
+                            Curtains holding back the morning<br>
+                            Sheets are twisted at your feet<br>
+                            You don’t have to tell me what you want<br>
+                            I can hear it when you breathe</p>
+                        </section>
+
+                        <section class="lyric-block">
+                            <p class="lyric-label">Pre-Chorus</p>
+                            <p>Forget the minutes<br>
+                            I’ll give you something else to count<br>
+                            Keep the lights low<br>
+                            I can hear it in you now</p>
+                        </section>
+
+                        <section class="lyric-block">
+                            <p class="lyric-label">Chorus</p>
+                            <p>I’ma make you lose count<br>
+                            Lose count<br>
+                            Every time you think we’re done<br>
+                            I’ma slow it back down<br>
+                            Back down<br>
+                            Make you start again at one<br>
+                            Got the whole room spinning ’round<br>
+                            You don’t wanna leave me now<br>
+                            I’ma make you lose count<br>
+                            Lose count</p>
+                        </section>
+                    </div>
+                </article>
+
+                <article class="lyrics-content" id="fall-into-me" role="tabpanel">
+                    <div class="lyrics-coming">
+                        <p class="eyebrow">September 18, 2026</p>
+                        <h3>Fall Into Me</h3>
+                        <p>Lyrics will appear here with the release.</p>
+                        <a class="button button-outline" href="https://release.landr.com/991048944886" target="_blank" rel="noopener noreferrer">Pre-Save</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section about-section" id="about">
+            <div class="about-grid">
+                <div class="about-photo-wrap reveal">
+                    <img src="assets/images/kaln-current-profile.png" alt="KALN artist portrait">
+                    <div class="photo-caption">KALN · 2026</div>
+                </div>
+                <div class="about-copy reveal">
+                    <p class="eyebrow">About</p>
+                    <h2>KALN</h2>
+                    <p class="about-lead">Music that lives somewhere between feeling everything and saying just enough.</p>
+                    <p>
+                        The sound changes depending on the story — R&amp;B, pop, something softer,
+                        something darker, something that doesn’t need a label yet.
+                    </p>
+                    <p>
+                        What stays the same is the intention behind it: honest writing, strong emotion,
+                        and songs that feel personal without needing to explain every detail.
+                    </p>
+                    <p class="contact">
+                        Booking &amp; inquiries:
+                        <a href="mailto:thisiskalnmusic@gmail.com">thisiskalnmusic@gmail.com</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="visuals-section" id="visuals">
+            <div class="visuals-heading reveal">
+                <p class="eyebrow">Visuals</p>
+                <h2>The World of KALN</h2>
+            </div>
+
+            <div class="visual-strip">
+                <figure class="visual-panel">
+                    <img src="assets/images/kaln-alternate-profile.png" alt="Alternate KALN artist portrait">
+                    <figcaption>Portrait</figcaption>
+                </figure>
+                <figure class="visual-panel">
+                    <img src="assets/images/lost-count-cover.png" alt="Lost Count cover art">
+                    <figcaption>Lost Count</figcaption>
+                </figure>
+                <figure class="visual-panel">
+                    <img src="assets/images/fall-into-me-cover.png" alt="Fall Into Me cover art">
+                    <figcaption>Fall Into Me</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="connect-section" id="connect">
+            <div class="connect-inner reveal">
+                <p class="eyebrow">Connect</p>
+                <h2>Stay Close.</h2>
+                <div class="social-grid">
+                    <a href="https://www.instagram.com/kalnmusic/" target="_blank" rel="noopener noreferrer">
+                        <span>Instagram</span><b>↗</b>
+                    </a>
+                    <a href="https://open.spotify.com/artist/1I97Z1wZc37Bp7zMpgpxWk" target="_blank" rel="noopener noreferrer">
+                        <span>Spotify</span><b>↗</b>
+                    </a>
+                    <a href="https://www.youtube.com/@KALNmusicc" target="_blank" rel="noopener noreferrer">
+                        <span>YouTube</span><b>↗</b>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-logo-wrap">
+            <img src="assets/images/kaln-youtube-watermark.png"
+                 class="footer-logo"
+                 alt="KALN">
+        </div>
+
+        <p class="footer-copy">© 2026 KALN</p>
+    </footer>
+
+</body>
+</html>
