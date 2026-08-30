@@ -195,8 +195,21 @@ button { font:inherit; }
     max-width: 85vw;
     position: relative;
     overflow: visible;
-}
 
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 18%,
+        black 100%
+    );
+
+    mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 18%,
+        black 100%
+    );
+}
 .footer-logo {
     position: absolute;
     width: 1040px;
