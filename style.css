@@ -180,7 +180,7 @@ button { font:inherit; }
 /* footer */
 
 .site-footer {
-    min-height: 260px;
+    min-height: 280px;
     padding: 55px 24px 40px;
     display: flex;
     flex-direction: column;
@@ -189,15 +189,33 @@ button { font:inherit; }
     gap: 18px;
     border-top: 1px solid var(--line);
     background: #080808;
+}
+
+.footer-logo-window {
+    width: 300px;
+    height: 180px;
+    max-width: 85vw;
+    position: relative;
     overflow: hidden;
 }
 
 .footer-logo {
-    width: 900px;
+    position: absolute;
+    width: 800px;
     max-width: none;
     height: auto;
-    transform: translate(-260px, -210px);
+    right: 0;
+    bottom: -20px;
     opacity: 1;
+    transform: none;
+}
+
+.footer-copy {
+    margin: 0;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .16em;
+    font-size: .58rem;
 }
 
 /* reveals */
