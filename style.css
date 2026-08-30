@@ -189,27 +189,21 @@ button { font:inherit; }
     gap: 18px;
     border-top: 1px solid var(--line);
     background: #080808;
+    overflow: hidden;
 }
 
 .footer-logo {
-    width: 260px;
-    max-width: 80vw;
+    width: 900px;
+    max-width: none;
     height: auto;
-    object-fit: contain;
-    margin: 0 auto;
+    transform: translate(-260px, -210px);
     opacity: 1;
-}
-
-.footer-copy {
-    margin: 0;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: .16em;
-    font-size: .58rem;
 }
 
 /* reveals */
 
+.reveal { opacity:0; transform:translateY(28px); transition:opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+.reveal.visible { opacity:1; transform:none; }
 /* animation */
 @keyframes listenMove { to{ transform:translateX(-50%); } }
 @keyframes ticker { to{ transform:translateX(-50%); } }
