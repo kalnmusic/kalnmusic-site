@@ -178,12 +178,9 @@ button { font:inherit; }
 .social-grid a:hover { padding-left:20px; padding-right:20px; background:rgba(255,255,255,.025); }
 
 /* footer */
-
-/* footer */
-
 .site-footer {
-    min-height: 280px;
-    padding: 80px 24px 40px;
+    min-height: 360px;
+    padding: 120px 24px 45px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -191,15 +188,13 @@ button { font:inherit; }
     gap: 18px;
     border-top: 1px solid var(--line);
     background: #080808;
-    transform: translateY(18px);
 }
-
 .footer-logo-window {
     width: 300px;
     height: 150px;
     max-width: 85vw;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .footer-logo {
@@ -463,5 +458,29 @@ button { font:inherit; }
 
     .footer-logo {
         width: 780px;
+    @media (max-width: 850px) {
+    .footer-logo {
+        filter:
+            drop-shadow(0 0 8px rgba(255, 225, 170, .50))
+            drop-shadow(0 0 18px rgba(181, 135, 80, .40))
+            drop-shadow(0 0 30px rgba(181, 135, 80, .22)) !important;
+
+        animation: footerGlowMobile 3.8s ease-in-out infinite !important;
+    }
+
+    @keyframes footerGlowMobile {
+        0%, 100% {
+            filter:
+                drop-shadow(0 0 6px rgba(255, 225, 170, .38))
+                drop-shadow(0 0 14px rgba(181, 135, 80, .30))
+                drop-shadow(0 0 22px rgba(181, 135, 80, .14));
+        }
+
+        50% {
+            filter:
+                drop-shadow(0 0 10px rgba(255, 225, 170, .68))
+                drop-shadow(0 0 24px rgba(181, 135, 80, .52))
+                drop-shadow(0 0 38px rgba(181, 135, 80, .26));
+        }
     }
 }
