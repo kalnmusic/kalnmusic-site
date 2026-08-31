@@ -2077,3 +2077,83 @@ button {
         margin-right: 0 !important;
     }
 }
+/* ========================================
+   FALL INTO ME COUNTDOWN
+======================================== */
+
+.release-countdown {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    margin: 0 0 34px;
+}
+
+.countdown-item {
+    min-width: 58px;
+}
+
+.countdown-item span {
+    display: block;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 2.2rem;
+    font-weight: 400;
+    line-height: 1;
+
+    color: var(--ink);
+}
+
+.countdown-item small {
+    display: block;
+
+    margin-top: 8px;
+
+    color: var(--gold);
+
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.52rem;
+}
+
+
+/* Mobile */
+
+@media (max-width: 850px) {
+
+    .release-countdown {
+        justify-content: center;
+
+        gap: 18px;
+
+        margin-bottom: 32px;
+    }
+
+    .countdown-item {
+        min-width: 52px;
+    }
+
+    .countdown-item span {
+        font-size: 1.9rem;
+    }
+}
+
+@media (max-width: 420px) {
+
+    .release-countdown {
+        gap: 12px;
+    }
+
+    .countdown-item {
+        min-width: 46px;
+    }
+
+    .countdown-item span {
+        font-size: 1.65rem;
+    }
+
+    .countdown-item small {
+        font-size: 0.46rem;
+        letter-spacing: 0.13em;
+    }
+}
