@@ -1221,46 +1221,32 @@ button {
         );
 }
 
-
 /* ========================================
    FINAL KALN FOOTER
 ======================================== */
 
 .site-footer {
     position: relative;
-
     width: 100%;
 
-    min-height: 315px;
-
-    padding:
-        50px
-        20px
-        28px;
+    min-height: 300px;
+    padding: 45px 20px 28px;
 
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
-
     justify-content: flex-end;
 
-    gap: 0;
+    gap: 8px;
 
     background: #080808;
-
-    border: 0;
+    border: none;
 
     overflow: hidden;
 }
 
 
-/*
-   Wide soft glow.
-   This blends the footer into the
-   section above without a hard line.
-*/
+/* soft gold atmosphere behind logo */
 
 .site-footer::before {
     content: "";
@@ -1268,24 +1254,21 @@ button {
     position: absolute;
 
     left: 50%;
-    bottom: 48px;
+    bottom: 55px;
 
-    width: 720px;
-    max-width: 120vw;
+    transform: translateX(-50%);
 
-    height: 270px;
+    width: 650px;
+    max-width: 100vw;
+    height: 230px;
 
-    transform:
-        translateX(-50%);
-
-    background:
-        radial-gradient(
-            ellipse at center,
-            rgba(181, 135, 80, 0.14) 0%,
-            rgba(181, 135, 80, 0.08) 28%,
-            rgba(181, 135, 80, 0.035) 48%,
-            transparent 72%
-        );
+    background: radial-gradient(
+        ellipse at center,
+        rgba(181, 135, 80, 0.14) 0%,
+        rgba(181, 135, 80, 0.07) 35%,
+        rgba(181, 135, 80, 0.02) 55%,
+        transparent 75%
+    );
 
     filter: blur(24px);
 
@@ -1293,165 +1276,65 @@ button {
 }
 
 
-/*
-   Extra glow around the signature area
-*/
-
-.site-footer::after {
-    content: "";
-
-    position: absolute;
-
-    left: 50%;
-    bottom: 75px;
-
-    width: 430px;
-    height: 170px;
-
-    transform:
-        translateX(-50%);
-
-    background:
-        radial-gradient(
-            ellipse at center,
-            rgba(224, 190, 136, 0.10),
-            rgba(181, 135, 80, 0.04) 45%,
-            transparent 72%
-        );
-
-    filter: blur(20px);
-
-    pointer-events: none;
-}
-
-
-/*
-   This is the window around the
-   existing watermark PNG.
-*/
+/* logo container */
 
 .footer-logo-window {
     position: relative;
 
-    z-index: 2;
-
-    width: 390px;
-    max-width: 90vw;
+    width: 430px;
+    max-width: 88vw;
 
     height: 180px;
 
-    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    /*
-       Gradually fades the TOP of the
-       watermark instead of chopping it
-       off with a harsh black line.
-    */
+    overflow: visible;
 
-    -webkit-mask-image:
-        linear-gradient(
-            to bottom,
-            transparent 0%,
-            rgba(0, 0, 0, 0.10) 7%,
-            rgba(0, 0, 0, 0.35) 16%,
-            rgba(0, 0, 0, 0.75) 28%,
-            #000 42%,
-            #000 100%
-        );
-
-    mask-image:
-        linear-gradient(
-            to bottom,
-            transparent 0%,
-            rgba(0, 0, 0, 0.10) 7%,
-            rgba(0, 0, 0, 0.35) 16%,
-            rgba(0, 0, 0, 0.75) 28%,
-            #000 42%,
-            #000 100%
-        );
+    z-index: 2;
 }
 
 
 /*
-   Existing KALN watermark image.
-   The huge width is intentional because
-   we are cropping the portion we want
-   out of the original watermark file.
+   IMPORTANT:
+   No cropping.
+   No mask.
+   Screen blend hides the black
+   background in the source image.
 */
 
 .footer-logo {
-    position: absolute;
+    position: static;
 
-    width: 1254px;
-    max-width: none;
+    width: 430px;
+    max-width: 100%;
 
     height: auto;
 
-    right: 0;
+    opacity: 0.88;
 
-    /*
-       LOWER THE IMAGE INSIDE THE WINDOW
-    */
-    bottom: -12px;
-
-    opacity: 0.94;
+    mix-blend-mode: screen;
 
     filter:
-        drop-shadow(
-            0 0 6px
-            rgba(
-                255,
-                225,
-                170,
-                0.35
-            )
-        )
-        drop-shadow(
-            0 0 15px
-            rgba(
-                181,
-                135,
-                80,
-                0.31
-            )
-        )
-        drop-shadow(
-            0 0 29px
-            rgba(
-                181,
-                135,
-                80,
-                0.17
-            )
-        );
+        drop-shadow(0 0 6px rgba(255, 225, 170, 0.32))
+        drop-shadow(0 0 15px rgba(181, 135, 80, 0.28))
+        drop-shadow(0 0 28px rgba(181, 135, 80, 0.15));
 
-    animation:
-        footerGlow
-        4s
-        ease-in-out
-        infinite;
+    animation: footerGlow 4s ease-in-out infinite;
 }
 
 
-/* Copyright */
+/* copyright */
 
 .footer-copy {
     position: relative;
 
     z-index: 3;
 
-    margin:
-        -2px
-        0
-        0;
+    margin: 0;
 
-    color:
-        rgba(
-            214,
-            200,
-            181,
-            0.68
-        );
+    color: rgba(214, 200, 181, 0.72);
 
     text-transform: uppercase;
 
@@ -1460,6 +1343,83 @@ button {
     font-size: 0.58rem;
 }
 
+
+/* glow animation */
+
+@keyframes footerGlow {
+
+    0%,
+    100% {
+        opacity: 0.82;
+
+        filter:
+            drop-shadow(0 0 5px rgba(255, 225, 170, 0.28))
+            drop-shadow(0 0 12px rgba(181, 135, 80, 0.23))
+            drop-shadow(0 0 22px rgba(181, 135, 80, 0.12));
+    }
+
+    50% {
+        opacity: 0.96;
+
+        filter:
+            drop-shadow(0 0 8px rgba(255, 225, 170, 0.48))
+            drop-shadow(0 0 20px rgba(181, 135, 80, 0.38))
+            drop-shadow(0 0 34px rgba(181, 135, 80, 0.20));
+    }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 850px) {
+
+    .site-footer {
+        min-height: 250px;
+
+        padding: 35px 16px 24px;
+    }
+
+    .footer-logo-window {
+        width: 340px;
+        max-width: 92vw;
+
+        height: 145px;
+    }
+
+    .footer-logo {
+        width: 340px;
+    }
+
+    .site-footer::before {
+        width: 450px;
+        height: 190px;
+
+        bottom: 45px;
+    }
+}
+
+
+@media (max-width: 620px) {
+
+    .site-footer {
+        min-height: 225px;
+
+        padding: 25px 14px 20px;
+    }
+
+    .footer-logo-window {
+        width: 300px;
+        height: 130px;
+    }
+
+    .footer-logo {
+        width: 300px;
+    }
+
+    .footer-copy {
+        font-size: 0.54rem;
+    }
+}
 
 /* ========================================
    REVEALS
