@@ -25,12 +25,9 @@ html {
 
 body {
     margin: 0;
-
     background: var(--bg);
     color: var(--ink);
-
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-
     overflow-x: hidden;
 }
 
@@ -53,11 +50,8 @@ button {
 .noise {
     position: fixed;
     inset: 0;
-
     z-index: 9999;
-
     pointer-events: none;
-
     opacity: .03;
 
     background-image:
@@ -1145,7 +1139,6 @@ body.fall-era {
     background: #06101d;
 }
 
-
 body.fall-era .hero-bg {
     opacity: 0;
 }
@@ -1278,28 +1271,44 @@ body.fall-era .cloud-four {
 }
 
 
-/* CLOUD TITLE */
+/* =========================================================
+   SKYWRITING
+========================================================= */
 
-body.fall-era .cloud-title-wrap {
+body.fall-era .skywriting {
     position: absolute;
 
-    top: 11%;
+    top: 12%;
     left: 50%;
+
+    width: min(90vw, 1040px);
+    height: 180px;
 
     transform: translateX(-50%);
 
-    width: min(90vw,1000px);
-
     z-index: 5;
-
-    display: flex;
-    justify-content: center;
 
     pointer-events: none;
 }
 
-body.fall-era .cloud-title {
-    position: relative;
+
+/* cloud-written title */
+
+body.fall-era .skywriting-title {
+    position: absolute;
+
+    left: 50%;
+    top: 48%;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-3deg);
+
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+
+    white-space: nowrap;
 
     font-family:
         "Brush Script MT",
@@ -1307,57 +1316,150 @@ body.fall-era .cloud-title {
         "Lucida Handwriting",
         cursive;
 
-    font-size: clamp(4.5rem,9vw,9rem);
+    font-size: clamp(4rem, 8.5vw, 8.4rem);
 
     line-height: .9;
-
-    white-space: nowrap;
-
-    color: rgba(242,247,255,.88);
-
-    transform: rotate(-3deg);
-
-    text-shadow:
-        0 0 5px rgba(255,255,255,.40),
-        0 0 14px rgba(220,232,248,.30),
-        0 0 32px rgba(180,202,230,.18);
 }
 
-body.fall-era .cloud-title::before {
+
+/* individual letters */
+
+body.fall-era .skywriting-title > span:not(.word-space) {
+    position: relative;
+
+    display: inline-block;
+
+    opacity: 0;
+
+    color: rgba(232, 239, 248, .76);
+
+    filter:
+        blur(9px);
+
+    text-shadow:
+        0 0 8px rgba(240,246,255,.18),
+        0 0 18px rgba(214,228,244,.16),
+        0 0 32px rgba(175,198,226,.10);
+
+    animation:
+        cloudLetterWrite 18s linear infinite;
+
+    animation-delay:
+        var(--letter-delay);
+}
+
+
+/* give every letter cloud texture */
+
+body.fall-era .skywriting-title > span:not(.word-space)::before {
     content: "";
 
     position: absolute;
 
     left: 50%;
-    top: 51%;
+    top: 53%;
 
-    width: 125%;
-    height: 170%;
+    width: 145%;
+    height: 120%;
 
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 
     z-index: -1;
 
+    border-radius: 50%;
+
     background:
         radial-gradient(
-            ellipse at 20% 50%,
-            rgba(210,224,242,.17),
-            transparent 34%
-        ),
-        radial-gradient(
-            ellipse at 50% 45%,
-            rgba(225,235,249,.20),
-            transparent 34%
-        ),
-        radial-gradient(
-            ellipse at 82% 53%,
-            rgba(202,217,237,.16),
-            transparent 35%
+            ellipse,
+            rgba(220,231,245,.22) 0%,
+            rgba(191,208,230,.13) 42%,
+            transparent 72%
         );
 
-    filter: blur(25px);
+    filter: blur(12px);
 
-    animation: titleCloudDrift 19s ease-in-out infinite alternate;
+    opacity: 0;
+
+    animation:
+        cloudPuffWrite 18s linear infinite;
+
+    animation-delay:
+        var(--letter-delay);
+}
+
+
+/* spaces between words */
+
+body.fall-era .word-space {
+    width: .26em;
+
+    flex: 0 0 .26em;
+}
+
+
+/* stagger the letters */
+
+body.fall-era .skywriting-title > span:nth-child(1)  { --letter-delay: 2.5s; }
+body.fall-era .skywriting-title > span:nth-child(2)  { --letter-delay: 2.82s; }
+body.fall-era .skywriting-title > span:nth-child(3)  { --letter-delay: 3.14s; }
+body.fall-era .skywriting-title > span:nth-child(4)  { --letter-delay: 3.46s; }
+
+body.fall-era .skywriting-title > span:nth-child(6)  { --letter-delay: 4.05s; }
+body.fall-era .skywriting-title > span:nth-child(7)  { --letter-delay: 4.37s; }
+body.fall-era .skywriting-title > span:nth-child(8)  { --letter-delay: 4.69s; }
+body.fall-era .skywriting-title > span:nth-child(9)  { --letter-delay: 5.01s; }
+
+body.fall-era .skywriting-title > span:nth-child(11) { --letter-delay: 5.60s; }
+body.fall-era .skywriting-title > span:nth-child(12) { --letter-delay: 5.92s; }
+
+
+/* plane */
+
+body.fall-era .skywriting-plane {
+    position: absolute;
+
+    top: 48%;
+    left: -12%;
+
+    transform:
+        translateY(-50%)
+        rotate(5deg);
+
+    font-size: 1.55rem;
+
+    color: rgba(236,243,251,.88);
+
+    filter:
+        drop-shadow(0 0 6px rgba(210,228,248,.22));
+
+    animation:
+        skyPlaneAcross 18s linear infinite;
+}
+
+
+/* small vapor tail */
+
+body.fall-era .skywriting-plane::before {
+    content: "";
+
+    position: absolute;
+
+    right: 100%;
+    top: 50%;
+
+    width: 50px;
+    height: 2px;
+
+    transform: translateY(-50%);
+
+    background:
+        linear-gradient(
+            to left,
+            rgba(229,238,249,.34),
+            transparent
+        );
+
+    filter: blur(2px);
 }
 
 
@@ -1518,6 +1620,13 @@ body.fall-era .hero-shade {
 }
 
 
+/* FALL HERO COPY LOWER */
+
+body.fall-era .hero-copy {
+    padding-top: 53vh;
+}
+
+
 /* FALL SECTIONS */
 
 body.fall-era .section,
@@ -1553,7 +1662,9 @@ body.fall-era .site-header {
 }
 
 
-/* ANIMATIONS */
+/* =========================================================
+   ANIMATIONS
+========================================================= */
 
 @keyframes listenMove {
     to {
@@ -1608,23 +1719,195 @@ body.fall-era .site-header {
     }
 }
 
-@keyframes titleCloudDrift {
-    from {
-        transform:
-            translate(-50%,-50%)
-            scale(1);
 
-        opacity: .80;
+/* plane crosses in sync with the letters */
+
+@keyframes skyPlaneAcross {
+
+    0% {
+        left: -12%;
+        opacity: 0;
     }
 
-    to {
-        transform:
-            translate(-50%,-48%)
-            scale(1.05);
-
+    7% {
         opacity: 1;
     }
+
+    17% {
+        left: 7%;
+    }
+
+    28% {
+        left: 20%;
+    }
+
+    39% {
+        left: 32%;
+    }
+
+    50% {
+        left: 45%;
+    }
+
+    61% {
+        left: 57%;
+    }
+
+    72% {
+        left: 70%;
+    }
+
+    83% {
+        left: 83%;
+    }
+
+    91% {
+        left: 105%;
+        opacity: 1;
+    }
+
+    100% {
+        left: 105%;
+        opacity: 0;
+    }
 }
+
+
+/* title letters form like vapor */
+
+@keyframes cloudLetterWrite {
+
+    0%,
+    13% {
+        opacity: 0;
+
+        filter:
+            blur(12px);
+
+        transform:
+            scale(.92);
+
+        color:
+            rgba(236,242,250,0);
+    }
+
+    18% {
+        opacity: .18;
+
+        filter:
+            blur(9px);
+
+        transform:
+            scale(.96);
+    }
+
+    25% {
+        opacity: .55;
+
+        filter:
+            blur(5px);
+
+        transform:
+            scale(1);
+    }
+
+    34% {
+        opacity: .82;
+
+        filter:
+            blur(1.8px);
+
+        color:
+            rgba(232,239,248,.76);
+    }
+
+    68% {
+        opacity: .88;
+
+        filter:
+            blur(.8px);
+
+        color:
+            rgba(232,239,248,.78);
+    }
+
+    82% {
+        opacity: .65;
+
+        filter:
+            blur(2.5px);
+    }
+
+    94% {
+        opacity: .18;
+
+        filter:
+            blur(9px);
+    }
+
+    100% {
+        opacity: 0;
+
+        filter:
+            blur(14px);
+    }
+}
+
+
+/* cloud puff around each letter */
+
+@keyframes cloudPuffWrite {
+
+    0%,
+    15% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(.72);
+    }
+
+    25% {
+        opacity: .25;
+
+        transform:
+            translate(-50%, -50%)
+            scale(.95);
+    }
+
+    38% {
+        opacity: .55;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.05);
+    }
+
+    70% {
+        opacity: .42;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.12);
+    }
+
+    88% {
+        opacity: .18;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.20);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.25);
+    }
+}
+
 
 @keyframes cityLights {
     0%,
@@ -1719,6 +2002,14 @@ body.fall-era .site-header {
     .visual-strip {
         grid-template-columns: 1fr;
     }
+
+    body.fall-era .skywriting {
+        width: 94vw;
+    }
+
+    body.fall-era .hero-copy {
+        padding-top: 57vh;
+    }
 }
 
 
@@ -1771,16 +2062,21 @@ body.fall-era .site-header {
     }
 
 
-    body.fall-era .cloud-title-wrap {
+    body.fall-era .skywriting {
         top: 14%;
 
-        width: 94vw;
+        width: 96vw;
+
+        height: 140px;
     }
 
-    body.fall-era .cloud-title {
-        font-size: clamp(3.1rem,12vw,5rem);
+    body.fall-era .skywriting-title {
+        font-size:
+            clamp(2.8rem, 10.5vw, 4.5rem);
+    }
 
-        white-space: nowrap;
+    body.fall-era .skywriting-plane {
+        font-size: 1.2rem;
     }
 
     body.fall-era .city {
@@ -1803,6 +2099,10 @@ body.fall-era .site-header {
         width: 80vw;
         height: 30vw;
     }
+
+    body.fall-era .hero-copy {
+        padding-top: 58vh;
+    }
 }
 
 
@@ -1820,5 +2120,15 @@ body.fall-era .site-header {
     .reveal {
         opacity: 1;
         transform: none;
+    }
+
+    body.fall-era .skywriting-title > span:not(.word-space) {
+        opacity: .82;
+        filter: blur(1px);
+    }
+
+    body.fall-era .skywriting-plane {
+        left: 87%;
+        opacity: .8;
     }
 }
