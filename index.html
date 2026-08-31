@@ -11,7 +11,7 @@
 
     <meta
         name="description"
-        content="KALN — official artist website. Music, lyrics, visuals, and releases."
+        content="KALN — official website. Music, lyrics, visuals, and releases."
     >
 
     <meta
@@ -41,6 +41,7 @@
 
 <body>
 
+
     <div
         class="noise"
         aria-hidden="true"
@@ -52,9 +53,7 @@
     ></div>
 
 
-    <!-- ========================================
-         LISTEN BAR
-    ========================================= -->
+    <!-- TOP MARQUEE -->
 
     <div class="listen-bar">
 
@@ -66,33 +65,24 @@
             <div class="listen-track">
 
                 <div class="listen-group">
-
                     <span>LOST COUNT — OUT NOW</span>
                     <span>•</span>
-
                     <span>STREAM EVERYWHERE</span>
                     <span>•</span>
-
                     <span>KALN</span>
                     <span>•</span>
-
                 </div>
-
 
                 <div
                     class="listen-group"
                     aria-hidden="true"
                 >
-
                     <span>LOST COUNT — OUT NOW</span>
                     <span>•</span>
-
                     <span>STREAM EVERYWHERE</span>
                     <span>•</span>
-
                     <span>KALN</span>
                     <span>•</span>
-
                 </div>
 
             </div>
@@ -102,9 +92,7 @@
     </div>
 
 
-    <!-- ========================================
-         HEADER
-    ========================================= -->
+    <!-- HEADER -->
 
     <header class="site-header">
 
@@ -135,6 +123,10 @@
                 Music
             </a>
 
+            <a href="#discography">
+                Discography
+            </a>
+
             <a href="#lyrics">
                 Lyrics
             </a>
@@ -156,16 +148,10 @@
     </header>
 
 
-    <!-- ========================================
-         MAIN
-    ========================================= -->
-
     <main id="top">
 
 
-        <!-- ========================================
-             HERO
-        ========================================= -->
+        <!-- HERO -->
 
         <section
             class="hero"
@@ -177,6 +163,56 @@
                 aria-hidden="true"
             ></div>
 
+
+            <!-- FALL INTO ME ERA WORLD -->
+
+            <div
+                class="fall-hero-world"
+                aria-hidden="true"
+            >
+
+                <div class="fall-sky"></div>
+
+                <div class="cloud cloud-one"></div>
+                <div class="cloud cloud-two"></div>
+                <div class="cloud cloud-three"></div>
+
+                <div class="stars"></div>
+
+
+                <div class="plane-wrap">
+
+                    <div class="plane">
+                        ✈
+                    </div>
+
+                    <div class="plane-trail">
+                        Fall Into Me
+                    </div>
+
+                </div>
+
+
+                <div class="city">
+
+                    <div class="building building-1"></div>
+                    <div class="building building-2"></div>
+                    <div class="building building-3"></div>
+                    <div class="building building-4"></div>
+                    <div class="building building-5"></div>
+                    <div class="building building-6"></div>
+                    <div class="building building-7"></div>
+                    <div class="building building-8"></div>
+                    <div class="building building-9"></div>
+
+                </div>
+
+
+                <div class="water-glow"></div>
+
+            </div>
+
+
             <div
                 class="hero-shade"
                 aria-hidden="true"
@@ -185,7 +221,7 @@
 
             <div class="hero-copy reveal">
 
-                <p class="eyebrow">
+                <p class="eyebrow hero-eyebrow">
                     Official Website
                 </p>
 
@@ -197,7 +233,7 @@
                 <div class="hero-actions">
 
                     <a
-                        class="button button-light"
+                        class="button button-light hero-primary"
                         href="https://release.landr.com/991048938120"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -222,19 +258,19 @@
                 class="scroll-indicator"
                 aria-hidden="true"
             >
+
                 <span>
                     Scroll
                 </span>
 
                 <i></i>
+
             </div>
 
         </section>
 
 
-        <!-- ========================================
-             MUSIC — LOST COUNT
-        ========================================= -->
+        <!-- NOW PLAYING -->
 
         <section
             class="section music-section"
@@ -260,6 +296,7 @@
                 <div class="release-art tilt-card">
 
                     <img
+                        id="now-playing-cover"
                         src="assets/images/lost-count-cover.png"
                         alt="Lost Count cover art by KALN"
                     >
@@ -274,16 +311,23 @@
 
                 <div class="release-info">
 
-                    <p class="release-kicker">
+                    <p
+                        class="release-kicker"
+                        id="now-playing-kicker"
+                    >
                         Single · 2026
                     </p>
 
-                    <h3>
+
+                    <h3 id="now-playing-title">
                         Lost Count
                     </h3>
 
 
-                    <p class="release-copy">
+                    <p
+                        class="release-copy"
+                        id="now-playing-copy"
+                    >
                         Late nights, bad decisions, and losing track of time on purpose.
                     </p>
 
@@ -292,6 +336,7 @@
 
                         <a
                             class="button button-light"
+                            id="now-playing-link"
                             href="https://release.landr.com/991048938120"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -349,16 +394,12 @@
         </section>
 
 
-        <!-- ========================================
-             FALL INTO ME
-        ========================================= -->
+        <!-- FALL INTO ME COMING SOON -->
 
         <section class="section next-section">
 
             <div class="coming-wrap reveal">
 
-
-                <!-- LEFT SIDE -->
 
                 <div class="coming-copy">
 
@@ -381,8 +422,6 @@
                         A softer chapter is coming.
                     </p>
 
-
-                    <!-- MINIMAL COUNTDOWN -->
 
                     <div
                         class="fim-countdown"
@@ -423,8 +462,6 @@
                 </div>
 
 
-                <!-- RIGHT SIDE -->
-
                 <div class="coming-media">
 
                     <div class="coming-art tilt-card">
@@ -454,9 +491,116 @@
         </section>
 
 
-        <!-- ========================================
-             LYRICS
-        ========================================= -->
+        <!-- DISCOGRAPHY -->
+
+        <section
+            class="section discography-section"
+            id="discography"
+        >
+
+            <div class="section-title reveal">
+
+                <p class="eyebrow">
+                    Discography
+                </p>
+
+                <h2>
+                    Releases
+                </h2>
+
+            </div>
+
+
+            <div class="discography-grid">
+
+
+                <article
+                    class="discography-card reveal"
+                    id="lost-count-discography"
+                >
+
+                    <div class="discography-art">
+
+                        <img
+                            src="assets/images/lost-count-cover.png"
+                            alt="Lost Count cover art"
+                        >
+
+                    </div>
+
+
+                    <div class="discography-info">
+
+                        <p class="discography-meta">
+                            2026 · Single
+                        </p>
+
+                        <h3>
+                            Lost Count
+                        </h3>
+
+                        <a
+                            href="https://release.landr.com/991048938120"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-link"
+                        >
+                            Listen
+                            <span>↗</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <article
+                    class="discography-card reveal fall-discography-card"
+                    id="fall-into-me-discography"
+                    hidden
+                >
+
+                    <div class="discography-art">
+
+                        <img
+                            src="assets/images/fall-into-me-cover.png"
+                            alt="Fall Into Me cover art"
+                        >
+
+                    </div>
+
+
+                    <div class="discography-info">
+
+                        <p class="discography-meta">
+                            2026 · Single
+                        </p>
+
+                        <h3>
+                            Fall Into Me
+                        </h3>
+
+                        <a
+                            href="https://release.landr.com/991048944886"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-link"
+                        >
+                            Listen
+                            <span>↗</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- LYRICS -->
 
         <section
             class="lyrics-section"
@@ -515,14 +659,11 @@
                 </div>
 
 
-                <!-- LOST COUNT -->
-
                 <article
                     class="lyrics-content active"
                     id="lost-count"
                     role="tabpanel"
                 >
-
 
                     <div class="lyrics-heading">
 
@@ -733,15 +874,16 @@
                 </article>
 
 
-                <!-- FALL INTO ME -->
-
                 <article
                     class="lyrics-content"
                     id="fall-into-me"
                     role="tabpanel"
                 >
 
-                    <div class="lyrics-coming">
+                    <div
+                        class="lyrics-coming"
+                        id="fall-lyrics-locked"
+                    >
 
                         <p class="eyebrow">
                             September 18, 2026
@@ -767,6 +909,143 @@
 
                     </div>
 
+
+                    <div
+                        class="fall-full-lyrics"
+                        id="fall-full-lyrics"
+                        hidden
+                    >
+
+                        <div class="lyrics-heading">
+
+                            <h3>
+                                Fall Into Me
+                            </h3>
+
+                            <span>
+                                2026
+                            </span>
+
+                        </div>
+
+
+                        <div class="lyrics-sequence">
+
+
+                            <section class="lyric-block">
+
+                                <p class="lyric-label">
+                                    Verse 1
+                                </p>
+
+                                <p>
+                                    Slow motion on my skin<br>
+                                    You breathe and I give in<br>
+                                    You say this means nothing<br>
+                                    But your eyes say different
+                                </p>
+
+                                <p>
+                                    I’m drifting where you move<br>
+                                    Losing all my rules<br>
+                                    If you want me too<br>
+                                    I’ll fall right into you
+                                </p>
+
+                            </section>
+
+
+                            <section class="lyric-block">
+
+                                <p class="lyric-label">
+                                    Chorus
+                                </p>
+
+                                <p>
+                                    Fall into me… let it be<br>
+                                    Let your guard fall quietly<br>
+                                    If you want this, let me see<br>
+                                    Fall into me… endlessly
+                                </p>
+
+                            </section>
+
+
+                            <section class="lyric-block">
+
+                                <p class="lyric-label">
+                                    Verse 2
+                                </p>
+
+                                <p>
+                                    Your touch is sinking in<br>
+                                    Soft like summer wind<br>
+                                    You pull me close again<br>
+                                    I feel you under my skin
+                                </p>
+
+                                <p>
+                                    I’m drifting where you move<br>
+                                    Falling into you<br>
+                                    If you want me too<br>
+                                    I’ll give all of me to you
+                                </p>
+
+                            </section>
+
+
+                            <section class="lyric-block">
+
+                                <p class="lyric-label">
+                                    Chorus
+                                </p>
+
+                                <p>
+                                    Fall into me… let it be<br>
+                                    Let your guard fall quietly<br>
+                                    If you want this, let me see<br>
+                                    Fall into me… endlessly
+                                </p>
+
+                            </section>
+
+
+                            <section class="lyric-block">
+
+                                <p class="lyric-label">
+                                    Bridge
+                                </p>
+
+                                <p>
+                                    Let the night take over<br>
+                                    Let your walls fall lower<br>
+                                    If you lean, come closer<br>
+                                    I’ll hold you till it’s over
+                                </p>
+
+                            </section>
+
+
+                            <section class="lyric-block">
+
+                                <p class="lyric-label">
+                                    Final Chorus
+                                </p>
+
+                                <p>
+                                    Fall into me… let it be<br>
+                                    Let your guard fall quietly<br>
+                                    If you want this, let me see<br>
+                                    Fall into me… endlessly
+                                </p>
+
+                            </section>
+
+
+                        </div>
+
+                    </div>
+
                 </article>
 
 
@@ -775,15 +1054,12 @@
         </section>
 
 
-        <!-- ========================================
-             ABOUT
-        ========================================= -->
+        <!-- ABOUT -->
 
         <section
             class="section about-section"
             id="about"
         >
-
 
             <div class="about-grid">
 
@@ -808,6 +1084,7 @@
                         About
                     </p>
 
+
                     <h2>
                         KALN
                     </h2>
@@ -831,13 +1108,11 @@
 
 
                     <p class="contact">
-
                         Booking &amp; inquiries:
 
                         <a href="mailto:thisiskalnmusic@gmail.com">
                             thisiskalnmusic@gmail.com
                         </a>
-
                     </p>
 
                 </div>
@@ -848,15 +1123,12 @@
         </section>
 
 
-        <!-- ========================================
-             VISUALS
-        ========================================= -->
+        <!-- VISUALS -->
 
         <section
             class="visuals-section"
             id="visuals"
         >
-
 
             <div class="visuals-heading reveal">
 
@@ -907,15 +1179,12 @@
         </section>
 
 
-        <!-- ========================================
-             CONNECT
-        ========================================= -->
+        <!-- CONNECT -->
 
         <section
             class="connect-section"
             id="connect"
         >
-
 
             <div class="connect-inner reveal">
 
@@ -936,7 +1205,6 @@
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-
                         <span>
                             Instagram
                         </span>
@@ -944,7 +1212,6 @@
                         <b>
                             ↗
                         </b>
-
                     </a>
 
 
@@ -953,7 +1220,6 @@
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-
                         <span>
                             Spotify
                         </span>
@@ -961,7 +1227,6 @@
                         <b>
                             ↗
                         </b>
-
                     </a>
 
 
@@ -970,7 +1235,6 @@
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-
                         <span>
                             YouTube
                         </span>
@@ -978,7 +1242,6 @@
                         <b>
                             ↗
                         </b>
-
                     </a>
 
 
@@ -992,17 +1255,14 @@
     </main>
 
 
-    <!-- ========================================
-         FOOTER
-    ========================================= -->
+    <!-- FOOTER -->
 
     <footer class="site-footer">
 
-
-        <div class="footer-logo-window">
+        <div class="footer-logo-wrap">
 
             <img
-                src="assets/images/kaln-youtube-watermark.png"
+                src="assets/images/kaln-footer-logo-cropped.png"
                 class="footer-logo"
                 alt="KALN"
             >
@@ -1013,7 +1273,6 @@
         <p class="footer-copy">
             © 2026 KALN
         </p>
-
 
     </footer>
 
