@@ -92,6 +92,57 @@ if (menuToggle && nav) {
 // ========================================
 
 const fallIntoMeReleaseTime = new Date('2026-09-18T11:00:00Z');
+
+
+// ========================================
+// FALL INTO ME — COUNTDOWN
+// ========================================
+
+const countdownDays = document.getElementById('countdown-days');
+const countdownHours = document.getElementById('countdown-hours');
+const countdownMinutes = document.getElementById('countdown-minutes');
+const countdownSeconds = document.getElementById('countdown-seconds');
+const fallCountdown = document.getElementById('fall-countdown');
+
+function updateFallCountdown() {
+
+    const now = new Date();
+    const distance = fallIntoMeReleaseTime - now;
+
+    if (distance <= 0) {
+        if (fallCountdown) {
+            fallCountdown.style.display = 'none';
+        }
+        return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((distance / (1000 * 60)) % 60);
+    const seconds = Math.floor((distance / 1000) % 60);
+
+    if (countdownDays) {
+        countdownDays.textContent = String(days).padStart(2, '0');
+    }
+
+    if (countdownHours) {
+        countdownHours.textContent = String(hours).padStart(2, '0');
+    }
+
+    if (countdownMinutes) {
+        countdownMinutes.textContent = String(minutes).padStart(2, '0');
+    }
+
+    if (countdownSeconds) {
+        countdownSeconds.textContent = String(seconds).padStart(2, '0');
+    }
+}
+
+updateFallCountdown();
+
+const fallCountdownInterval = setInterval(updateFallCountdown, 1000);
+
+
 const fallIntoMeLink = 'https://release.landr.com/991048944886';
 
 let fallIntoMeReleased = false;
