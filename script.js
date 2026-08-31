@@ -15,7 +15,7 @@ const reducedMotion =
 
 
 // =========================================================
-// FALL INTO ME SETTINGS
+// RELEASE SETTINGS
 // =========================================================
 
 const siteParams =
@@ -49,9 +49,12 @@ function updateFallCountdown() {
     }
 
 
+    const now =
+        new Date();
+
     const distance =
         fallIntoMeReleaseTime -
-        new Date();
+        now;
 
 
     if (distance <= 0) {
@@ -60,6 +63,7 @@ function updateFallCountdown() {
             "none";
 
         return;
+
     }
 
 
@@ -141,6 +145,7 @@ function updateFallCountdown() {
 
 updateFallCountdown();
 
+
 setInterval(
     updateFallCountdown,
     1000
@@ -167,7 +172,7 @@ function activateFallIntoMeEra() {
 
 
     // =====================================================
-    // TOP MARQUEE
+    // TOP LISTEN BAR
     // =====================================================
 
     $$(".listen-group")
@@ -200,7 +205,7 @@ function activateFallIntoMeEra() {
 
 
     // =====================================================
-    // HERO
+    // HERO COPY
     // =====================================================
 
     const heroEyebrow =
@@ -323,7 +328,7 @@ function activateFallIntoMeEra() {
 
 
     // =====================================================
-    // DISCOGRAPHY
+    // REVEAL FALL INTO ME IN DISCOGRAPHY
     // =====================================================
 
     const fallDiscography =
@@ -438,11 +443,14 @@ setInterval(
 
 
 // =========================================================
-// FALL INTO ME SKYWRITING
+// SKYWRITING
 // =========================================================
 
-let skywritingAnimationFrame = null;
-let skywritingStarted = false;
+let skywritingAnimationFrame =
+    null;
+
+let skywritingStarted =
+    false;
 
 
 function startSkywriting() {
@@ -473,7 +481,8 @@ function startSkywriting() {
     }
 
 
-    skywritingStarted = true;
+    skywritingStarted =
+        true;
 
 
     // =====================================================
@@ -482,25 +491,11 @@ function startSkywriting() {
 
     if (reducedMotion) {
 
-        writingPath.style.strokeDasharray =
-            "none";
-
-        writingPath.style.strokeDashoffset =
-            "0";
-
         writingPath.style.opacity =
-            "0.94";
-
-
-        writingHaze.style.strokeDasharray =
-            "none";
-
-        writingHaze.style.strokeDashoffset =
-            "0";
+            ".94";
 
         writingHaze.style.opacity =
-            "0.45";
-
+            ".40";
 
         tracingPlane.style.opacity =
             "0";
@@ -511,22 +506,25 @@ function startSkywriting() {
 
 
     // =====================================================
-    // PATH SETUP
+    // GET SVG PATH LENGTH
     // =====================================================
 
     const pathLength =
-        writingPath.getTotalLength();
+        writingPath
+            .getTotalLength();
 
+
+    // Start completely hidden.
 
     writingPath.style.strokeDasharray =
-        `${pathLength}`;
+        `${pathLength} ${pathLength}`;
 
     writingPath.style.strokeDashoffset =
         `${pathLength}`;
 
 
     writingHaze.style.strokeDasharray =
-        `${pathLength}`;
+        `${pathLength} ${pathLength}`;
 
     writingHaze.style.strokeDashoffset =
         `${pathLength}`;
@@ -543,21 +541,29 @@ function startSkywriting() {
 
 
     // =====================================================
-    // ANIMATION TIMING
+    // TIMING
     //
-    // 0–2s   empty sky
-    // 2–10s  plane writes title
-    // 10–15s full title remains
-    // 15–18s title dissolves
-    // 18–20s empty sky
-    // repeat
+    // 0–2 sec:
+    // empty sky
+    //
+    // 2–11 sec:
+    // plane writes the complete title
+    //
+    // 11–16 sec:
+    // full title remains
+    //
+    // 16–19 sec:
+    // title dissolves
+    //
+    // 19–21 sec:
+    // empty sky
     // =====================================================
 
     const EMPTY_BEFORE =
         2000;
 
     const WRITE_TIME =
-        8000;
+        9000;
 
     const HOLD_TIME =
         5000;
@@ -582,31 +588,12 @@ function startSkywriting() {
 
 
     // =====================================================
-    // EASING
-    // =====================================================
-
-    function smoothProgress(value) {
-
-        return (
-            value < 0.5
-                ? 2 * value * value
-                : 1 -
-                  Math.pow(
-                      -2 * value + 2,
-                      2
-                  ) / 2
-        );
-
-    }
-
-
-    // =====================================================
-    // POSITION PLANE
+    // PLANE POSITION
     // =====================================================
 
     function positionPlane(progress) {
 
-        const clampedProgress =
+        const safeProgress =
             Math.max(
                 0,
                 Math.min(
@@ -618,7 +605,7 @@ function startSkywriting() {
 
         const distance =
             pathLength *
-            clampedProgress;
+            safeProgress;
 
 
         const point =
@@ -628,31 +615,31 @@ function startSkywriting() {
                 );
 
 
-        const tangentDistance =
+        const lookAheadDistance =
             Math.min(
-                distance + 2,
+                distance + 4,
                 pathLength
+            );
+
+
+        const lookBehindDistance =
+            Math.max(
+                distance - 4,
+                0
             );
 
 
         const nextPoint =
             writingPath
                 .getPointAtLength(
-                    tangentDistance
+                    lookAheadDistance
                 );
-
-
-        const previousDistance =
-            Math.max(
-                distance - 2,
-                0
-            );
 
 
         const previousPoint =
             writingPath
                 .getPointAtLength(
-                    previousDistance
+                    lookBehindDistance
                 );
 
 
@@ -671,13 +658,13 @@ function startSkywriting() {
         tracingPlane.setAttribute(
             "transform",
             `
-            translate(
-                ${point.x}
-                ${point.y}
-            )
-            rotate(
-                ${angle}
-            )
+                translate(
+                    ${point.x}
+                    ${point.y}
+                )
+                rotate(
+                    ${angle}
+                )
             `
         );
 
@@ -685,12 +672,12 @@ function startSkywriting() {
 
 
     // =====================================================
-    // DRAW PATH
+    // DRAW CLOUD TRAIL
     // =====================================================
 
     function drawWriting(progress) {
 
-        const clampedProgress =
+        const safeProgress =
             Math.max(
                 0,
                 Math.min(
@@ -704,7 +691,7 @@ function startSkywriting() {
             pathLength *
             (
                 1 -
-                clampedProgress
+                safeProgress
             );
 
 
@@ -718,16 +705,12 @@ function startSkywriting() {
 
 
     // =====================================================
-    // RESET SKY
+    // RESET
     // =====================================================
 
-    function resetSkywriting() {
+    function resetWriting() {
 
-        writingPath.style.strokeDashoffset =
-            `${pathLength}`;
-
-        writingHaze.style.strokeDashoffset =
-            `${pathLength}`;
+        drawWriting(0);
 
         writingPath.style.opacity =
             "0";
@@ -743,7 +726,7 @@ function startSkywriting() {
     }
 
 
-    resetSkywriting();
+    resetWriting();
 
 
     // =====================================================
@@ -761,13 +744,19 @@ function startSkywriting() {
 
 
         // =================================================
-        // PHASE 1 — EMPTY SKY
+        // PHASE 1
+        // EMPTY SKY
         // =================================================
 
         if (
             elapsed <
             EMPTY_BEFORE
         ) {
+
+            drawWriting(0);
+
+            positionPlane(0);
+
 
             writingPath.style.opacity =
                 "0";
@@ -778,16 +767,12 @@ function startSkywriting() {
             tracingPlane.style.opacity =
                 "0";
 
-
-            drawWriting(0);
-
-            positionPlane(0);
-
         }
 
 
         // =================================================
-        // PHASE 2 — PLANE WRITES TITLE
+        // PHASE 2
+        // PLANE WRITES
         // =================================================
 
         else if (
@@ -796,7 +781,7 @@ function startSkywriting() {
             WRITE_TIME
         ) {
 
-            const rawProgress =
+            const progress =
                 (
                     elapsed -
                     EMPTY_BEFORE
@@ -805,17 +790,16 @@ function startSkywriting() {
 
 
             /*
-                Keep movement almost linear.
+                IMPORTANT:
 
-                This is important because the plane
-                should feel like it is physically
-                handwriting the title rather than
-                jumping between letters.
+                The cloud stroke and the plane use
+                the same progress value.
+
+                So the plane is literally the tip
+                of the pen.
+
+                Nothing ahead of the plane exists.
             */
-
-            const progress =
-                rawProgress;
-
 
             drawWriting(
                 progress
@@ -828,33 +812,52 @@ function startSkywriting() {
 
 
             writingPath.style.opacity =
-                "0.94";
+                ".94";
 
             writingHaze.style.opacity =
-                "0.50";
+                ".44";
 
 
-            /*
-                Plane fades in right at the beginning
-                of the writing pass.
-            */
+            // Smooth plane entrance.
 
-            const planeFade =
+            const planeEntrance =
                 Math.min(
-                    rawProgress /
-                    0.045,
+                    progress /
+                    .025,
                     1
                 );
 
 
+            /*
+                Smooth plane exit near the very end
+                of the final e.
+            */
+
+            const planeExit =
+                progress > .985
+                    ? Math.max(
+                        0,
+                        (
+                            1 -
+                            progress
+                        ) /
+                        .015
+                    )
+                    : 1;
+
+
             tracingPlane.style.opacity =
-                `${planeFade}`;
+                String(
+                    planeEntrance *
+                    planeExit
+                );
 
         }
 
 
         // =================================================
-        // PHASE 3 — COMPLETED TITLE HOLDS
+        // PHASE 3
+        // COMPLETE TITLE HOLDS
         // =================================================
 
         else if (
@@ -868,28 +871,20 @@ function startSkywriting() {
 
 
             writingPath.style.opacity =
-                "0.94";
+                ".94";
 
             writingHaze.style.opacity =
-                "0.48";
-
-
-            /*
-                The plane disappears after finishing
-                the final stroke.
-            */
+                ".44";
 
             tracingPlane.style.opacity =
                 "0";
-
-
-            positionPlane(1);
 
         }
 
 
         // =================================================
-        // PHASE 4 — CLOUD TITLE DISSOLVES
+        // PHASE 4
+        // CLOUD WRITING DISSOLVES
         // =================================================
 
         else if (
@@ -913,8 +908,8 @@ function startSkywriting() {
             drawWriting(1);
 
 
-            const writingOpacity =
-                0.94 *
+            const mainOpacity =
+                .94 *
                 (
                     1 -
                     fadeProgress
@@ -922,7 +917,7 @@ function startSkywriting() {
 
 
             const hazeOpacity =
-                0.48 *
+                .44 *
                 (
                     1 -
                     fadeProgress
@@ -930,10 +925,14 @@ function startSkywriting() {
 
 
             writingPath.style.opacity =
-                `${writingOpacity}`;
+                String(
+                    mainOpacity
+                );
 
             writingHaze.style.opacity =
-                `${hazeOpacity}`;
+                String(
+                    hazeOpacity
+                );
 
             tracingPlane.style.opacity =
                 "0";
@@ -942,23 +941,13 @@ function startSkywriting() {
 
 
         // =================================================
-        // PHASE 5 — EMPTY SKY BEFORE REPEAT
+        // PHASE 5
+        // EMPTY SKY BEFORE RESTART
         // =================================================
 
         else {
 
-            writingPath.style.opacity =
-                "0";
-
-            writingHaze.style.opacity =
-                "0";
-
-            tracingPlane.style.opacity =
-                "0";
-
-            drawWriting(0);
-
-            positionPlane(0);
+            resetWriting();
 
         }
 
@@ -980,7 +969,7 @@ function startSkywriting() {
 
 
 // =========================================================
-// REVEALS
+// REVEAL EFFECTS
 // =========================================================
 
 const reveals =
@@ -998,17 +987,20 @@ if (
     reveals.forEach(
         (element) => {
 
-            element
-                .classList
-                .add("visible");
+            element.classList.add(
+                "visible"
+            );
 
         }
     );
 
-} else {
+}
 
-    const observer =
+else {
+
+    const revealObserver =
         new IntersectionObserver(
+
             (entries) => {
 
                 entries.forEach(
@@ -1025,27 +1017,32 @@ if (
 
                         entry.target
                             .classList
-                            .add("visible");
+                            .add(
+                                "visible"
+                            );
 
 
-                        observer.unobserve(
-                            entry.target
-                        );
+                        revealObserver
+                            .unobserve(
+                                entry.target
+                            );
 
                     }
                 );
 
             },
+
             {
-                threshold: .14
+                threshold: .12
             }
+
         );
 
 
     reveals.forEach(
         (element) => {
 
-            observer.observe(
+            revealObserver.observe(
                 element
             );
 
@@ -1072,7 +1069,9 @@ if (
 ) {
 
     window.addEventListener(
+
         "pointermove",
+
         (event) => {
 
             cursorGlow.style.left =
@@ -1082,13 +1081,14 @@ if (
                 `${event.clientY}px`;
 
         }
+
     );
 
 }
 
 
 // =========================================================
-// NORMAL HERO PARALLAX
+// HERO PARALLAX
 // =========================================================
 
 const heroBg =
@@ -1101,12 +1101,15 @@ if (
 ) {
 
     window.addEventListener(
+
         "scroll",
+
         () => {
 
             /*
-                Don't move the old hero image
-                during Fall Into Me era.
+                Fall Into Me era uses its own
+                animated sky, so disable the
+                original hero image movement.
             */
 
             if (
@@ -1118,7 +1121,7 @@ if (
             ) {
 
                 heroBg.style.transform =
-                    "";
+                    "scale(1.04)";
 
                 return;
 
@@ -1129,25 +1132,26 @@ if (
                 Math.min(
                     window.scrollY *
                     .08,
-
                     55
                 );
 
 
             heroBg.style.transform =
                 `
-                translate3d(
-                    0,
-                    ${shift}px,
-                    0
-                )
-                scale(1.07)
+                    translate3d(
+                        0,
+                        ${shift}px,
+                        0
+                    )
+                    scale(1.07)
                 `;
 
         },
+
         {
             passive: true
         }
+
     );
 
 }
@@ -1180,7 +1184,9 @@ if (
 
 
                 card.addEventListener(
+
                     "mousemove",
+
                     (event) => {
 
                         const rect =
@@ -1206,7 +1212,7 @@ if (
 
                         const rotateX =
                             (
-                                0.5 -
+                                .5 -
                                 y
                             ) *
                             6;
@@ -1215,39 +1221,43 @@ if (
                         const rotateY =
                             (
                                 x -
-                                0.5
+                                .5
                             ) *
                             6;
 
 
                         image.style.transform =
                             `
-                            perspective(
-                                1100px
-                            )
-                            rotateX(
-                                ${rotateX}deg
-                            )
-                            rotateY(
-                                ${rotateY}deg
-                            )
-                            scale(
-                                1.015
-                            )
+                                perspective(
+                                    1100px
+                                )
+                                rotateX(
+                                    ${rotateX}deg
+                                )
+                                rotateY(
+                                    ${rotateY}deg
+                                )
+                                scale(
+                                    1.015
+                                )
                             `;
 
                     }
+
                 );
 
 
                 card.addEventListener(
+
                     "mouseleave",
+
                     () => {
 
                         image.style.transform =
                             "";
 
                     }
+
                 );
 
             }
@@ -1260,40 +1270,42 @@ if (
 // LYRICS TABS
 // =========================================================
 
-const tabs =
+const lyricsTabs =
     $$(".lyrics-tab");
 
-const lyricPanels =
+const lyricsPanels =
     $$(".lyrics-content");
 
 
-tabs.forEach(
+lyricsTabs.forEach(
     (tab) => {
 
         tab.addEventListener(
+
             "click",
+
             () => {
 
-                const song =
+                const selectedSong =
                     tab.dataset.song;
 
 
-                tabs.forEach(
+                lyricsTabs.forEach(
                     (button) => {
 
-                        const active =
+                        const isActive =
                             button === tab;
 
 
                         button.classList.toggle(
                             "active",
-                            active
+                            isActive
                         );
 
 
                         button.setAttribute(
                             "aria-selected",
-                            active
+                            isActive
                                 ? "true"
                                 : "false"
                         );
@@ -1302,18 +1314,20 @@ tabs.forEach(
                 );
 
 
-                lyricPanels.forEach(
+                lyricsPanels.forEach(
                     (panel) => {
 
                         panel.classList.toggle(
                             "active",
-                            panel.id === song
+                            panel.id ===
+                            selectedSong
                         );
 
                     }
                 );
 
             }
+
         );
 
     }
@@ -1321,7 +1335,7 @@ tabs.forEach(
 
 
 // =========================================================
-// MOBILE NAV
+// MOBILE NAVIGATION
 // =========================================================
 
 const menuToggle =
@@ -1331,7 +1345,7 @@ const siteNav =
     $(".site-nav");
 
 
-function closeMenu() {
+function closeMobileMenu() {
 
     if (
         !menuToggle ||
@@ -1343,15 +1357,18 @@ function closeMenu() {
     }
 
 
-    siteNav.classList.remove(
-        "open"
-    );
+    siteNav
+        .classList
+        .remove(
+            "open"
+        );
 
 
-    menuToggle.setAttribute(
-        "aria-expanded",
-        "false"
-    );
+    menuToggle
+        .setAttribute(
+            "aria-expanded",
+            "false"
+        );
 
 }
 
@@ -1362,23 +1379,29 @@ if (
 ) {
 
     menuToggle.addEventListener(
+
         "click",
+
         () => {
 
-            const open =
+            const isOpen =
                 siteNav
                     .classList
-                    .toggle("open");
+                    .toggle(
+                        "open"
+                    );
 
 
-            menuToggle.setAttribute(
-                "aria-expanded",
-                open
-                    ? "true"
-                    : "false"
-            );
+            menuToggle
+                .setAttribute(
+                    "aria-expanded",
+                    isOpen
+                        ? "true"
+                        : "false"
+                );
 
         }
+
     );
 
 
@@ -1389,7 +1412,7 @@ if (
 
                 link.addEventListener(
                     "click",
-                    closeMenu
+                    closeMobileMenu
                 );
 
             }
@@ -1397,7 +1420,9 @@ if (
 
 
     window.addEventListener(
+
         "resize",
+
         () => {
 
             if (
@@ -1405,11 +1430,12 @@ if (
                 850
             ) {
 
-                closeMenu();
+                closeMobileMenu();
 
             }
 
         }
+
     );
 
 }
@@ -1420,7 +1446,9 @@ if (
 // =========================================================
 
 window.addEventListener(
+
     "pagehide",
+
     () => {
 
         if (
@@ -1434,4 +1462,5 @@ window.addEventListener(
         }
 
     }
+
 );
