@@ -46,7 +46,7 @@
 
 
     <!-- =====================================================
-         TOP MARQUEE
+         LISTEN BAR
     ====================================================== -->
 
     <div class="listen-bar">
@@ -59,24 +59,33 @@
             <div class="listen-track">
 
                 <div class="listen-group">
+
                     <span>LOST COUNT — OUT NOW</span>
                     <span>•</span>
+
                     <span>STREAM EVERYWHERE</span>
                     <span>•</span>
+
                     <span>KALN</span>
                     <span>•</span>
+
                 </div>
+
 
                 <div
                     class="listen-group"
                     aria-hidden="true"
                 >
+
                     <span>LOST COUNT — OUT NOW</span>
                     <span>•</span>
+
                     <span>STREAM EVERYWHERE</span>
                     <span>•</span>
+
                     <span>KALN</span>
                     <span>•</span>
+
                 </div>
 
             </div>
@@ -115,12 +124,29 @@
             aria-label="Primary navigation"
         >
 
-            <a href="#music">Music</a>
-            <a href="#discography">Discography</a>
-            <a href="#lyrics">Lyrics</a>
-            <a href="#about">About</a>
-            <a href="#visuals">Visuals</a>
-            <a href="#connect">Connect</a>
+            <a href="#music">
+                Music
+            </a>
+
+            <a href="#discography">
+                Discography
+            </a>
+
+            <a href="#lyrics">
+                Lyrics
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="#visuals">
+                Visuals
+            </a>
+
+            <a href="#connect">
+                Connect
+            </a>
 
         </nav>
 
@@ -139,7 +165,8 @@
             id="hero"
         >
 
-            <!-- NORMAL ERA BACKGROUND -->
+
+            <!-- NORMAL ERA -->
 
             <div
                 class="hero-bg"
@@ -147,9 +174,9 @@
             ></div>
 
 
-            <!-- =============================================
-                 FALL INTO ME ERA
-            ============================================== -->
+            <!-- =================================================
+                 FALL INTO ME ERA WORLD
+            ================================================== -->
 
             <div
                 class="fall-hero-world"
@@ -161,24 +188,23 @@
                 <div class="stars"></div>
 
 
-                <!-- MOVING CLOUD LAYERS -->
+                <!-- BACKGROUND CLOUDS -->
 
                 <div class="cloud cloud-one"></div>
+
                 <div class="cloud cloud-two"></div>
+
                 <div class="cloud cloud-three"></div>
+
                 <div class="cloud cloud-four"></div>
 
 
-                <!-- =========================================
-                     PLANE SKYWRITING
+                <!-- =============================================
+                     SKYWRITING
 
-                     The plane and the cloud handwriting will
-                     use this SAME SVG path.
-
-                     JavaScript will move the plane along the
-                     path while revealing the line directly
-                     behind it.
-                ========================================== -->
+                     Plane follows the exact same SVG route
+                     that draws the cloud handwriting.
+                ============================================== -->
 
                 <div class="skywriting-scene">
 
@@ -190,34 +216,39 @@
 
                         <defs>
 
-                            <!-- SOFT CLOUD EDGE -->
+
+                            <!-- CLOUD WRITING SOFTNESS -->
 
                             <filter
                                 id="cloud-softness"
-                                x="-40%"
-                                y="-40%"
-                                width="180%"
-                                height="180%"
+                                x="-50%"
+                                y="-50%"
+                                width="200%"
+                                height="200%"
                             >
 
                                 <feGaussianBlur
                                     in="SourceGraphic"
-                                    stdDeviation="2.8"
+                                    stdDeviation="2.6"
                                     result="softBlur"
-                                />
+                                ></feGaussianBlur>
 
                                 <feMerge>
 
-                                    <feMergeNode in="softBlur"></feMergeNode>
+                                    <feMergeNode
+                                        in="softBlur"
+                                    ></feMergeNode>
 
-                                    <feMergeNode in="SourceGraphic"></feMergeNode>
+                                    <feMergeNode
+                                        in="SourceGraphic"
+                                    ></feMergeNode>
 
                                 </feMerge>
 
                             </filter>
 
 
-                            <!-- SECONDARY CLOUD HAZE -->
+                            <!-- LARGE VAPOR HAZE -->
 
                             <filter
                                 id="cloud-haze"
@@ -234,26 +265,30 @@
                             </filter>
 
 
-                            <!-- PLANE GLOW -->
+                            <!-- PLANE SOFT GLOW -->
 
                             <filter
                                 id="plane-glow"
-                                x="-60%"
-                                y="-60%"
-                                width="220%"
-                                height="220%"
+                                x="-80%"
+                                y="-80%"
+                                width="260%"
+                                height="260%"
                             >
 
                                 <feGaussianBlur
-                                    stdDeviation="1.4"
+                                    stdDeviation="1.2"
                                     result="planeBlur"
                                 ></feGaussianBlur>
 
                                 <feMerge>
 
-                                    <feMergeNode in="planeBlur"></feMergeNode>
+                                    <feMergeNode
+                                        in="planeBlur"
+                                    ></feMergeNode>
 
-                                    <feMergeNode in="SourceGraphic"></feMergeNode>
+                                    <feMergeNode
+                                        in="SourceGraphic"
+                                    ></feMergeNode>
 
                                 </feMerge>
 
@@ -262,227 +297,223 @@
                         </defs>
 
 
-                        <!--
-                            CLOUD HAZE BEHIND THE WRITING
-
-                            Uses the same handwriting path,
-                            but softer and wider.
-                        -->
+                        <!-- =====================================
+                             CLOUD HAZE PATH
+                        ====================================== -->
 
                         <path
                             id="fall-writing-haze"
                             class="cloud-writing-haze"
-                            pathLength="1"
                             d="
-                                M 95 190
+                                M 78 195
 
-                                C 145 145, 215 112, 290 104
-                                C 235 110, 195 128, 176 158
-                                C 158 188, 147 235, 141 281
+                                C 128 150, 205 113, 292 100
+                                C 235 108, 191 127, 169 158
+                                C 151 185, 140 229, 132 284
 
-                                C 151 229, 174 192, 210 176
+                                C 143 232, 169 194, 208 175
 
-                                C 224 164, 240 169, 239 189
-                                C 238 210, 220 229, 205 224
-                                C 191 218, 195 193, 213 180
-                                C 226 170, 239 175, 242 193
-                                C 245 211, 246 221, 255 218
+                                C 226 163, 244 168, 242 190
+                                C 240 211, 219 233, 202 226
+                                C 185 219, 192 190, 214 176
+                                C 229 167, 243 177, 245 195
+                                C 247 214, 247 225, 260 218
 
-                                C 270 211, 279 177, 291 142
-                                C 301 112, 316 91, 325 101
-                                C 332 110, 318 142, 307 171
-                                C 296 201, 289 221, 298 220
+                                C 276 207, 283 172, 296 137
+                                C 307 106, 321 88, 330 99
+                                C 338 110, 322 144, 311 175
+                                C 301 203, 293 224, 303 221
 
-                                C 313 211, 323 171, 337 133
-                                C 347 104, 360 91, 368 101
-                                C 376 112, 361 148, 351 178
-                                C 341 207, 337 223, 349 221
+                                C 319 210, 328 169, 341 132
+                                C 351 103, 366 88, 374 100
+                                C 382 112, 366 150, 356 180
+                                C 346 209, 341 226, 353 221
 
-                                C 373 216, 383 194, 396 196
-                                C 408 198, 410 215, 399 224
-
-
-                                C 424 212, 437 187, 451 161
-                                C 463 139, 475 130, 480 139
-                                C 485 148, 472 178, 465 202
-                                C 458 224, 466 230, 478 218
-
-                                C 490 205, 499 183, 512 184
-                                C 526 185, 524 207, 517 222
-
-                                C 530 194, 544 181, 555 185
-                                C 568 190, 561 211, 555 224
-
-                                C 568 197, 581 182, 594 187
-                                C 607 193, 598 215, 596 226
-                                C 594 235, 602 235, 614 222
-
-                                C 625 210, 631 190, 644 189
-                                C 657 187, 664 200, 658 213
-                                C 650 229, 630 234, 623 221
-                                C 616 207, 632 194, 648 195
-
-                                C 676 197, 692 208, 714 209
+                                C 374 214, 386 196, 400 196
+                                C 414 196, 416 214, 405 224
 
 
-                                C 738 151, 766 101, 797 85
-                                C 821 73, 829 90, 818 116
-                                C 803 151, 786 191, 773 232
+                                C 430 214, 443 188, 458 160
+                                C 469 140, 480 131, 486 139
+                                C 491 148, 480 177, 471 201
+                                C 463 224, 470 231, 483 218
 
-                                C 794 182, 820 128, 854 99
-                                C 877 79, 891 84, 891 103
-                                C 891 128, 865 183, 845 231
+                                C 495 205, 504 184, 517 184
+                                C 530 184, 529 206, 522 222
 
-                                C 871 179, 898 138, 927 126
-                                C 948 117, 956 131, 947 153
-                                C 934 185, 918 211, 917 231
+                                C 536 194, 548 182, 559 186
+                                C 572 190, 566 210, 560 224
 
-                                C 922 247, 941 238, 952 221
+                                C 574 196, 588 183, 601 188
+                                C 614 194, 604 215, 602 227
+                                C 600 237, 608 237, 620 223
 
-                                C 965 198, 979 183, 996 186
-                                C 1012 190, 1008 211, 995 220
-                                C 982 229, 965 230, 962 216
-                                C 959 201, 974 190, 992 192
+                                C 631 210, 638 190, 651 189
+                                C 664 188, 672 201, 665 214
+                                C 657 230, 637 235, 630 221
+                                C 623 206, 639 193, 655 195
 
-                                C 1014 194, 1030 211, 1051 209
+                                C 679 197, 696 207, 717 209
+
+
+                                C 741 151, 770 101, 801 84
+                                C 825 72, 834 89, 822 117
+                                C 807 151, 789 192, 776 233
+
+                                C 798 181, 824 127, 858 98
+                                C 881 79, 895 84, 895 103
+                                C 895 129, 869 184, 849 232
+
+                                C 875 179, 903 137, 931 126
+                                C 952 117, 960 132, 951 154
+                                C 938 185, 922 212, 921 232
+
+                                C 927 247, 946 238, 957 221
+
+                                C 970 198, 984 182, 1001 186
+                                C 1017 190, 1013 211, 1000 221
+                                C 986 230, 969 231, 966 216
+                                C 963 201, 978 190, 996 192
+
+                                C 1019 194, 1035 210, 1058 209
                             "
                         ></path>
 
 
-                        <!-- =================================
-                             MAIN CLOUD WRITING PATH
-                        ================================== -->
+                        <!-- =====================================
+                             MAIN HANDWRITING PATH
+                        ====================================== -->
 
                         <path
                             id="fall-writing-path"
                             class="cloud-writing-path"
-                            pathLength="1"
                             d="
-                                M 95 190
+                                M 78 195
 
-                                C 145 145, 215 112, 290 104
-                                C 235 110, 195 128, 176 158
-                                C 158 188, 147 235, 141 281
+                                C 128 150, 205 113, 292 100
+                                C 235 108, 191 127, 169 158
+                                C 151 185, 140 229, 132 284
 
-                                C 151 229, 174 192, 210 176
+                                C 143 232, 169 194, 208 175
 
-                                C 224 164, 240 169, 239 189
-                                C 238 210, 220 229, 205 224
-                                C 191 218, 195 193, 213 180
-                                C 226 170, 239 175, 242 193
-                                C 245 211, 246 221, 255 218
+                                C 226 163, 244 168, 242 190
+                                C 240 211, 219 233, 202 226
+                                C 185 219, 192 190, 214 176
+                                C 229 167, 243 177, 245 195
+                                C 247 214, 247 225, 260 218
 
-                                C 270 211, 279 177, 291 142
-                                C 301 112, 316 91, 325 101
-                                C 332 110, 318 142, 307 171
-                                C 296 201, 289 221, 298 220
+                                C 276 207, 283 172, 296 137
+                                C 307 106, 321 88, 330 99
+                                C 338 110, 322 144, 311 175
+                                C 301 203, 293 224, 303 221
 
-                                C 313 211, 323 171, 337 133
-                                C 347 104, 360 91, 368 101
-                                C 376 112, 361 148, 351 178
-                                C 341 207, 337 223, 349 221
+                                C 319 210, 328 169, 341 132
+                                C 351 103, 366 88, 374 100
+                                C 382 112, 366 150, 356 180
+                                C 346 209, 341 226, 353 221
 
-                                C 373 216, 383 194, 396 196
-                                C 408 198, 410 215, 399 224
-
-
-                                C 424 212, 437 187, 451 161
-                                C 463 139, 475 130, 480 139
-                                C 485 148, 472 178, 465 202
-                                C 458 224, 466 230, 478 218
-
-                                C 490 205, 499 183, 512 184
-                                C 526 185, 524 207, 517 222
-
-                                C 530 194, 544 181, 555 185
-                                C 568 190, 561 211, 555 224
-
-                                C 568 197, 581 182, 594 187
-                                C 607 193, 598 215, 596 226
-                                C 594 235, 602 235, 614 222
-
-                                C 625 210, 631 190, 644 189
-                                C 657 187, 664 200, 658 213
-                                C 650 229, 630 234, 623 221
-                                C 616 207, 632 194, 648 195
-
-                                C 676 197, 692 208, 714 209
+                                C 374 214, 386 196, 400 196
+                                C 414 196, 416 214, 405 224
 
 
-                                C 738 151, 766 101, 797 85
-                                C 821 73, 829 90, 818 116
-                                C 803 151, 786 191, 773 232
+                                C 430 214, 443 188, 458 160
+                                C 469 140, 480 131, 486 139
+                                C 491 148, 480 177, 471 201
+                                C 463 224, 470 231, 483 218
 
-                                C 794 182, 820 128, 854 99
-                                C 877 79, 891 84, 891 103
-                                C 891 128, 865 183, 845 231
+                                C 495 205, 504 184, 517 184
+                                C 530 184, 529 206, 522 222
 
-                                C 871 179, 898 138, 927 126
-                                C 948 117, 956 131, 947 153
-                                C 934 185, 918 211, 917 231
+                                C 536 194, 548 182, 559 186
+                                C 572 190, 566 210, 560 224
 
-                                C 922 247, 941 238, 952 221
+                                C 574 196, 588 183, 601 188
+                                C 614 194, 604 215, 602 227
+                                C 600 237, 608 237, 620 223
 
-                                C 965 198, 979 183, 996 186
-                                C 1012 190, 1008 211, 995 220
-                                C 982 229, 965 230, 962 216
-                                C 959 201, 974 190, 992 192
+                                C 631 210, 638 190, 651 189
+                                C 664 188, 672 201, 665 214
+                                C 657 230, 637 235, 630 221
+                                C 623 206, 639 193, 655 195
 
-                                C 1014 194, 1030 211, 1051 209
+                                C 679 197, 696 207, 717 209
+
+
+                                C 741 151, 770 101, 801 84
+                                C 825 72, 834 89, 822 117
+                                C 807 151, 789 192, 776 233
+
+                                C 798 181, 824 127, 858 98
+                                C 881 79, 895 84, 895 103
+                                C 895 129, 869 184, 849 232
+
+                                C 875 179, 903 137, 931 126
+                                C 952 117, 960 132, 951 154
+                                C 938 185, 922 212, 921 232
+
+                                C 927 247, 946 238, 957 221
+
+                                C 970 198, 984 182, 1001 186
+                                C 1017 190, 1013 211, 1000 221
+                                C 986 230, 969 231, 966 216
+                                C 963 201, 978 190, 996 192
+
+                                C 1019 194, 1035 210, 1058 209
                             "
                         ></path>
 
 
-                        <!-- =================================
-                             TRACING PLANE
+                        <!-- =====================================
+                             PLANE
 
-                             CSS + JS will place this at the
-                             current point on the handwriting.
-                        ================================== -->
+                             JS moves this group around the
+                             handwriting path.
+                        ====================================== -->
 
                         <g
                             id="tracing-plane"
                             class="tracing-plane"
                         >
 
-                            <!-- LEFT WING -->
+
+                            <!-- BODY -->
 
                             <path
-                                class="plane-shape"
+                                class="plane-body"
                                 d="
-                                    M -4 -3
-                                    L -25 -16
-                                    L -30 -15
+                                    M -31 -2.2
+                                    L 8 -2.2
+                                    C 16 -2.2, 24 -1.2, 31 0
+                                    C 24 1.2, 16 2.2, 8 2.2
+                                    L -31 2.2
+                                    Z
+                                "
+                            ></path>
+
+
+                            <!-- TOP WING -->
+
+                            <path
+                                class="plane-wing"
+                                d="
+                                    M -5 -2
+                                    L -23 -19
+                                    L -28 -18
                                     L -16 -1
                                     Z
                                 "
                             ></path>
 
 
-                            <!-- RIGHT WING -->
+                            <!-- LOWER WING -->
 
                             <path
-                                class="plane-shape"
+                                class="plane-wing"
                                 d="
-                                    M -4 3
-                                    L -25 16
-                                    L -30 15
+                                    M -5 2
+                                    L -23 19
+                                    L -28 18
                                     L -16 1
-                                    Z
-                                "
-                            ></path>
-
-
-                            <!-- BODY / NOSE -->
-
-                            <path
-                                class="plane-shape"
-                                d="
-                                    M -30 -2
-                                    L 7 -2
-                                    C 14 -2, 21 -1, 28 0
-                                    C 21 1, 14 2, 7 2
-                                    L -30 2
                                     Z
                                 "
                             ></path>
@@ -491,18 +522,19 @@
                             <!-- TAIL -->
 
                             <path
-                                class="plane-shape"
+                                class="plane-tail"
                                 d="
-                                    M -24 -2
-                                    L -36 -9
-                                    L -39 -8
-                                    L -32 0
-                                    L -39 8
-                                    L -36 9
-                                    L -24 2
+                                    M -25 -2
+                                    L -36 -10
+                                    L -40 -9
+                                    L -33 0
+                                    L -40 9
+                                    L -36 10
+                                    L -25 2
                                     Z
                                 "
                             ></path>
+
 
                         </g>
 
@@ -511,7 +543,7 @@
                 </div>
 
 
-                <!-- DISTANT CITY -->
+                <!-- CITY -->
 
                 <div class="city"></div>
 
@@ -523,7 +555,7 @@
             </div>
 
 
-            <!-- HERO SHADE -->
+            <!-- SHADE -->
 
             <div
                 class="hero-shade"
@@ -531,7 +563,9 @@
             ></div>
 
 
-            <!-- HERO COPY -->
+            <!-- =============================================
+                 HERO TEXT / ACTIONS
+            ============================================== -->
 
             <div class="hero-copy reveal">
 
@@ -539,12 +573,14 @@
                     Official Website
                 </p>
 
+
                 <p class="hero-tagline">
                     No fixed sound. Just the feeling.
                 </p>
 
 
                 <div class="hero-actions">
+
 
                     <a
                         class="button button-light hero-primary"
@@ -555,6 +591,7 @@
                         Listen to Lost Count
                     </a>
 
+
                     <a
                         class="button button-outline"
                         href="#lyrics"
@@ -562,10 +599,13 @@
                         Read the Lyrics
                     </a>
 
+
                 </div>
 
             </div>
 
+
+            <!-- SCROLL -->
 
             <div
                 class="scroll-indicator"
@@ -580,11 +620,12 @@
 
             </div>
 
+
         </section>
 
 
         <!-- =================================================
-             NOW PLAYING
+             MUSIC
         ================================================== -->
 
         <section
@@ -607,6 +648,7 @@
 
             <article class="release-feature reveal">
 
+
                 <div class="release-art tilt-card">
 
                     <img
@@ -625,6 +667,7 @@
 
                 <div class="release-info">
 
+
                     <p
                         class="release-kicker"
                         id="now-playing-kicker"
@@ -632,9 +675,11 @@
                         Single · 2026
                     </p>
 
+
                     <h3 id="now-playing-title">
                         Lost Count
                     </h3>
+
 
                     <p
                         class="release-copy"
@@ -646,6 +691,7 @@
 
                     <div class="release-actions">
 
+
                         <a
                             class="button button-light"
                             id="now-playing-link"
@@ -656,6 +702,7 @@
                             Listen Now
                         </a>
 
+
                         <a
                             class="text-link"
                             href="#lyrics"
@@ -664,10 +711,12 @@
                             <span>↘</span>
                         </a>
 
+
                     </div>
 
 
                     <div class="platform-row">
+
 
                         <a
                             href="https://open.spotify.com/artist/1I97Z1wZc37Bp7zMpgpxWk"
@@ -677,6 +726,7 @@
                             Spotify
                         </a>
 
+
                         <a
                             href="https://music.apple.com/us/album/lost-count-single/6806260465"
                             target="_blank"
@@ -684,6 +734,7 @@
                         >
                             Apple Music
                         </a>
+
 
                         <a
                             href="https://youtu.be/i-gifo6uCsE"
@@ -693,9 +744,12 @@
                             YouTube
                         </a>
 
+
                     </div>
 
+
                 </div>
+
 
             </article>
 
@@ -703,31 +757,38 @@
 
 
         <!-- =================================================
-             FALL INTO ME — COMING SOON
+             COMING SOON
         ================================================== -->
 
         <section class="section next-section">
 
             <div class="coming-wrap reveal">
 
+
                 <div class="coming-copy">
+
 
                     <p class="eyebrow">
                         Coming Soon
                     </p>
 
+
                     <p class="coming-date">
                         September 18, 2026
                     </p>
+
 
                     <h2>
                         Fall Into Me
                     </h2>
 
+
                     <p class="release-copy">
                         A softer chapter is coming.
                     </p>
 
+
+                    <!-- COUNTDOWN -->
 
                     <div
                         class="fim-countdown"
@@ -735,40 +796,50 @@
                         aria-label="Countdown to Fall Into Me"
                     >
 
+
                         <span id="countdown-days">
                             00
                         </span>
 
+
                         <span class="fim-dot">
                             ·
                         </span>
+
 
                         <span id="countdown-hours">
                             00
                         </span>
 
+
                         <span class="fim-dot">
                             ·
                         </span>
+
 
                         <span id="countdown-minutes">
                             00
                         </span>
 
+
                         <span class="fim-dot">
                             ·
                         </span>
+
 
                         <span id="countdown-seconds">
                             00
                         </span>
 
+
                     </div>
+
 
                 </div>
 
 
                 <div class="coming-media">
+
 
                     <div class="coming-art tilt-card">
 
@@ -789,7 +860,9 @@
                         Pre-Save Now
                     </a>
 
+
                 </div>
+
 
             </div>
 
@@ -804,6 +877,7 @@
             class="section discography-section"
             id="discography"
         >
+
 
             <div class="section-title reveal">
 
@@ -828,6 +902,7 @@
                     id="lost-count-discography"
                 >
 
+
                     <div class="discography-art">
 
                         <img
@@ -840,13 +915,16 @@
 
                     <div class="discography-info">
 
+
                         <p class="discography-meta">
                             2026 · Single
                         </p>
 
+
                         <h3>
                             Lost Count
                         </h3>
+
 
                         <a
                             href="https://release.landr.com/991048938120"
@@ -858,7 +936,9 @@
                             <span>↗</span>
                         </a>
 
+
                     </div>
+
 
                 </article>
 
@@ -870,6 +950,7 @@
                     id="fall-into-me-discography"
                     hidden
                 >
+
 
                     <div class="discography-art">
 
@@ -883,13 +964,16 @@
 
                     <div class="discography-info">
 
+
                         <p class="discography-meta">
                             2026 · Single
                         </p>
 
+
                         <h3>
                             Fall Into Me
                         </h3>
+
 
                         <a
                             href="https://release.landr.com/991048944886"
@@ -901,9 +985,12 @@
                             <span>↗</span>
                         </a>
 
+
                     </div>
 
+
                 </article>
+
 
             </div>
 
@@ -919,33 +1006,44 @@
             id="lyrics"
         >
 
+
             <div class="lyrics-sticky">
 
+
                 <div class="section-title reveal">
+
 
                     <p class="eyebrow">
                         Lyrics
                     </p>
 
+
                     <h2>
                         Words Behind the Music
                     </h2>
+
 
                     <p class="lyrics-intro">
                         Read along without leaving the site.
                     </p>
 
+
                 </div>
+
 
             </div>
 
 
             <div class="lyrics-panel reveal">
 
+
+                <!-- TABS -->
+
                 <div
                     class="lyrics-tabs"
                     role="tablist"
                 >
+
 
                     <button
                         class="lyrics-tab active"
@@ -966,10 +1064,13 @@
                         Fall Into Me
                     </button>
 
+
                 </div>
 
 
-                <!-- LOST COUNT -->
+                <!-- =========================================
+                     LOST COUNT
+                ========================================== -->
 
                 <article
                     class="lyrics-content active"
@@ -977,15 +1078,19 @@
                     role="tabpanel"
                 >
 
+
                     <div class="lyrics-heading">
+
 
                         <h3>
                             Lost Count
                         </h3>
 
+
                         <span>
                             2026
                         </span>
+
 
                     </div>
 
@@ -1179,12 +1284,16 @@
 
                         </section>
 
+
                     </div>
+
 
                 </article>
 
 
-                <!-- FALL INTO ME -->
+                <!-- =========================================
+                     FALL INTO ME
+                ========================================== -->
 
                 <article
                     class="lyrics-content"
@@ -1192,22 +1301,29 @@
                     role="tabpanel"
                 >
 
+
+                    <!-- LOCKED BEFORE RELEASE -->
+
                     <div
                         class="lyrics-coming"
                         id="fall-lyrics-locked"
                     >
 
+
                         <p class="eyebrow">
                             September 18, 2026
                         </p>
+
 
                         <h3>
                             Fall Into Me
                         </h3>
 
+
                         <p>
                             Lyrics will appear here with the release.
                         </p>
+
 
                         <a
                             class="button button-outline"
@@ -1218,8 +1334,11 @@
                             Pre-Save
                         </a>
 
+
                     </div>
 
+
+                    <!-- UNLOCKED ON RELEASE -->
 
                     <div
                         class="fall-full-lyrics"
@@ -1227,15 +1346,19 @@
                         hidden
                     >
 
+
                         <div class="lyrics-heading">
+
 
                             <h3>
                                 Fall Into Me
                             </h3>
 
+
                             <span>
                                 2026
                             </span>
+
 
                         </div>
 
@@ -1352,13 +1475,18 @@
 
                             </section>
 
+
                         </div>
+
 
                     </div>
 
+
                 </article>
 
+
             </div>
+
 
         </section>
 
@@ -1372,60 +1500,75 @@
             id="about"
         >
 
+
             <div class="about-grid">
 
 
                 <div class="about-photo-wrap reveal">
+
 
                     <img
                         src="assets/images/kaln-current-profile.png"
                         alt="KALN artist portrait"
                     >
 
+
                     <div class="photo-caption">
                         KALN · 2026
                     </div>
+
 
                 </div>
 
 
                 <div class="about-copy reveal">
 
+
                     <p class="eyebrow">
                         About
                     </p>
+
 
                     <h2>
                         KALN
                     </h2>
 
+
                     <p class="about-lead">
                         Music that lives somewhere between feeling everything and saying just enough.
                     </p>
+
 
                     <p>
                         The sound changes depending on the story — R&amp;B, pop, something softer,
                         something darker, something that doesn’t need a label yet.
                     </p>
 
+
                     <p>
                         What stays the same is the intention behind it: honest writing, strong emotion,
                         and songs that feel personal without needing to explain every detail.
                     </p>
 
+
                     <p class="contact">
 
                         Booking &amp; inquiries:
 
-                        <a href="mailto:thisiskalnmusic@gmail.com">
+                        <a
+                            href="mailto:thisiskalnmusic@gmail.com"
+                        >
                             thisiskalnmusic@gmail.com
                         </a>
 
                     </p>
 
+
                 </div>
 
+
             </div>
+
 
         </section>
 
@@ -1439,15 +1582,19 @@
             id="visuals"
         >
 
+
             <div class="visuals-heading reveal">
+
 
                 <p class="eyebrow">
                     Visuals
                 </p>
 
+
                 <h2>
                     The World of KALN
                 </h2>
+
 
             </div>
 
@@ -1455,34 +1602,65 @@
             <div class="visual-strip">
 
 
+                <!-- PORTRAIT RESTORED -->
+
                 <figure class="visual-panel">
+
+
+                    <img
+                        src="assets/images/kaln-alternate-profile.png"
+                        alt="Alternate KALN artist portrait"
+                    >
+
+
+                    <figcaption>
+                        Portrait
+                    </figcaption>
+
+
+                </figure>
+
+
+                <!-- LOST COUNT -->
+
+                <figure class="visual-panel">
+
 
                     <img
                         src="assets/images/lost-count-cover.png"
                         alt="Lost Count cover art"
                     >
 
+
                     <figcaption>
                         Lost Count
                     </figcaption>
 
+
                 </figure>
 
 
+                <!-- FALL INTO ME -->
+
                 <figure class="visual-panel">
+
 
                     <img
                         src="assets/images/fall-into-me-cover.png"
                         alt="Fall Into Me cover art"
                     >
 
+
                     <figcaption>
                         Fall Into Me
                     </figcaption>
 
+
                 </figure>
 
+
             </div>
+
 
         </section>
 
@@ -1496,11 +1674,14 @@
             id="connect"
         >
 
+
             <div class="connect-inner reveal">
+
 
                 <p class="eyebrow">
                     Connect
                 </p>
+
 
                 <h2>
                     Stay Close.
@@ -1509,11 +1690,13 @@
 
                 <div class="social-grid">
 
+
                     <a
                         href="https://www.instagram.com/kalnmusic/"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
+
                         <span>
                             Instagram
                         </span>
@@ -1521,6 +1704,7 @@
                         <b>
                             ↗
                         </b>
+
                     </a>
 
 
@@ -1529,6 +1713,7 @@
                         target="_blank"
                         rel="noopener noreferrer"
                     >
+
                         <span>
                             Spotify
                         </span>
@@ -1536,6 +1721,7 @@
                         <b>
                             ↗
                         </b>
+
                     </a>
 
 
@@ -1544,6 +1730,7 @@
                         target="_blank"
                         rel="noopener noreferrer"
                     >
+
                         <span>
                             YouTube
                         </span>
@@ -1551,11 +1738,15 @@
                         <b>
                             ↗
                         </b>
+
                     </a>
+
 
                 </div>
 
+
             </div>
+
 
         </section>
 
@@ -1569,7 +1760,9 @@
 
     <footer class="site-footer">
 
+
         <div class="footer-logo-wrap">
+
 
             <img
                 src="assets/images/kaln-footer-logo-cropped.png"
@@ -1577,11 +1770,14 @@
                 alt="KALN"
             >
 
+
         </div>
+
 
         <p class="footer-copy">
             © 2026 KALN
         </p>
+
 
     </footer>
 
