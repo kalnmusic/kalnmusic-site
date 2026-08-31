@@ -66,10 +66,8 @@ button {
 
 .cursor-glow {
     position: fixed;
-
     width: 420px;
     height: 420px;
-
     border-radius: 50%;
 
     background:
@@ -80,7 +78,6 @@ button {
         );
 
     pointer-events: none;
-
     z-index: 1;
 
     transform: translate(-50%,-50%);
@@ -93,7 +90,6 @@ button {
 
 .listen-bar {
     position: fixed;
-
     top: 0;
     left: 0;
     right: 0;
@@ -101,7 +97,6 @@ button {
     z-index: 1000;
 
     height: 38px;
-
     overflow: hidden;
 
     border-bottom: 1px solid var(--line);
@@ -128,7 +123,6 @@ button {
     width: max-content;
 
     text-transform: uppercase;
-
     letter-spacing: .22em;
     font-size: .61rem;
 
@@ -143,7 +137,6 @@ button {
     justify-content: space-around;
 
     gap: 30px;
-
     padding: 0 28px;
 }
 
@@ -204,6 +197,12 @@ button {
     font-size: .62rem;
 
     color: rgba(240,235,226,.72);
+
+    transition: color .2s ease;
+}
+
+.site-nav a:hover {
+    color: var(--ink);
 }
 
 .menu-toggle {
@@ -213,7 +212,6 @@ button {
     height: 36px;
 
     padding: 0;
-
     border: 0;
 
     background: none;
@@ -250,7 +248,6 @@ button {
 
 .hero-bg {
     position: absolute;
-
     inset: -4%;
 
     background:
@@ -265,7 +262,6 @@ button {
 
 .hero-shade {
     position: absolute;
-
     inset: 0;
 
     z-index: 4;
@@ -357,7 +353,7 @@ button {
 }
 
 
-/* FALL WORLD HIDDEN NORMALLY */
+/* FALL HERO HIDDEN BEFORE RELEASE */
 
 .fall-hero-world {
     display: none;
@@ -381,7 +377,6 @@ button {
     text-transform: uppercase;
 
     letter-spacing: .16em;
-
     font-size: .66rem;
 
     border: 1px solid transparent;
@@ -418,7 +413,7 @@ button {
 
 
 /* =========================================================
-   SECTIONS
+   GENERAL SECTIONS
 ========================================================= */
 
 .section {
@@ -484,11 +479,12 @@ button {
 
     box-shadow:
         0 35px 110px rgba(0,0,0,.58);
+
+    transition: transform .18s ease-out;
 }
 
 .art-reflection {
     position: absolute;
-
     inset: 0;
 
     pointer-events: none;
@@ -591,47 +587,66 @@ button {
    COMING SOON
 ========================================================= */
 
+.next-section {
+    padding-top: 130px;
+    padding-bottom: 130px;
+}
+
 .coming-wrap {
-    max-width: 1050px;
+    max-width: 1080px;
 
     margin: 0 auto;
 
     display: grid;
 
     grid-template-columns:
-        minmax(320px,1fr)
-        minmax(300px,.78fr);
+        minmax(320px,.9fr)
+        minmax(320px,1.1fr);
 
-    gap: clamp(60px,8vw,100px);
+    gap: clamp(60px,9vw,120px);
 
     align-items: center;
 }
 
+.coming-copy {
+    text-align: left;
+}
+
+.coming-copy .eyebrow {
+    margin-bottom: 20px;
+}
+
 .coming-date {
+    margin: 0 0 12px;
+
     color: var(--gold);
 
     text-transform: uppercase;
 
     letter-spacing: .22em;
-
     font-size: .65rem;
 }
 
 .coming-copy h2 {
     margin: 0;
 
-    font-family: Georgia, serif;
+    font-family: Georgia, "Times New Roman", serif;
 
     font-weight: 400;
 
-    font-size: clamp(4rem,7vw,7rem);
+    font-size: clamp(4rem,7vw,7.2rem);
 
     line-height: .94;
+
+    letter-spacing: -.02em;
+}
+
+.coming-copy .release-copy {
+    margin: 28px 0 24px;
 }
 
 .coming-media {
     width: 100%;
-
     max-width: 360px;
 
     margin: 0 auto;
@@ -642,13 +657,19 @@ button {
     gap: 14px;
 }
 
+.coming-art {
+    perspective: 1100px;
+}
+
 .coming-art img {
     aspect-ratio: 1;
 
     object-fit: cover;
 
     box-shadow:
-        0 28px 80px rgba(0,0,0,.48);
+        0 35px 110px rgba(0,0,0,.55);
+
+    transition: transform .18s ease-out;
 }
 
 .coming-presave {
@@ -668,7 +689,7 @@ button {
 
     width: fit-content;
 
-    margin-top: 26px;
+    margin-top: 25px;
 
     padding: 13px 2px 14px;
 
@@ -697,6 +718,15 @@ button {
    DISCOGRAPHY
 ========================================================= */
 
+.discography-section {
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(255,255,255,.01),
+            transparent
+        );
+}
+
 .discography-grid {
     max-width: 980px;
 
@@ -713,7 +743,9 @@ button {
 .discography-card {
     display: grid;
 
-    grid-template-columns: 150px 1fr;
+    grid-template-columns:
+        150px
+        1fr;
 
     gap: 24px;
 
@@ -723,7 +755,8 @@ button {
 
     border: 1px solid var(--line);
 
-    background: rgba(255,255,255,.015);
+    background:
+        rgba(255,255,255,.015);
 }
 
 .discography-art img {
@@ -733,12 +766,13 @@ button {
 }
 
 .discography-meta {
+    margin: 0 0 9px;
+
     color: var(--gold);
 
     text-transform: uppercase;
 
     letter-spacing: .18em;
-
     font-size: .58rem;
 }
 
@@ -821,7 +855,6 @@ button {
     text-transform: uppercase;
 
     letter-spacing: .14em;
-
     font-size: .61rem;
 
     cursor: pointer;
@@ -847,7 +880,6 @@ button {
     align-items: end;
 
     padding-bottom: 22px;
-
     margin-bottom: 34px;
 
     border-bottom: 1px solid var(--line);
@@ -871,7 +903,6 @@ button {
 
 .lyric-block {
     padding-bottom: 34px;
-
     margin-bottom: 34px;
 
     border-bottom: 1px solid var(--line);
@@ -899,6 +930,24 @@ button {
 
 .lyrics-coming {
     padding: 80px 0;
+}
+
+.lyrics-coming h3 {
+    margin: 6px 0 18px;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(2.7rem,5vw,4.6rem);
+
+    font-weight: 400;
+}
+
+.lyrics-coming > p:not(.eyebrow) {
+    color: var(--muted);
+
+    font-family: Georgia, serif;
+
+    margin-bottom: 30px;
 }
 
 
@@ -959,6 +1008,10 @@ button {
     color: var(--muted);
 }
 
+.about-copy .contact a {
+    color: var(--ink);
+}
+
 
 /* =========================================================
    VISUALS
@@ -969,7 +1022,7 @@ button {
 }
 
 .visuals-heading {
-    padding-bottom: 55px;
+    padding: 0 20px 55px;
 
     text-align: center;
 }
@@ -978,9 +1031,11 @@ button {
     display: grid;
 
     grid-template-columns:
-        repeat(2,1fr);
+        repeat(3,1fr);
 
     gap: 1px;
+
+    background: var(--line);
 }
 
 .visual-panel {
@@ -991,12 +1046,20 @@ button {
     aspect-ratio: 1;
 
     overflow: hidden;
+
+    background: #080808;
 }
 
 .visual-panel img {
     height: 100%;
 
     object-fit: cover;
+
+    transition: transform .7s ease;
+}
+
+.visual-panel:hover img {
+    transform: scale(1.025);
 }
 
 .visual-panel figcaption {
@@ -1004,6 +1067,10 @@ button {
 
     left: 22px;
     bottom: 20px;
+
+    padding: 8px 10px;
+
+    background: rgba(0,0,0,.28);
 
     font-size: .61rem;
 
@@ -1050,6 +1117,18 @@ button {
     letter-spacing: .15em;
 
     font-size: .74rem;
+
+    transition:
+        padding .25s ease,
+        background .25s ease;
+}
+
+.social-grid a:hover {
+    padding-left: 20px;
+    padding-right: 20px;
+
+    background:
+        rgba(255,255,255,.025);
 }
 
 
@@ -1118,7 +1197,11 @@ button {
         drop-shadow(0 0 18px rgba(181,135,80,.36))
         drop-shadow(0 0 36px rgba(181,135,80,.20));
 
-    animation: footerGlow 4s ease-in-out infinite;
+    animation:
+        footerGlow
+        4s
+        ease-in-out
+        infinite;
 }
 
 .footer-copy {
@@ -1139,7 +1222,7 @@ button {
 
 
 /* =========================================================
-   REVEALS
+   REVEAL ANIMATION
 ========================================================= */
 
 .reveal {
@@ -1149,7 +1232,7 @@ button {
 
     transition:
         opacity .8s ease,
-        transform .8s ease;
+        transform .8s cubic-bezier(.2,.7,.2,1);
 }
 
 .reveal.visible {
@@ -1179,7 +1262,7 @@ body.fall-era .hero-bg {
 
 
 /* =========================================================
-   FALL SKY
+   FALL HERO WORLD
 ========================================================= */
 
 body.fall-era .fall-hero-world {
@@ -1197,11 +1280,14 @@ body.fall-era .fall-hero-world {
         linear-gradient(
             to bottom,
             #061328 0%,
-            #0a1d36 34%,
-            #112d49 68%,
+            #0a1d36 32%,
+            #112d49 67%,
             #07131f 100%
         );
 }
+
+
+/* SKY BASE */
 
 body.fall-era .fall-sky {
     position: absolute;
@@ -1236,9 +1322,9 @@ body.fall-era .stars {
     opacity: .62;
 
     background:
-        radial-gradient(circle at 7% 18%, #fff 0 1px, transparent 1.7px),
-        radial-gradient(circle at 15% 38%, #fff 0 1px, transparent 1.7px),
-        radial-gradient(circle at 24% 22%, #fff 0 1px, transparent 1.7px),
+        radial-gradient(circle at 6% 15%, #fff 0 1px, transparent 1.7px),
+        radial-gradient(circle at 14% 39%, #fff 0 1px, transparent 1.7px),
+        radial-gradient(circle at 23% 22%, #fff 0 1px, transparent 1.7px),
         radial-gradient(circle at 31% 11%, #fff 0 1px, transparent 1.7px),
         radial-gradient(circle at 40% 31%, #fff 0 1px, transparent 1.7px),
         radial-gradient(circle at 50% 16%, #fff 0 1px, transparent 1.7px),
@@ -1256,7 +1342,7 @@ body.fall-era .stars {
 
 
 /* =========================================================
-   CLOUDS
+   BACKGROUND CLOUDS
 ========================================================= */
 
 body.fall-era .cloud {
@@ -1350,22 +1436,22 @@ body.fall-era .cloud-four {
 
 
 /* =========================================================
-   SKYWRITING SVG
+   SKYWRITING
 ========================================================= */
 
 body.fall-era .skywriting-scene {
     position: absolute;
 
-    top: 11%;
+    top: 8%;
     left: 50%;
 
-    width: min(92vw, 1180px);
+    width: min(94vw,1200px);
+
+    z-index: 8;
 
     transform:
         translateX(-50%)
-        rotate(-2.5deg);
-
-    z-index: 8;
+        rotate(-2deg);
 
     pointer-events: none;
 }
@@ -1381,7 +1467,7 @@ body.fall-era .skywriting-svg {
 
 
 /* =========================================================
-   CLOUD WRITING
+   CLOUD HANDWRITING
 ========================================================= */
 
 body.fall-era .cloud-writing-path,
@@ -1391,39 +1477,30 @@ body.fall-era .cloud-writing-haze {
     stroke-linecap: round;
     stroke-linejoin: round;
 
-    stroke-dasharray: 1;
-    stroke-dashoffset: 1;
+    opacity: 0;
 }
-
-
-/* actual visible writing */
 
 body.fall-era .cloud-writing-path {
     stroke:
-        rgba(239,245,253,.92);
+        rgba(240,246,253,.92);
 
-    stroke-width: 6.5;
+    stroke-width: 6;
 
     filter:
         url(#cloud-softness)
         drop-shadow(
             0 0 4px
-            rgba(245,249,255,.48)
+            rgba(245,249,255,.52)
         )
         drop-shadow(
-            0 0 10px
-            rgba(217,231,247,.40)
+            0 0 11px
+            rgba(217,231,247,.42)
         )
         drop-shadow(
-            0 0 22px
+            0 0 23px
             rgba(183,208,237,.28)
         );
-
-    opacity: .94;
 }
-
-
-/* soft vapor around writing */
 
 body.fall-era .cloud-writing-haze {
     stroke:
@@ -1434,7 +1511,7 @@ body.fall-era .cloud-writing-haze {
     filter:
         url(#cloud-haze);
 
-    opacity: .52;
+    opacity: 0;
 }
 
 
@@ -1453,12 +1530,14 @@ body.fall-era .tracing-plane {
         );
 }
 
-body.fall-era .plane-shape {
+body.fall-era .plane-body,
+body.fall-era .plane-wing,
+body.fall-era .plane-tail {
     fill:
-        rgba(240,246,253,.96);
+        rgba(240,246,253,.97);
 
     stroke:
-        rgba(255,255,255,.30);
+        rgba(255,255,255,.28);
 
     stroke-width: .7;
 
@@ -1468,7 +1547,7 @@ body.fall-era .plane-shape {
 
 
 /* =========================================================
-   CITY
+   FALL CITY
 ========================================================= */
 
 body.fall-era .city {
@@ -1554,58 +1633,63 @@ body.fall-era .city {
 
         100% 100%
     );
-
-    filter:
-        drop-shadow(
-            0 -8px 24px
-            rgba(0,0,0,.35)
-        );
 }
 
 
-/* CITY LIGHTS */
+/* =========================================================
+   CITY LIGHTS
+========================================================= */
 
 body.fall-era .city::before {
     content: "";
 
     position: absolute;
 
-    inset: 25% 0 3%;
+    inset: 24% 0 2%;
 
     background:
-        radial-gradient(circle at 2% 71%, rgba(255,209,120,.94) 0 1.2px, transparent 1.9px),
-        radial-gradient(circle at 5% 58%, rgba(255,228,157,.75) 0 1px, transparent 1.8px),
-        radial-gradient(circle at 8% 69%, rgba(255,192,94,.92) 0 1.2px, transparent 1.9px),
-        radial-gradient(circle at 11% 49%, rgba(255,224,149,.96) 0 1.3px, transparent 2px),
-        radial-gradient(circle at 15% 67%, rgba(255,202,107,.85) 0 1px, transparent 1.8px),
-        radial-gradient(circle at 18% 52%, rgba(255,229,161,.88) 0 1.2px, transparent 2px),
-        radial-gradient(circle at 22% 71%, rgba(255,195,95,.90) 0 1.2px, transparent 1.9px),
-        radial-gradient(circle at 26% 47%, rgba(255,226,151,.96) 0 1.3px, transparent 2px),
-        radial-gradient(circle at 30% 66%, rgba(255,202,106,.87) 0 1.1px, transparent 1.9px),
-        radial-gradient(circle at 34% 38%, rgba(255,231,163,.96) 0 1.4px, transparent 2px),
-        radial-gradient(circle at 38% 62%, rgba(255,193,92,.84) 0 1px, transparent 1.8px),
-        radial-gradient(circle at 42% 47%, rgba(255,224,149,.93) 0 1.3px, transparent 2px),
-        radial-gradient(circle at 46% 66%, rgba(255,201,103,.85) 0 1.1px, transparent 1.9px),
-        radial-gradient(circle at 50% 39%, rgba(255,228,155,.97) 0 1.4px, transparent 2px),
-        radial-gradient(circle at 54% 59%, rgba(255,201,104,.86) 0 1.1px, transparent 1.9px),
-        radial-gradient(circle at 58% 46%, rgba(255,229,159,.94) 0 1.3px, transparent 2px),
-        radial-gradient(circle at 62% 70%, rgba(255,193,92,.87) 0 1px, transparent 1.8px),
-        radial-gradient(circle at 66% 44%, rgba(255,226,150,.96) 0 1.3px, transparent 2px),
-        radial-gradient(circle at 70% 59%, rgba(255,204,109,.89) 0 1.2px, transparent 2px),
-        radial-gradient(circle at 74% 38%, rgba(255,230,161,.96) 0 1.4px, transparent 2px),
-        radial-gradient(circle at 78% 64%, rgba(255,195,95,.91) 0 1.1px, transparent 1.9px),
-        radial-gradient(circle at 82% 48%, rgba(255,226,151,.94) 0 1.3px, transparent 2px),
-        radial-gradient(circle at 86% 68%, rgba(255,200,101,.88) 0 1.1px, transparent 1.9px),
-        radial-gradient(circle at 90% 51%, rgba(255,228,157,.96) 0 1.3px, transparent 2px),
-        radial-gradient(circle at 94% 70%, rgba(255,193,93,.85) 0 1px, transparent 1.8px),
-        radial-gradient(circle at 97% 54%, rgba(255,229,158,.96) 0 1.3px, transparent 2px);
+
+        radial-gradient(circle at 2% 71%, rgba(255,209,120,.95) 0 1.4px, transparent 2px),
+        radial-gradient(circle at 5% 58%, rgba(255,228,157,.80) 0 1px, transparent 1.8px),
+        radial-gradient(circle at 8% 69%, rgba(255,192,94,.94) 0 1.3px, transparent 2px),
+
+        radial-gradient(circle at 11% 49%, rgba(255,224,149,.98) 0 1.4px, transparent 2px),
+        radial-gradient(circle at 15% 67%, rgba(255,202,107,.90) 0 1.1px, transparent 1.9px),
+        radial-gradient(circle at 18% 52%, rgba(255,229,161,.94) 0 1.3px, transparent 2px),
+
+        radial-gradient(circle at 22% 71%, rgba(255,195,95,.93) 0 1.3px, transparent 2px),
+        radial-gradient(circle at 26% 47%, rgba(255,226,151,.98) 0 1.4px, transparent 2px),
+        radial-gradient(circle at 30% 66%, rgba(255,202,106,.92) 0 1.2px, transparent 2px),
+
+        radial-gradient(circle at 34% 38%, rgba(255,231,163,.98) 0 1.5px, transparent 2.1px),
+        radial-gradient(circle at 38% 62%, rgba(255,193,92,.90) 0 1.1px, transparent 1.9px),
+        radial-gradient(circle at 42% 47%, rgba(255,224,149,.97) 0 1.4px, transparent 2px),
+
+        radial-gradient(circle at 46% 66%, rgba(255,201,103,.92) 0 1.2px, transparent 2px),
+        radial-gradient(circle at 50% 39%, rgba(255,228,155,.98) 0 1.5px, transparent 2.1px),
+        radial-gradient(circle at 54% 59%, rgba(255,201,104,.92) 0 1.2px, transparent 2px),
+
+        radial-gradient(circle at 58% 46%, rgba(255,229,159,.97) 0 1.4px, transparent 2px),
+        radial-gradient(circle at 62% 70%, rgba(255,193,92,.92) 0 1.2px, transparent 2px),
+        radial-gradient(circle at 66% 44%, rgba(255,226,150,.98) 0 1.4px, transparent 2px),
+
+        radial-gradient(circle at 70% 59%, rgba(255,204,109,.94) 0 1.3px, transparent 2px),
+        radial-gradient(circle at 74% 38%, rgba(255,230,161,.98) 0 1.5px, transparent 2.1px),
+        radial-gradient(circle at 78% 64%, rgba(255,195,95,.95) 0 1.2px, transparent 2px),
+
+        radial-gradient(circle at 82% 48%, rgba(255,226,151,.98) 0 1.4px, transparent 2px),
+        radial-gradient(circle at 86% 68%, rgba(255,200,101,.93) 0 1.2px, transparent 2px),
+        radial-gradient(circle at 90% 51%, rgba(255,228,157,.98) 0 1.4px, transparent 2px),
+
+        radial-gradient(circle at 94% 70%, rgba(255,193,93,.91) 0 1.1px, transparent 1.9px),
+        radial-gradient(circle at 97% 54%, rgba(255,229,158,.98) 0 1.4px, transparent 2px);
 
     opacity: .95;
 
     filter:
         drop-shadow(
             0 0 4px
-            rgba(255,194,95,.42)
+            rgba(255,194,95,.50)
         );
 
     animation:
@@ -1689,27 +1773,16 @@ body.fall-era .water-glow::before {
     background:
         linear-gradient(
             90deg,
-
             transparent 0%,
-
             rgba(255,190,100,.05) 8%,
-
             transparent 15%,
-
             rgba(255,215,135,.06) 26%,
-
             transparent 34%,
-
             rgba(255,195,105,.05) 48%,
-
             transparent 57%,
-
             rgba(255,216,140,.06) 71%,
-
             transparent 80%,
-
             rgba(255,190,105,.05) 92%,
-
             transparent 100%
         );
 
@@ -1734,19 +1807,15 @@ body.fall-era .hero-shade {
     background:
         linear-gradient(
             to bottom,
-
             rgba(2,7,15,.01),
-
             rgba(2,7,15,.025) 42%,
-
             rgba(3,8,15,.11) 73%,
-
             #06101d 100%
         );
 }
 
 
-/* HERO COPY LOWER */
+/* KEEP HERO COPY VISIBLE */
 
 body.fall-era .hero-copy {
     padding-top: 61vh;
@@ -1754,7 +1823,7 @@ body.fall-era .hero-copy {
 
 
 /* =========================================================
-   FALL ERA SECTIONS
+   FALL LOWER SECTIONS
 ========================================================= */
 
 body.fall-era .section,
@@ -1790,6 +1859,10 @@ body.fall-era .site-header {
         );
 }
 
+body.fall-era .site-footer {
+    background: #06101d;
+}
+
 
 /* =========================================================
    ANIMATIONS
@@ -1797,8 +1870,7 @@ body.fall-era .site-header {
 
 @keyframes listenMove {
     to {
-        transform:
-            translateX(-50%);
+        transform: translateX(-50%);
     }
 }
 
@@ -1912,15 +1984,13 @@ body.fall-era .site-header {
     from {
         opacity: .55;
 
-        transform:
-            translateX(-1%);
+        transform: translateX(-1%);
     }
 
     to {
         opacity: .88;
 
-        transform:
-            translateX(1%);
+        transform: translateX(1%);
     }
 
 }
@@ -1950,13 +2020,13 @@ body.fall-era .site-header {
     }
 
     .site-nav a {
+        width: 100%;
+
         padding: 18px;
 
         text-align: center;
 
-        border-top:
-            1px solid
-            var(--line);
+        border-top: 1px solid var(--line);
     }
 
     .menu-toggle {
@@ -1967,14 +2037,24 @@ body.fall-era .site-header {
     .release-feature,
     .about-grid,
     .coming-wrap {
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
+
+        gap: 42px;
     }
 
     .release-info,
-    .about-copy,
-    .coming-copy {
+    .about-copy {
         text-align: center;
+    }
+
+    .coming-copy {
+        order: 2;
+
+        text-align: center;
+    }
+
+    .coming-media {
+        order: 1;
     }
 
     .release-copy {
@@ -1993,13 +2073,15 @@ body.fall-era .site-header {
     }
 
     .discography-grid {
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
     }
 
     .lyrics-section {
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
+    }
+
+    .lyrics-sticky {
+        padding: 90px 24px 35px;
     }
 
     .lyrics-sticky .section-title {
@@ -2009,19 +2091,22 @@ body.fall-era .site-header {
     }
 
     .lyrics-panel {
+        padding: 55px 24px 90px;
+
         border-left: 0;
+
+        border-top: 1px solid var(--line);
     }
 
     .visual-strip {
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
     }
 
 
     body.fall-era .skywriting-scene {
-        top: 13%;
+        top: 11%;
 
-        width: 96vw;
+        width: 98vw;
     }
 
     body.fall-era .hero-copy {
@@ -2038,13 +2123,11 @@ body.fall-era .site-header {
 @media (max-width: 620px) {
 
     .site-header {
-        padding:
-            0 20px;
+        padding: 0 20px;
     }
 
     .section {
-        padding:
-            90px 20px;
+        padding: 90px 20px;
     }
 
     .cursor-glow {
@@ -2052,49 +2135,55 @@ body.fall-era .site-header {
     }
 
     .hero-actions {
-        flex-direction:
-            column;
+        flex-direction: column;
 
-        width:
-            min(340px,100%);
+        width: min(340px,100%);
+
+        margin: auto;
     }
 
     .hero-actions .button {
         width: 100%;
     }
 
+
     .coming-media {
-        max-width:
-            310px;
+        max-width: 310px;
     }
 
-    .discography-card {
-        grid-template-columns:
-            105px 1fr;
-    }
 
     .fim-countdown {
         gap: 8px;
     }
 
     .fim-countdown > span:not(.fim-dot) {
-        min-width:
-            38px;
+        min-width: 38px;
 
-        font-size:
-            1.7rem;
+        font-size: 1.7rem;
     }
 
+
+    .discography-card {
+        grid-template-columns:
+            105px
+            1fr;
+    }
+
+
+    .lyrics-tabs {
+        overflow-x: auto;
+    }
+
+
     .footer-logo {
-        width:
-            min(270px,88vw);
+        width: min(270px,88vw);
     }
 
 
     body.fall-era .skywriting-scene {
-        top: 15%;
+        top: 13%;
 
-        width: 112vw;
+        width: 116vw;
 
         transform:
             translateX(-50%)
@@ -2102,7 +2191,7 @@ body.fall-era .site-header {
     }
 
     body.fall-era .cloud-writing-path {
-        stroke-width: 7.5;
+        stroke-width: 7;
     }
 
     body.fall-era .cloud-writing-haze {
@@ -2131,7 +2220,7 @@ body.fall-era .site-header {
     }
 
     body.fall-era .hero-copy {
-        padding-top: 63vh;
+        padding-top: 64vh;
     }
 
 }
@@ -2148,22 +2237,23 @@ body.fall-era .site-header {
     *::after {
         animation: none !important;
         transition: none !important;
+
+        scroll-behavior: auto !important;
     }
 
     .reveal {
         opacity: 1;
+
         transform: none;
     }
 
-
     body.fall-era .cloud-writing-path,
     body.fall-era .cloud-writing-haze {
-        stroke-dasharray: none;
-        stroke-dashoffset: 0;
+        opacity: .9;
     }
 
     body.fall-era .tracing-plane {
-        opacity: .9;
+        opacity: 0;
     }
 
 }
