@@ -2,7 +2,16 @@ const $ = (s, scope = document) => scope.querySelector(s);
 const $$ = (s, scope = document) => [...scope.querySelectorAll(s)];
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+// ========================================
+// PRIVATE FALL INTO ME PREVIEW
+// ========================================
 
+const siteParams = new URLSearchParams(window.location.search);
+const fallPreviewMode = siteParams.get('fallpreview') === '1';
+
+if (fallPreviewMode) {
+    document.body.classList.add('fall-era');
+}
 // Scroll reveal
 if (!reducedMotion) {
     const observer = new IntersectionObserver((entries) => {
