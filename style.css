@@ -610,99 +610,42 @@ button {
 
 
 /* =========================================================
-   FALL INTO ME — COMING SOON
+   FALL INTO ME COVER + PRE-SAVE
 ========================================================= */
-
-.next-section {
-    padding-top: 130px;
-    padding-bottom: 130px;
-}
-
-.coming-wrap {
-    max-width: 1080px;
-
-    margin: 0 auto;
-
-    display: grid;
-
-    grid-template-columns:
-        minmax(320px,.9fr)
-        minmax(360px,1.1fr);
-
-    gap: clamp(60px,9vw,120px);
-
-    align-items: center;
-}
-
-.coming-copy {
-    text-align: left;
-}
-
-.coming-copy .eyebrow {
-    margin-bottom: 20px;
-}
-
-.coming-date {
-    margin: 0 0 12px;
-
-    color: var(--gold);
-
-    text-transform: uppercase;
-
-    letter-spacing: .22em;
-    font-size: .65rem;
-}
-
-.coming-copy h2 {
-    margin: 0;
-
-    font-family: Georgia, "Times New Roman", serif;
-
-    font-weight: 400;
-
-    font-size: clamp(4rem,7vw,7.2rem);
-
-    line-height: .94;
-
-    letter-spacing: -.02em;
-}
-
-.coming-copy .release-copy {
-    margin: 28px 0 26px;
-}
 
 .coming-media {
     width: 100%;
+    max-width: 440px;
+
+    margin: 0 auto;
 
     display: flex;
     flex-direction: column;
 
-    align-items: stretch;
-
-    gap: 22px;
+    gap: 16px;
 }
 
 .coming-art {
-    perspective: 1100px;
+    width: 100%;
+    margin: 0;
 }
 
 .coming-art img {
+    display: block;
+
+    width: 100%;
     aspect-ratio: 1 / 1;
 
     object-fit: cover;
 
     box-shadow:
-        0 35px 110px rgba(0,0,0,.55);
-
-    transition: transform .18s ease-out;
-
-    transform-style: preserve-3d;
+        0 30px 90px rgba(0,0,0,.55);
 }
 
 .coming-presave {
     width: 100%;
+    margin: 0;
 }
-
 
 /* =========================================================
    MINIMAL COUNTDOWN
@@ -1182,31 +1125,28 @@ button {
 
 /* =========================================================
    FOOTER
-   CENTERED + GLOWING ON ALL DEVICES
 ========================================================= */
 
 .site-footer {
     position: relative;
 
     width: 100%;
+    min-height: 280px;
 
-    min-height: 300px;
-
-    padding: 52px 20px 28px;
+    padding: 40px 20px 28px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    gap: 4px;
-
     overflow: hidden;
-
-    border: 0;
 
     background: #080808;
 }
+
+
+/* ambient glow */
 
 .site-footer::before {
     content: "";
@@ -1214,34 +1154,37 @@ button {
     position: absolute;
 
     left: 50%;
-    top: 50%;
+    top: 48%;
 
-    width: min(720px,110vw);
-    height: 260px;
+    width: min(650px, 110vw);
+    height: 220px;
 
-    transform: translate(-50%,-47%);
+    transform: translate(-50%, -50%);
 
     background:
         radial-gradient(
             ellipse,
-            rgba(181,135,80,.12) 0%,
-            rgba(181,135,80,.06) 32%,
-            rgba(181,135,80,.02) 52%,
-            transparent 74%
+            rgba(181,135,80,.16),
+            rgba(181,135,80,.07) 35%,
+            transparent 72%
         );
 
-    filter: blur(22px);
+    filter: blur(24px);
 
     pointer-events: none;
 }
 
+
+/* centered crop window */
+
 .footer-logo-window {
     position: relative;
-
     z-index: 2;
 
-    width: min(430px, 92vw);
-    height: 180px;
+    width: 360px;
+    max-width: 92vw;
+
+    height: 150px;
 
     margin: 0 auto;
 
@@ -1249,40 +1192,49 @@ button {
     align-items: center;
     justify-content: center;
 
-    overflow: visible;
+    overflow: hidden;
 }
 
+
+/* actual watermark */
+
 .footer-logo {
-    width: min(390px, 86vw);
-    height: auto;
+    position: absolute;
 
-    margin: 0 auto;
+    width: 430px;
+    max-width: none;
 
-    opacity: .94;
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        translateX(-78px);
+
+    opacity: .96;
 
     mix-blend-mode: screen;
 
     filter:
-        drop-shadow(0 0 7px rgba(255,225,170,.42))
-        drop-shadow(0 0 18px rgba(181,135,80,.36))
-        drop-shadow(0 0 34px rgba(181,135,80,.22));
+        drop-shadow(0 0 8px rgba(255,228,180,.55))
+        drop-shadow(0 0 20px rgba(181,135,80,.45))
+        drop-shadow(0 0 40px rgba(181,135,80,.24));
 
-    animation:
-        footerGlow 4s ease-in-out infinite;
+    animation: footerGlow 4s ease-in-out infinite;
 }
+
 
 .footer-copy {
     position: relative;
-
-    z-index: 2;
+    z-index: 3;
 
     width: 100%;
 
-    margin: 0;
+    margin: 4px 0 0;
 
     text-align: center;
 
-    color: rgba(214,200,181,.70);
+    color: rgba(214,200,181,.72);
 
     text-transform: uppercase;
 
@@ -1291,6 +1243,47 @@ button {
     font-size: .58rem;
 }
 
+
+@keyframes footerGlow {
+
+    0%,
+    100% {
+        filter:
+            drop-shadow(0 0 7px rgba(255,228,180,.42))
+            drop-shadow(0 0 17px rgba(181,135,80,.34))
+            drop-shadow(0 0 32px rgba(181,135,80,.18));
+    }
+
+    50% {
+        filter:
+            drop-shadow(0 0 11px rgba(255,228,180,.70))
+            drop-shadow(0 0 27px rgba(181,135,80,.55))
+            drop-shadow(0 0 48px rgba(181,135,80,.30));
+    }
+}
+
+
+@media (max-width: 620px) {
+
+    .site-footer {
+        min-height: 240px;
+
+        padding: 30px 16px 22px;
+    }
+
+    .footer-logo-window {
+        width: 300px;
+        height: 130px;
+    }
+
+    .footer-logo {
+        width: 360px;
+
+        transform:
+            translate(-50%, -50%)
+            translateX(-64px);
+    }
+}
 
 /* =========================================================
    REVEALS
