@@ -2246,3 +2246,573 @@ button {
         font-size: 0.42rem;
     }
 }
+/* ========================================
+   FALL INTO ME — FINAL ERA OVERRIDE
+   Preview with ?fallpreview=1
+======================================== */
+
+
+/* ---------- COLOR WORLD ---------- */
+
+body.fall-era {
+    --bg: #07111f;
+    --ink: #eef4ff;
+    --muted: #9da9bc;
+    --gold: #c8ad83;
+    --line: rgba(205, 220, 245, 0.10);
+
+    background: #07111f;
+    color: var(--ink);
+}
+
+
+/* ---------- HERO ---------- */
+
+body.fall-era .hero {
+    position: relative;
+    overflow: hidden;
+    background: #07111f;
+}
+
+body.fall-era .hero-bg {
+    inset: -4%;
+
+    background:
+        url("assets/images/fall-into-me-cover.png")
+        center 58% / cover
+        no-repeat;
+
+    transform: scale(1.06);
+
+    filter:
+        brightness(0.76)
+        saturate(0.95)
+        contrast(1.05);
+
+    animation: fimHeroDrift 24s ease-in-out infinite alternate;
+}
+
+body.fall-era .hero-shade {
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(4, 10, 20, 0.12) 0%,
+            rgba(4, 10, 20, 0.18) 40%,
+            rgba(5, 12, 24, 0.52) 76%,
+            #07111f 100%
+        ),
+        radial-gradient(
+            ellipse at 50% 32%,
+            rgba(120, 155, 215, 0.14),
+            transparent 50%
+        );
+}
+
+
+/* ---------- MOVING CLOUDS ---------- */
+
+body.fall-era .hero-shade::before {
+    content: "";
+
+    position: absolute;
+    inset: -12%;
+
+    background:
+        radial-gradient(
+            ellipse at 18% 32%,
+            rgba(165, 185, 225, 0.10),
+            transparent 30%
+        ),
+        radial-gradient(
+            ellipse at 50% 20%,
+            rgba(145, 168, 215, 0.09),
+            transparent 34%
+        ),
+        radial-gradient(
+            ellipse at 82% 38%,
+            rgba(128, 154, 202, 0.10),
+            transparent 32%
+        ),
+        radial-gradient(
+            ellipse at 60% 65%,
+            rgba(90, 115, 165, 0.08),
+            transparent 36%
+        );
+
+    filter: blur(28px);
+
+    opacity: 0.70;
+
+    animation: fimCloudDrift 30s ease-in-out infinite alternate;
+
+    pointer-events: none;
+}
+
+body.fall-era .hero-shade::after {
+    content: "";
+
+    position: absolute;
+    inset: -16%;
+
+    background:
+        radial-gradient(
+            ellipse at 30% 58%,
+            rgba(95, 122, 170, 0.08),
+            transparent 40%
+        ),
+        radial-gradient(
+            ellipse at 72% 54%,
+            rgba(108, 136, 188, 0.07),
+            transparent 42%
+        );
+
+    filter: blur(38px);
+
+    opacity: 0.48;
+
+    animation: fimCloudDriftSlow 44s ease-in-out infinite alternate;
+
+    pointer-events: none;
+}
+
+
+/* ---------- CITY LIGHT SPARKLE ---------- */
+
+body.fall-era .hero::before,
+body.fall-era .hero::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+body.fall-era .hero::before {
+    background:
+        radial-gradient(circle at 14% 79%, rgba(255, 219, 156, .95) 0 1px, transparent 2px),
+        radial-gradient(circle at 20% 82%, rgba(255, 210, 138, .80) 0 1px, transparent 2px),
+        radial-gradient(circle at 27% 78%, rgba(255, 230, 180, .90) 0 1px, transparent 2px),
+        radial-gradient(circle at 35% 81%, rgba(255, 205, 126, .82) 0 1px, transparent 2px),
+        radial-gradient(circle at 43% 77%, rgba(255, 226, 171, .95) 0 1px, transparent 2px),
+        radial-gradient(circle at 52% 80%, rgba(255, 212, 145, .88) 0 1px, transparent 2px),
+        radial-gradient(circle at 60% 76%, rgba(255, 227, 165, .92) 0 1px, transparent 2px),
+        radial-gradient(circle at 68% 82%, rgba(255, 205, 122, .80) 0 1px, transparent 2px),
+        radial-gradient(circle at 76% 78%, rgba(255, 230, 178, .90) 0 1px, transparent 2px),
+        radial-gradient(circle at 84% 81%, rgba(255, 215, 145, .88) 0 1px, transparent 2px);
+
+    opacity: 0.60;
+
+    animation: fimCitySparkle 4.8s ease-in-out infinite;
+}
+
+body.fall-era .hero::after {
+    background:
+        radial-gradient(circle at 22% 19%, rgba(235,245,255,.72) 0 1px, transparent 2px),
+        radial-gradient(circle at 36% 13%, rgba(235,245,255,.55) 0 1px, transparent 2px),
+        radial-gradient(circle at 48% 24%, rgba(235,245,255,.72) 0 1px, transparent 2px),
+        radial-gradient(circle at 62% 16%, rgba(235,245,255,.60) 0 1px, transparent 2px),
+        radial-gradient(circle at 74% 25%, rgba(235,245,255,.68) 0 1px, transparent 2px);
+
+    opacity: 0.30;
+
+    animation: fimStarPulse 6s ease-in-out infinite;
+}
+
+
+/* ---------- FALL ERA SECTIONS ---------- */
+
+body.fall-era .section,
+body.fall-era .lyrics-section,
+body.fall-era .visuals-section,
+body.fall-era .connect-section,
+body.fall-era .site-footer {
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(6, 14, 28, 0.90),
+            rgba(5, 12, 24, 0.97)
+        );
+}
+
+body.fall-era .lyrics-panel {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(10, 22, 40, 0.94),
+            rgba(5, 12, 24, 0.98)
+        );
+
+    border-left-color: rgba(205, 220, 245, 0.09);
+}
+
+body.fall-era .section,
+body.fall-era .lyrics-section,
+body.fall-era .visuals-section {
+    border-color: rgba(205, 220, 245, 0.08);
+}
+
+body.fall-era .social-grid,
+body.fall-era .social-grid a,
+body.fall-era .lyric-block {
+    border-color: rgba(205, 220, 245, 0.08);
+}
+
+
+/* ---------- BUTTONS / TEXT ---------- */
+
+body.fall-era .eyebrow {
+    color: var(--gold);
+}
+
+body.fall-era .button-light {
+    background: rgba(238, 244, 255, 0.92);
+    color: #07111f;
+    border-color: rgba(238, 244, 255, 0.92);
+}
+
+body.fall-era .button-light:hover {
+    background: transparent;
+    color: var(--ink);
+}
+
+body.fall-era .button-outline {
+    background: rgba(8, 18, 35, 0.26);
+    border-color: rgba(205, 220, 245, 0.28);
+}
+
+
+/* ---------- COVER ART GLOW ---------- */
+
+body.fall-era .release-art img,
+body.fall-era .coming-art img {
+    box-shadow:
+        0 35px 110px rgba(0, 0, 0, 0.50),
+        0 0 75px rgba(90, 130, 195, 0.13);
+}
+
+
+/* ========================================
+   FALL INTO ME — CLEAN COUNTDOWN
+======================================== */
+
+
+/*
+   IMPORTANT:
+   This assumes your countdown HTML has:
+
+   #countdown-days
+   #countdown-hours
+   #countdown-minutes
+   #countdown-seconds
+*/
+
+.fim-countdown {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(56px, 1fr));
+
+    gap: 0;
+
+    width: min(470px, 100%);
+
+    margin: 34px 0 36px;
+
+    padding: 18px 0;
+
+    border-top:
+        1px solid rgba(181, 135, 80, 0.24);
+
+    border-bottom:
+        1px solid rgba(181, 135, 80, 0.12);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(181, 135, 80, 0.025),
+            transparent
+        );
+}
+
+.fim-time-unit {
+    position: relative;
+
+    text-align: center;
+}
+
+.fim-time-unit:not(:last-child)::after {
+    content: "";
+
+    position: absolute;
+
+    top: 10px;
+    right: 0;
+
+    width: 1px;
+    height: 42px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            rgba(181, 135, 80, 0.30),
+            transparent
+        );
+}
+
+.fim-time-unit span {
+    display: block;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(
+            2.1rem,
+            4vw,
+            3rem
+        );
+
+    line-height: 1;
+
+    color: var(--ink);
+
+    font-variant-numeric:
+        tabular-nums;
+
+    text-shadow:
+        0 0 18px
+        rgba(
+            181,
+            135,
+            80,
+            0.10
+        );
+}
+
+.fim-time-unit small {
+    display: block;
+
+    margin-top: 9px;
+
+    color: rgba(181, 135, 80, 0.78);
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.18em;
+
+    font-size: 0.42rem;
+}
+
+
+/*
+   Kill any old separator styling
+   if the old HTML still has them.
+*/
+
+.fim-separator,
+.countdown-divider {
+    display: none !important;
+}
+
+
+/*
+   subtle second pulse only
+*/
+
+#countdown-seconds {
+    animation:
+        fimSecondPulse
+        1s
+        ease-in-out
+        infinite;
+}
+
+
+/* ---------- MOBILE COUNTDOWN ---------- */
+
+@media (max-width: 850px) {
+
+    .fim-countdown {
+        width: min(420px, 100%);
+
+        margin:
+            30px
+            auto
+            34px;
+
+        padding:
+            16px
+            0;
+    }
+
+    .fim-time-unit span {
+        font-size: 2rem;
+    }
+}
+
+
+@media (max-width: 430px) {
+
+    .fim-countdown {
+        width: 100%;
+
+        grid-template-columns:
+            repeat(4, 1fr);
+    }
+
+    .fim-time-unit span {
+        font-size: 1.65rem;
+    }
+
+    .fim-time-unit small {
+        font-size: 0.37rem;
+        letter-spacing: 0.11em;
+    }
+
+    .fim-time-unit:not(:last-child)::after {
+        height: 34px;
+    }
+}
+
+
+/* ========================================
+   ANIMATIONS
+======================================== */
+
+@keyframes fimHeroDrift {
+
+    0% {
+        transform:
+            scale(1.06)
+            translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform:
+            scale(1.09)
+            translate3d(-0.8%, -0.4%, 0);
+    }
+}
+
+
+@keyframes fimCloudDrift {
+
+    0% {
+        transform:
+            translate3d(-3%, 0, 0)
+            scale(1.02);
+    }
+
+    50% {
+        transform:
+            translate3d(1%, -1%, 0)
+            scale(1.05);
+    }
+
+    100% {
+        transform:
+            translate3d(5%, 1%, 0)
+            scale(1.03);
+    }
+}
+
+
+@keyframes fimCloudDriftSlow {
+
+    0% {
+        transform:
+            translate3d(4%, 0, 0)
+            scale(1.04);
+    }
+
+    100% {
+        transform:
+            translate3d(-5%, -2%, 0)
+            scale(1.08);
+    }
+}
+
+
+@keyframes fimCitySparkle {
+
+    0%,
+    100% {
+        opacity: 0.35;
+    }
+
+    50% {
+        opacity: 0.82;
+    }
+}
+
+
+@keyframes fimStarPulse {
+
+    0%,
+    100% {
+        opacity: 0.18;
+    }
+
+    50% {
+        opacity: 0.50;
+    }
+}
+
+
+@keyframes fimSecondPulse {
+
+    0%,
+    100% {
+        opacity: 0.60;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+/* ---------- MOBILE FALL ERA ---------- */
+
+@media (max-width: 850px) {
+
+    body.fall-era .hero-bg {
+        background-position: center 54%;
+    }
+
+    body.fall-era .hero::before {
+        opacity: 0.48;
+    }
+
+    body.fall-era .hero-shade::before {
+        opacity: 0.52;
+        animation-duration: 36s;
+    }
+
+    body.fall-era .hero-shade::after {
+        opacity: 0.34;
+        animation-duration: 50s;
+    }
+}
+
+
+/* ---------- REDUCED MOTION ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    body.fall-era .hero-bg,
+    body.fall-era .hero::before,
+    body.fall-era .hero::after,
+    body.fall-era .hero-shade::before,
+    body.fall-era .hero-shade::after,
+    #countdown-seconds {
+        animation: none !important;
+    }
+}
