@@ -62,10 +62,8 @@ button {
 
 .cursor-glow {
     position: fixed;
-
     width: 420px;
     height: 420px;
-
     border-radius: 50%;
 
     background:
@@ -76,7 +74,6 @@ button {
         );
 
     pointer-events: none;
-
     z-index: 1;
 
     transform: translate(-50%,-50%);
@@ -457,7 +454,6 @@ button {
 
 .release-art {
     position: relative;
-
     perspective: 1100px;
 }
 
@@ -805,7 +801,6 @@ button {
 
 .lyrics-tab.active {
     background: var(--ink);
-
     color: #111;
 }
 
@@ -841,7 +836,6 @@ button {
 
 .lyrics-sequence {
     max-width: 680px;
-
     margin: 0 auto;
 }
 
@@ -902,7 +896,6 @@ button {
 
 .about-photo-wrap img {
     aspect-ratio: 1;
-
     object-fit: cover;
 }
 
@@ -942,7 +935,6 @@ button {
 
 .visuals-heading {
     padding-bottom: 55px;
-
     text-align: center;
 }
 
@@ -967,7 +959,6 @@ button {
 
 .visual-panel img {
     height: 100%;
-
     object-fit: cover;
 }
 
@@ -1120,7 +1111,6 @@ button {
 
 .reveal.visible {
     opacity: 1;
-
     transform: none;
 }
 
@@ -1144,7 +1134,7 @@ body.fall-era .hero-bg {
 }
 
 
-/* SKY */
+/* FALL SKY */
 
 body.fall-era .fall-hero-world {
     display: block;
@@ -1155,13 +1145,15 @@ body.fall-era .fall-hero-world {
 
     overflow: hidden;
 
+    z-index: 1;
+
     background:
         linear-gradient(
             to bottom,
             #061328 0%,
-            #0b1e38 38%,
-            #102943 66%,
-            #07121f 100%
+            #0a1d36 33%,
+            #112d49 67%,
+            #07131f 100%
         );
 }
 
@@ -1172,8 +1164,13 @@ body.fall-era .fall-sky {
 
     background:
         radial-gradient(
-            ellipse at 48% 15%,
-            rgba(125,154,196,.16),
+            ellipse at 47% 12%,
+            rgba(127,158,202,.20),
+            transparent 43%
+        ),
+        radial-gradient(
+            ellipse at 70% 38%,
+            rgba(72,107,153,.11),
             transparent 40%
         );
 }
@@ -1184,19 +1181,22 @@ body.fall-era .fall-sky {
 body.fall-era .stars {
     position: absolute;
 
-    inset: 0 0 38%;
+    inset: 0 0 35%;
 
-    opacity: .55;
+    z-index: 1;
+
+    opacity: .62;
 
     background:
-        radial-gradient(circle at 8% 18%, #fff 0 1px, transparent 1.6px),
-        radial-gradient(circle at 18% 32%, #fff 0 1px, transparent 1.6px),
-        radial-gradient(circle at 29% 13%, #fff 0 1px, transparent 1.6px),
-        radial-gradient(circle at 42% 25%, #fff 0 1px, transparent 1.6px),
-        radial-gradient(circle at 58% 12%, #fff 0 1px, transparent 1.6px),
-        radial-gradient(circle at 71% 29%, #fff 0 1px, transparent 1.6px),
-        radial-gradient(circle at 84% 16%, #fff 0 1px, transparent 1.6px),
-        radial-gradient(circle at 94% 34%, #fff 0 1px, transparent 1.6px);
+        radial-gradient(circle at 7% 18%, #fff 0 1px, transparent 1.7px),
+        radial-gradient(circle at 16% 37%, #fff 0 1px, transparent 1.7px),
+        radial-gradient(circle at 28% 15%, #fff 0 1px, transparent 1.7px),
+        radial-gradient(circle at 39% 29%, #fff 0 1px, transparent 1.7px),
+        radial-gradient(circle at 51% 11%, #fff 0 1px, transparent 1.7px),
+        radial-gradient(circle at 62% 31%, #fff 0 1px, transparent 1.7px),
+        radial-gradient(circle at 74% 18%, #fff 0 1px, transparent 1.7px),
+        radial-gradient(circle at 86% 36%, #fff 0 1px, transparent 1.7px),
+        radial-gradient(circle at 94% 16%, #fff 0 1px, transparent 1.7px);
 
     animation: starTwinkle 6s ease-in-out infinite;
 }
@@ -1209,96 +1209,101 @@ body.fall-era .cloud {
 
     border-radius: 50%;
 
-    background:
-        radial-gradient(
-            ellipse,
-            rgba(205,218,237,.34),
-            rgba(139,160,189,.15) 48%,
-            transparent 72%
-        );
-
-    filter: blur(28px);
+    z-index: 2;
 
     pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(209,223,241,.34) 0%,
+            rgba(146,171,203,.18) 40%,
+            rgba(105,134,172,.08) 58%,
+            transparent 75%
+        );
+
+    filter: blur(26px);
 }
 
 body.fall-era .cloud-one {
-    width: 58vw;
-    height: 18vw;
+    width: 62vw;
+    height: 20vw;
 
-    top: 7%;
-    left: -13%;
+    top: 8%;
+    left: -17%;
 
     opacity: .45;
 
-    animation: cloudLeft 35s ease-in-out infinite alternate;
+    animation: cloudLeft 38s ease-in-out infinite alternate;
 }
 
 body.fall-era .cloud-two {
-    width: 66vw;
+    width: 65vw;
     height: 22vw;
 
-    top: 22%;
-    right: -25%;
+    top: 21%;
+    right: -23%;
 
-    opacity: .28;
+    opacity: .30;
 
-    animation: cloudRight 46s ease-in-out infinite alternate;
+    animation: cloudRight 48s ease-in-out infinite alternate;
 }
 
 body.fall-era .cloud-three {
-    width: 47vw;
-    height: 16vw;
+    width: 48vw;
+    height: 17vw;
 
-    top: 6%;
-    left: 40%;
+    top: 3%;
+    left: 48%;
 
     opacity: .24;
 
-    animation: cloudLeft 52s ease-in-out infinite alternate;
+    animation: cloudLeft 55s ease-in-out infinite alternate;
 }
 
 body.fall-era .cloud-four {
-    width: 75vw;
-    height: 22vw;
+    width: 82vw;
+    height: 24vw;
 
-    top: 28%;
-    left: -20%;
+    top: 31%;
+    left: -26%;
 
-    opacity: .14;
+    opacity: .15;
 
-    animation: cloudRight 60s ease-in-out infinite alternate;
+    animation: cloudRight 64s ease-in-out infinite alternate;
 }
 
 
 /* =========================================================
-   SKYWRITING
+   FALL INTO ME SKYWRITING
 ========================================================= */
 
 body.fall-era .skywriting {
     position: absolute;
 
-    top: 12%;
+    top: 14%;
     left: 50%;
 
-    width: min(90vw, 1040px);
-    height: 180px;
+    width: min(86vw, 1050px);
+    height: 220px;
 
     transform: translateX(-50%);
 
-    z-index: 5;
+    z-index: 8;
 
     pointer-events: none;
+
+    overflow: visible;
 }
 
 
-/* cloud-written title */
+/* TITLE */
 
 body.fall-era .skywriting-title {
     position: absolute;
 
     left: 50%;
-    top: 48%;
+    top: 50%;
 
     transform:
         translate(-50%, -50%)
@@ -1316,154 +1321,202 @@ body.fall-era .skywriting-title {
         "Lucida Handwriting",
         cursive;
 
-    font-size: clamp(4rem, 8.5vw, 8.4rem);
+    font-size: clamp(4.5rem,8.2vw,8.8rem);
 
     line-height: .9;
+
+    z-index: 3;
 }
-
-
-/* individual letters */
 
 body.fall-era .skywriting-title > span:not(.word-space) {
     position: relative;
 
     display: inline-block;
 
+    color: rgba(236,243,251,.88);
+
     opacity: 0;
 
-    color: rgba(232, 239, 248, .76);
+    filter: blur(10px);
 
-    filter:
-        blur(9px);
+    transform: scale(.88);
 
     text-shadow:
-        0 0 8px rgba(240,246,255,.18),
-        0 0 18px rgba(214,228,244,.16),
-        0 0 32px rgba(175,198,226,.10);
+        0 0 8px rgba(255,255,255,.32),
+        0 0 18px rgba(220,233,248,.28),
+        0 0 38px rgba(181,207,237,.20);
 
     animation:
-        cloudLetterWrite 18s linear infinite;
+        cloudLetterCycle 16s ease-in-out infinite;
 
     animation-delay:
         var(--letter-delay);
 }
 
 
-/* give every letter cloud texture */
+/* cloudy halo on letters */
 
-body.fall-era .skywriting-title > span:not(.word-space)::before {
+body.fall-era .skywriting-title > span:not(.word-space)::before,
+body.fall-era .skywriting-title > span:not(.word-space)::after {
     content: "";
 
     position: absolute;
 
     left: 50%;
-    top: 53%;
+    top: 54%;
 
-    width: 145%;
-    height: 120%;
-
-    transform: translate(-50%, -50%);
-
-    z-index: -1;
+    transform: translate(-50%,-50%);
 
     border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+body.fall-era .skywriting-title > span:not(.word-space)::before {
+    width: 150%;
+    height: 125%;
 
     background:
         radial-gradient(
             ellipse,
-            rgba(220,231,245,.22) 0%,
-            rgba(191,208,230,.13) 42%,
+            rgba(227,237,249,.28) 0%,
+            rgba(190,211,235,.18) 38%,
             transparent 72%
         );
 
-    filter: blur(12px);
+    filter: blur(11px);
 
-    opacity: 0;
-
-    animation:
-        cloudPuffWrite 18s linear infinite;
-
-    animation-delay:
-        var(--letter-delay);
+    opacity: .75;
 }
 
+body.fall-era .skywriting-title > span:not(.word-space)::after {
+    width: 190%;
+    height: 160%;
 
-/* spaces between words */
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(197,216,239,.14),
+            transparent 70%
+        );
+
+    filter: blur(19px);
+
+    opacity: .55;
+}
 
 body.fall-era .word-space {
     width: .26em;
-
     flex: 0 0 .26em;
 }
 
 
-/* stagger the letters */
+/* STAGGER LETTERS */
 
-body.fall-era .skywriting-title > span:nth-child(1)  { --letter-delay: 2.5s; }
-body.fall-era .skywriting-title > span:nth-child(2)  { --letter-delay: 2.82s; }
-body.fall-era .skywriting-title > span:nth-child(3)  { --letter-delay: 3.14s; }
-body.fall-era .skywriting-title > span:nth-child(4)  { --letter-delay: 3.46s; }
+body.fall-era .skywriting-title > span:nth-child(1)  { --letter-delay: 1.8s; }
+body.fall-era .skywriting-title > span:nth-child(2)  { --letter-delay: 2.05s; }
+body.fall-era .skywriting-title > span:nth-child(3)  { --letter-delay: 2.30s; }
+body.fall-era .skywriting-title > span:nth-child(4)  { --letter-delay: 2.55s; }
 
-body.fall-era .skywriting-title > span:nth-child(6)  { --letter-delay: 4.05s; }
-body.fall-era .skywriting-title > span:nth-child(7)  { --letter-delay: 4.37s; }
-body.fall-era .skywriting-title > span:nth-child(8)  { --letter-delay: 4.69s; }
-body.fall-era .skywriting-title > span:nth-child(9)  { --letter-delay: 5.01s; }
+body.fall-era .skywriting-title > span:nth-child(6)  { --letter-delay: 3.05s; }
+body.fall-era .skywriting-title > span:nth-child(7)  { --letter-delay: 3.30s; }
+body.fall-era .skywriting-title > span:nth-child(8)  { --letter-delay: 3.55s; }
+body.fall-era .skywriting-title > span:nth-child(9)  { --letter-delay: 3.80s; }
 
-body.fall-era .skywriting-title > span:nth-child(11) { --letter-delay: 5.60s; }
-body.fall-era .skywriting-title > span:nth-child(12) { --letter-delay: 5.92s; }
+body.fall-era .skywriting-title > span:nth-child(11) { --letter-delay: 4.30s; }
+body.fall-era .skywriting-title > span:nth-child(12) { --letter-delay: 4.55s; }
 
 
-/* plane */
+/* PLANE */
 
 body.fall-era .skywriting-plane {
     position: absolute;
 
-    top: 48%;
-    left: -12%;
+    left: -8%;
+    top: 50%;
+
+    z-index: 6;
+
+    font-size: 1.75rem;
+
+    color: rgba(244,248,253,.96);
 
     transform:
         translateY(-50%)
-        rotate(5deg);
+        rotate(7deg);
 
-    font-size: 1.55rem;
-
-    color: rgba(236,243,251,.88);
+    text-shadow:
+        0 0 5px rgba(255,255,255,.32);
 
     filter:
-        drop-shadow(0 0 6px rgba(210,228,248,.22));
+        drop-shadow(0 0 7px rgba(192,218,245,.40));
 
     animation:
-        skyPlaneAcross 18s linear infinite;
+        planeWriteAcross 16s ease-in-out infinite;
 }
 
 
-/* small vapor tail */
+/* VAPOR TRAIL */
 
 body.fall-era .skywriting-plane::before {
     content: "";
 
     position: absolute;
 
-    right: 100%;
-    top: 50%;
+    right: calc(100% + 2px);
+    top: 53%;
 
-    width: 50px;
-    height: 2px;
+    width: 85px;
+    height: 4px;
 
     transform: translateY(-50%);
+
+    border-radius: 50%;
 
     background:
         linear-gradient(
             to left,
-            rgba(229,238,249,.34),
+            rgba(235,243,251,.72),
+            rgba(211,225,243,.38) 38%,
             transparent
         );
 
     filter: blur(2px);
+
+    opacity: .75;
+}
+
+body.fall-era .skywriting-plane::after {
+    content: "";
+
+    position: absolute;
+
+    right: calc(100% + 22px);
+    top: 53%;
+
+    width: 110px;
+    height: 14px;
+
+    transform: translateY(-50%);
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(218,230,244,.22),
+            transparent 68%
+        );
+
+    filter: blur(7px);
+
+    opacity: .75;
 }
 
 
-/* DISTANT SKYLINE */
+/* =========================================================
+   CITY
+========================================================= */
 
 body.fall-era .city {
     position: absolute;
@@ -1471,92 +1524,161 @@ body.fall-era .city {
     left: 0;
     right: 0;
 
-    bottom: 11%;
+    bottom: 10%;
 
-    height: 25%;
+    height: 24%;
 
-    z-index: 3;
+    z-index: 4;
 
     background:
         linear-gradient(
             to top,
-            #03080f,
-            #08111c
+            #02070c 0%,
+            #06101a 72%,
+            #091522 100%
         );
 
     clip-path: polygon(
         0 100%,
-        0 72%,
-        4% 72%,
-        4% 58%,
-        8% 58%,
-        8% 66%,
-        12% 66%,
-        12% 49%,
-        16% 49%,
-        16% 62%,
-        21% 62%,
-        21% 43%,
-        25% 43%,
-        25% 57%,
-        30% 57%,
-        30% 37%,
-        34% 37%,
-        34% 53%,
-        39% 53%,
-        39% 45%,
-        43% 45%,
-        43% 27%,
-        47% 27%,
-        47% 50%,
-        52% 50%,
-        52% 40%,
-        56% 40%,
-        56% 52%,
-        61% 52%,
-        61% 34%,
-        65% 34%,
-        65% 47%,
-        70% 47%,
-        70% 55%,
-        74% 55%,
-        74% 38%,
-        78% 38%,
-        78% 51%,
-        83% 51%,
-        83% 44%,
-        87% 44%,
-        87% 59%,
-        92% 59%,
-        92% 48%,
-        96% 48%,
-        96% 64%,
-        100% 64%,
+        0 73%,
+        3% 73%,
+        3% 63%,
+        7% 63%,
+        7% 74%,
+        11% 74%,
+        11% 56%,
+        15% 56%,
+        15% 69%,
+        20% 69%,
+        20% 51%,
+        24% 51%,
+        24% 65%,
+        29% 65%,
+        29% 42%,
+        33% 42%,
+        33% 62%,
+        38% 62%,
+        38% 49%,
+        43% 49%,
+        43% 33%,
+        47% 33%,
+        47% 61%,
+        52% 61%,
+        52% 46%,
+        56% 46%,
+        56% 64%,
+        61% 64%,
+        61% 39%,
+        65% 39%,
+        65% 58%,
+        70% 58%,
+        70% 67%,
+        75% 67%,
+        75% 46%,
+        79% 46%,
+        79% 60%,
+        84% 60%,
+        84% 52%,
+        88% 52%,
+        88% 68%,
+        92% 68%,
+        92% 57%,
+        96% 57%,
+        96% 72%,
+        100% 72%,
         100% 100%
     );
+
+    filter:
+        drop-shadow(
+            0 -8px 24px rgba(0,0,0,.35)
+        );
 }
+
+
+/* CITY LIGHTS */
+
+body.fall-era .city::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 28% 0 4%;
+
+    background:
+        radial-gradient(circle at 3% 72%, rgba(255,208,119,.95) 0 1.4px, transparent 2px),
+        radial-gradient(circle at 6% 51%, rgba(255,226,155,.80) 0 1px, transparent 1.8px),
+        radial-gradient(circle at 10% 64%, rgba(255,191,92,.90) 0 1.2px, transparent 1.9px),
+        radial-gradient(circle at 14% 46%, rgba(255,223,148,.95) 0 1.3px, transparent 2px),
+        radial-gradient(circle at 18% 69%, rgba(255,200,105,.85) 0 1px, transparent 1.8px),
+        radial-gradient(circle at 22% 43%, rgba(255,224,145,.92) 0 1.3px, transparent 2px),
+        radial-gradient(circle at 26% 63%, rgba(255,195,94,.85) 0 1.2px, transparent 1.8px),
+        radial-gradient(circle at 31% 39%, rgba(255,229,160,.95) 0 1.4px, transparent 2px),
+        radial-gradient(circle at 35% 67%, rgba(255,202,105,.88) 0 1.2px, transparent 2px),
+        radial-gradient(circle at 40% 47%, rgba(255,224,148,.90) 0 1.3px, transparent 2px),
+        radial-gradient(circle at 44% 59%, rgba(255,192,90,.84) 0 1px, transparent 1.8px),
+        radial-gradient(circle at 49% 35%, rgba(255,226,150,.96) 0 1.3px, transparent 2px),
+        radial-gradient(circle at 53% 64%, rgba(255,205,111,.88) 0 1.2px, transparent 2px),
+        radial-gradient(circle at 58% 44%, rgba(255,227,154,.93) 0 1.4px, transparent 2px),
+        radial-gradient(circle at 62% 69%, rgba(255,192,93,.85) 0 1px, transparent 1.8px),
+        radial-gradient(circle at 67% 42%, rgba(255,226,145,.95) 0 1.3px, transparent 2px),
+        radial-gradient(circle at 71% 57%, rgba(255,203,109,.88) 0 1.2px, transparent 2px),
+        radial-gradient(circle at 76% 39%, rgba(255,230,160,.95) 0 1.3px, transparent 2px),
+        radial-gradient(circle at 81% 65%, rgba(255,197,98,.90) 0 1.2px, transparent 2px),
+        radial-gradient(circle at 86% 48%, rgba(255,225,150,.94) 0 1.3px, transparent 2px),
+        radial-gradient(circle at 91% 69%, rgba(255,196,95,.86) 0 1px, transparent 1.8px),
+        radial-gradient(circle at 95% 51%, rgba(255,228,155,.96) 0 1.4px, transparent 2px),
+        radial-gradient(circle at 98% 72%, rgba(255,203,108,.88) 0 1.2px, transparent 2px);
+
+    opacity: .95;
+
+    filter:
+        drop-shadow(
+            0 0 4px rgba(255,194,95,.45)
+        );
+
+    animation:
+        cityLightTwinkle 5s ease-in-out infinite;
+}
+
+
+/* CITY HORIZON GLOW */
 
 body.fall-era .city::after {
     content: "";
 
     position: absolute;
 
-    inset: 30% 2% 8%;
+    left: 0;
+    right: 0;
+
+    bottom: -8px;
+
+    height: 50px;
 
     background:
-        radial-gradient(circle at 5% 70%, rgba(255,217,145,.8) 0 1px, transparent 1.5px),
-        radial-gradient(circle at 15% 54%, rgba(255,203,125,.6) 0 1px, transparent 1.5px),
-        radial-gradient(circle at 27% 67%, rgba(255,223,155,.7) 0 1px, transparent 1.5px),
-        radial-gradient(circle at 39% 46%, rgba(255,204,120,.7) 0 1px, transparent 1.5px),
-        radial-gradient(circle at 50% 63%, rgba(255,218,144,.7) 0 1px, transparent 1.5px),
-        radial-gradient(circle at 61% 48%, rgba(255,205,125,.7) 0 1px, transparent 1.5px),
-        radial-gradient(circle at 73% 60%, rgba(255,222,150,.8) 0 1px, transparent 1.5px),
-        radial-gradient(circle at 85% 50%, rgba(255,204,122,.6) 0 1px, transparent 1.5px),
-        radial-gradient(circle at 95% 65%, rgba(255,221,148,.8) 0 1px, transparent 1.5px);
+        radial-gradient(
+            ellipse at 18% 100%,
+            rgba(255,181,80,.10),
+            transparent 30%
+        ),
+        radial-gradient(
+            ellipse at 46% 100%,
+            rgba(255,205,120,.12),
+            transparent 31%
+        ),
+        radial-gradient(
+            ellipse at 73% 100%,
+            rgba(255,187,94,.10),
+            transparent 31%
+        ),
+        radial-gradient(
+            ellipse at 91% 100%,
+            rgba(255,211,126,.08),
+            transparent 26%
+        );
 
-    opacity: .55;
-
-    animation: cityLights 6s ease-in-out infinite;
+    filter: blur(12px);
 }
 
 
@@ -1569,15 +1691,15 @@ body.fall-era .water-glow {
     right: 0;
     bottom: 0;
 
-    height: 14%;
+    height: 13%;
 
-    z-index: 2;
+    z-index: 3;
 
     background:
         linear-gradient(
             to bottom,
-            rgba(8,22,38,.92),
-            #030912
+            rgba(8,24,40,.96),
+            #020710
         );
 }
 
@@ -1591,39 +1713,46 @@ body.fall-era .water-glow::before {
     background:
         linear-gradient(
             90deg,
-            transparent,
-            rgba(255,196,110,.04) 12%,
-            transparent 20%,
-            rgba(255,215,135,.05) 35%,
-            transparent 43%,
-            rgba(255,195,105,.04) 58%,
-            transparent 66%,
-            rgba(255,215,140,.05) 79%,
-            transparent 88%
+            transparent 0%,
+            rgba(255,190,100,.05) 8%,
+            transparent 15%,
+            rgba(255,215,135,.06) 26%,
+            transparent 34%,
+            rgba(255,195,105,.05) 48%,
+            transparent 57%,
+            rgba(255,216,140,.06) 71%,
+            transparent 80%,
+            rgba(255,190,105,.05) 92%,
+            transparent 100%
         );
 
     filter: blur(5px);
+
+    animation:
+        waterReflection 9s ease-in-out infinite alternate;
 }
 
 
 /* FALL HERO SHADE */
 
 body.fall-era .hero-shade {
+    z-index: 5;
+
     background:
         linear-gradient(
             to bottom,
-            rgba(2,7,15,.02),
-            rgba(2,7,15,.08) 55%,
-            rgba(3,8,15,.30) 75%,
+            rgba(2,7,15,.01),
+            rgba(2,7,15,.03) 40%,
+            rgba(3,8,15,.13) 72%,
             #06101d 100%
         );
 }
 
 
-/* FALL HERO COPY LOWER */
+/* LOWER HERO COPY */
 
 body.fall-era .hero-copy {
-    padding-top: 53vh;
+    padding-top: 59vh;
 }
 
 
@@ -1691,232 +1820,217 @@ body.fall-era .site-header {
 @keyframes starTwinkle {
     0%,
     100% {
-        opacity: .35;
+        opacity: .38;
     }
 
     50% {
-        opacity: .68;
+        opacity: .72;
     }
 }
 
 @keyframes cloudLeft {
     from {
-        transform: translateX(-4%) scale(1);
+        transform:
+            translateX(-4%)
+            scale(1);
     }
 
     to {
-        transform: translateX(22%) scale(1.07);
+        transform:
+            translateX(22%)
+            scale(1.07);
     }
 }
 
 @keyframes cloudRight {
     from {
-        transform: translateX(8%) scale(1.02);
+        transform:
+            translateX(8%)
+            scale(1.02);
     }
 
     to {
-        transform: translateX(-20%) scale(1.08);
+        transform:
+            translateX(-20%)
+            scale(1.08);
     }
 }
 
 
-/* plane crosses in sync with the letters */
+/* PLANE */
 
-@keyframes skyPlaneAcross {
+@keyframes planeWriteAcross {
 
     0% {
-        left: -12%;
+        left: -8%;
         opacity: 0;
     }
 
-    7% {
+    5% {
         opacity: 1;
     }
 
-    17% {
-        left: 7%;
+    12% {
+        left: 3%;
+    }
+
+    20% {
+        left: 13%;
     }
 
     28% {
-        left: 20%;
+        left: 23%;
     }
 
-    39% {
-        left: 32%;
+    36% {
+        left: 33%;
     }
 
-    50% {
-        left: 45%;
+    44% {
+        left: 43%;
     }
 
-    61% {
-        left: 57%;
+    52% {
+        left: 53%;
     }
 
-    72% {
-        left: 70%;
-    }
-
-    83% {
-        left: 83%;
-    }
-
-    91% {
-        left: 105%;
-        opacity: 1;
-    }
-
-    100% {
-        left: 105%;
-        opacity: 0;
-    }
-}
-
-
-/* title letters form like vapor */
-
-@keyframes cloudLetterWrite {
-
-    0%,
-    13% {
-        opacity: 0;
-
-        filter:
-            blur(12px);
-
-        transform:
-            scale(.92);
-
-        color:
-            rgba(236,242,250,0);
-    }
-
-    18% {
-        opacity: .18;
-
-        filter:
-            blur(9px);
-
-        transform:
-            scale(.96);
-    }
-
-    25% {
-        opacity: .55;
-
-        filter:
-            blur(5px);
-
-        transform:
-            scale(1);
-    }
-
-    34% {
-        opacity: .82;
-
-        filter:
-            blur(1.8px);
-
-        color:
-            rgba(232,239,248,.76);
+    60% {
+        left: 63%;
     }
 
     68% {
-        opacity: .88;
-
-        filter:
-            blur(.8px);
-
-        color:
-            rgba(232,239,248,.78);
+        left: 73%;
     }
 
-    82% {
+    76% {
+        left: 83%;
+    }
+
+    84% {
+        left: 94%;
+    }
+
+    90% {
+        left: 108%;
+        opacity: 1;
+    }
+
+    94%,
+    100% {
+        left: 108%;
+        opacity: 0;
+    }
+}
+
+
+/* LETTERS */
+
+@keyframes cloudLetterCycle {
+
+    0%,
+    4% {
+        opacity: 0;
+
+        filter: blur(12px);
+
+        transform: scale(.88);
+    }
+
+    10% {
+        opacity: .24;
+
+        filter: blur(8px);
+
+        transform: scale(.94);
+    }
+
+    16% {
         opacity: .65;
 
-        filter:
-            blur(2.5px);
+        filter: blur(4px);
+
+        transform: scale(.98);
     }
 
-    94% {
-        opacity: .18;
+    23% {
+        opacity: .92;
 
-        filter:
-            blur(9px);
+        filter: blur(1.2px);
+
+        transform: scale(1);
+    }
+
+    68% {
+        opacity: .94;
+
+        filter: blur(.6px);
+
+        transform: scale(1);
+    }
+
+    76% {
+        opacity: .82;
+
+        filter: blur(1.7px);
+    }
+
+    84% {
+        opacity: .48;
+
+        filter: blur(5px);
+    }
+
+    92% {
+        opacity: .13;
+
+        filter: blur(10px);
+
+        transform: scale(1.03);
     }
 
     100% {
         opacity: 0;
 
-        filter:
-            blur(14px);
+        filter: blur(14px);
+
+        transform: scale(1.06);
     }
 }
 
 
-/* cloud puff around each letter */
+/* CITY */
 
-@keyframes cloudPuffWrite {
+@keyframes cityLightTwinkle {
 
     0%,
-    15% {
-        opacity: 0;
-
-        transform:
-            translate(-50%, -50%)
-            scale(.72);
+    100% {
+        opacity: .72;
     }
 
-    25% {
-        opacity: .25;
-
-        transform:
-            translate(-50%, -50%)
-            scale(.95);
+    28% {
+        opacity: .98;
     }
 
-    38% {
+    55% {
+        opacity: .82;
+    }
+
+    76% {
+        opacity: 1;
+    }
+}
+
+@keyframes waterReflection {
+    from {
         opacity: .55;
 
-        transform:
-            translate(-50%, -50%)
-            scale(1.05);
+        transform: translateX(-1%);
     }
 
-    70% {
-        opacity: .42;
+    to {
+        opacity: .88;
 
-        transform:
-            translate(-50%, -50%)
-            scale(1.12);
-    }
-
-    88% {
-        opacity: .18;
-
-        transform:
-            translate(-50%, -50%)
-            scale(1.20);
-    }
-
-    100% {
-        opacity: 0;
-
-        transform:
-            translate(-50%, -50%)
-            scale(1.25);
-    }
-}
-
-
-@keyframes cityLights {
-    0%,
-    100% {
-        opacity: .34;
-    }
-
-    50% {
-        opacity: .68;
+        transform: translateX(1%);
     }
 }
 
@@ -2003,13 +2117,16 @@ body.fall-era .site-header {
         grid-template-columns: 1fr;
     }
 
+
     body.fall-era .skywriting {
+        top: 15%;
         width: 94vw;
     }
 
     body.fall-era .hero-copy {
-        padding-top: 57vh;
+        padding-top: 61vh;
     }
+
 }
 
 
@@ -2063,46 +2180,50 @@ body.fall-era .site-header {
 
 
     body.fall-era .skywriting {
-        top: 14%;
+        top: 16%;
 
         width: 96vw;
-
-        height: 140px;
+        height: 160px;
     }
 
     body.fall-era .skywriting-title {
         font-size:
-            clamp(2.8rem, 10.5vw, 4.5rem);
+            clamp(3rem,10.5vw,4.8rem);
     }
 
     body.fall-era .skywriting-plane {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
+    }
+
+    body.fall-era .skywriting-plane::before {
+        width: 45px;
     }
 
     body.fall-era .city {
-        height: 21%;
+        height: 20%;
 
-        bottom: 13%;
+        bottom: 12%;
     }
 
     body.fall-era .cloud-one {
-        width: 95vw;
-        height: 34vw;
+        width: 100vw;
+        height: 36vw;
     }
 
     body.fall-era .cloud-two {
-        width: 105vw;
-        height: 38vw;
+        width: 110vw;
+        height: 40vw;
     }
 
     body.fall-era .cloud-three {
-        width: 80vw;
+        width: 85vw;
         height: 30vw;
     }
 
     body.fall-era .hero-copy {
-        padding-top: 58vh;
+        padding-top: 61vh;
     }
+
 }
 
 
@@ -2123,12 +2244,14 @@ body.fall-era .site-header {
     }
 
     body.fall-era .skywriting-title > span:not(.word-space) {
-        opacity: .82;
+        opacity: .9;
         filter: blur(1px);
+        transform: none;
     }
 
     body.fall-era .skywriting-plane {
-        left: 87%;
-        opacity: .8;
+        left: 88%;
+        opacity: .9;
     }
+
 }
