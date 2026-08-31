@@ -2035,9 +2035,43 @@ button {
     .footer-logo-window {
         transform: translateX(-60px) !important;
     }
-}
-@media (max-width: 620px) {
+/* ========================================
+   FOOTER MOBILE — TRUE CENTER FIX
+   KEEP AT VERY BOTTOM
+======================================== */
+
+@media (max-width: 850px) {
+
+    /* Keep the container truly centered */
     .footer-logo-window {
-        transform: translateX(-72px) !important;
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
+
+        margin-left: auto !important;
+        margin-right: auto !important;
+
+        transform: none !important;
+    }
+
+    /* Move ONLY the artwork inside the centered container */
+    .footer-logo {
+        position: relative !important;
+
+        left: -72px !important;
+        right: auto !important;
+
+        margin-left: auto !important;
+        margin-right: auto !important;
+
+        transform: none !important;
+    }
+
+    /* Copyright stays dead center */
+    .footer-copy {
+        width: 100% !important;
+        text-align: center !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 }
