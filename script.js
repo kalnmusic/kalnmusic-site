@@ -1,6 +1,6 @@
 // =========================================================
 // KALN — OFFICIAL WEBSITE
-// MASTER SCRIPT.JS
+// FINAL MASTER SCRIPT.JS
 // =========================================================
 
 
@@ -17,31 +17,24 @@ const reducedMotion = window.matchMedia(
 
 
 // =========================================================
-// PRIVATE FALL INTO ME PREVIEW
-// Add ?fallpreview=1 to the URL
+// FALL INTO ME SETTINGS
 // =========================================================
 
 const siteParams = new URLSearchParams(window.location.search);
-const fallPreviewMode = siteParams.get("fallpreview") === "1";
 
-if (fallPreviewMode) {
-    document.body.classList.add("fall-era");
-}
+const fallPreviewMode =
+    siteParams.get("fallpreview") === "1";
 
-
-// =========================================================
-// RELEASE DATE
-// September 18, 2026 — 6:00 AM Central
-// =========================================================
-
-const fallIntoMeReleaseTime = new Date(
-    "2026-09-18T11:00:00Z"
-);
+const fallIntoMeReleaseTime =
+    new Date("2026-09-18T11:00:00Z");
 
 const fallIntoMeLink =
     "https://release.landr.com/991048944886";
 
-let fallIntoMeReleased = false;
+const lostCountLink =
+    "https://release.landr.com/991048938120";
+
+let fallEraActivated = false;
 
 
 // =========================================================
@@ -49,22 +42,26 @@ let fallIntoMeReleased = false;
 // =========================================================
 
 const countdownDays =
-    document.getElementById("countdown-days");
+    $("#countdown-days");
 
 const countdownHours =
-    document.getElementById("countdown-hours");
+    $("#countdown-hours");
 
 const countdownMinutes =
-    document.getElementById("countdown-minutes");
+    $("#countdown-minutes");
 
 const countdownSeconds =
-    document.getElementById("countdown-seconds");
+    $("#countdown-seconds");
 
 const fallCountdown =
-    document.getElementById("fall-countdown");
+    $("#fall-countdown");
 
 
 function updateFallCountdown() {
+
+    if (!fallCountdown) {
+        return;
+    }
 
     const now = new Date();
 
@@ -74,9 +71,7 @@ function updateFallCountdown() {
 
     if (distance <= 0) {
 
-        if (fallCountdown) {
-            fallCountdown.style.display = "none";
-        }
+        fallCountdown.style.display = "none";
 
         return;
     }
@@ -121,23 +116,21 @@ function updateFallCountdown() {
             String(days).padStart(2, "0");
     }
 
-
     if (countdownHours) {
         countdownHours.textContent =
             String(hours).padStart(2, "0");
     }
-
 
     if (countdownMinutes) {
         countdownMinutes.textContent =
             String(minutes).padStart(2, "0");
     }
 
-
     if (countdownSeconds) {
         countdownSeconds.textContent =
             String(seconds).padStart(2, "0");
     }
+
 }
 
 
@@ -150,36 +143,31 @@ setInterval(
 
 
 // =========================================================
-// RELEASE DAY SWITCH
+// ACTIVATE FALL INTO ME ERA
+// Used for BOTH:
+// 1. ?fallpreview=1
+// 2. actual release day
 // =========================================================
 
-function unlockFallIntoMe() {
+function activateFallIntoMeEra() {
 
-    if (fallIntoMeReleased) {
+    if (fallEraActivated) {
         return;
     }
 
-
-    const now = new Date();
-
-
-    if (now < fallIntoMeReleaseTime) {
-        return;
-    }
+    fallEraActivated = true;
 
 
-    fallIntoMeReleased = true;
-
-
-    // Automatically change the whole site
-    // into the Fall Into Me era.
+    // =====================================================
+    // BODY / THEME
+    // =====================================================
 
     document.body.classList.add("fall-era");
 
 
-    // -----------------------------------------
-    // TOP LISTEN BAR
-    // -----------------------------------------
+    // =====================================================
+    // TOP MARQUEE
+    // =====================================================
 
     $$(".listen-group").forEach((group) => {
 
@@ -195,18 +183,31 @@ function unlockFallIntoMe() {
     });
 
 
-    // -----------------------------------------
+    const listenMarquee =
+        $(".listen-marquee");
+
+    if (listenMarquee) {
+
+        listenMarquee.setAttribute(
+            "aria-label",
+            "Fall Into Me is out now"
+        );
+
+    }
+
+
+    // =====================================================
     // HERO
-    // -----------------------------------------
+    // =====================================================
 
     const heroEyebrow =
-        $(".hero-copy .eyebrow");
+        $(".hero-eyebrow");
 
     const heroTagline =
         $(".hero-tagline");
 
-    const heroPrimaryButton =
-        $(".hero-actions .button-light");
+    const heroPrimary =
+        $(".hero-primary");
 
 
     if (heroEyebrow) {
@@ -221,77 +222,86 @@ function unlockFallIntoMe() {
     }
 
 
-    if (heroPrimaryButton) {
+    if (heroPrimary) {
 
-        heroPrimaryButton.textContent =
+        heroPrimary.textContent =
             "Listen to Fall Into Me";
 
-        heroPrimaryButton.href =
+        heroPrimary.href =
             fallIntoMeLink;
+
     }
 
 
-    // -----------------------------------------
-    // MUSIC SECTION
-    // -----------------------------------------
+    // =====================================================
+    // NOW PLAYING
+    // =====================================================
 
-    const nowPlayingArt =
-        $(".release-art img");
-
-    const nowPlayingTitle =
-        $(".release-info h3");
+    const nowPlayingCover =
+        $("#now-playing-cover");
 
     const nowPlayingKicker =
-        $(".release-kicker");
+        $("#now-playing-kicker");
+
+    const nowPlayingTitle =
+        $("#now-playing-title");
 
     const nowPlayingCopy =
-        $(".release-info .release-copy");
+        $("#now-playing-copy");
 
-    const nowPlayingButton =
-        $(".release-actions .button-light");
+    const nowPlayingLink =
+        $("#now-playing-link");
 
 
-    if (nowPlayingArt) {
+    if (nowPlayingCover) {
 
-        nowPlayingArt.src =
+        nowPlayingCover.src =
             "assets/images/fall-into-me-cover.png";
 
-        nowPlayingArt.alt =
+        nowPlayingCover.alt =
             "Fall Into Me cover art by KALN";
-    }
 
-
-    if (nowPlayingTitle) {
-        nowPlayingTitle.textContent =
-            "Fall Into Me";
     }
 
 
     if (nowPlayingKicker) {
+
         nowPlayingKicker.textContent =
             "Single · 2026";
+
+    }
+
+
+    if (nowPlayingTitle) {
+
+        nowPlayingTitle.textContent =
+            "Fall Into Me";
+
     }
 
 
     if (nowPlayingCopy) {
+
         nowPlayingCopy.textContent =
             "A softer chapter, out now.";
+
     }
 
 
-    if (nowPlayingButton) {
+    if (nowPlayingLink) {
 
-        nowPlayingButton.textContent =
+        nowPlayingLink.href =
+            fallIntoMeLink;
+
+        nowPlayingLink.textContent =
             "Listen Now";
 
-        nowPlayingButton.href =
-            fallIntoMeLink;
     }
 
 
-    // -----------------------------------------
-    // HIDE COMING SOON SECTION
-    // -----------------------------------------
+    // =====================================================
+    // HIDE COMING SOON
+    // =====================================================
 
     const nextSection =
         $(".next-section");
@@ -301,153 +311,44 @@ function unlockFallIntoMe() {
     }
 
 
-    // -----------------------------------------
-    // UNLOCK FALL INTO ME LYRICS
-    // -----------------------------------------
+    // =====================================================
+    // DISCOGRAPHY
+    // Lost Count stays here.
+    // Fall Into Me is revealed too.
+    // =====================================================
 
-    const fallLyricsPanel =
-        $("#fall-into-me");
+    const fallDiscography =
+        $("#fall-into-me-discography");
 
-
-    if (fallLyricsPanel) {
-
-        fallLyricsPanel.innerHTML = `
-
-            <div class="lyrics-heading">
-
-                <h3>
-                    Fall Into Me
-                </h3>
-
-                <span>
-                    2026
-                </span>
-
-            </div>
-
-
-            <div class="lyrics-sequence">
-
-
-                <section class="lyric-block">
-
-                    <p class="lyric-label">
-                        Verse 1
-                    </p>
-
-                    <p>
-                        Slow motion on my skin<br>
-                        You breathe and I give in<br>
-                        You say this means nothing<br>
-                        But your eyes say different
-                    </p>
-
-                    <p>
-                        I’m drifting where you move<br>
-                        Losing all my rules<br>
-                        If you want me too<br>
-                        I’ll fall right into you
-                    </p>
-
-                </section>
-
-
-                <section class="lyric-block">
-
-                    <p class="lyric-label">
-                        Chorus
-                    </p>
-
-                    <p>
-                        Fall into me… let it be<br>
-                        Let your guard fall quietly<br>
-                        If you want this, let me see<br>
-                        Fall into me… endlessly
-                    </p>
-
-                </section>
-
-
-                <section class="lyric-block">
-
-                    <p class="lyric-label">
-                        Verse 2
-                    </p>
-
-                    <p>
-                        Your touch is sinking in<br>
-                        Soft like summer wind<br>
-                        You pull me close again<br>
-                        I feel you under my skin
-                    </p>
-
-                    <p>
-                        I’m drifting where you move<br>
-                        Falling into you<br>
-                        If you want me too<br>
-                        I’ll give all of me to you
-                    </p>
-
-                </section>
-
-
-                <section class="lyric-block">
-
-                    <p class="lyric-label">
-                        Chorus
-                    </p>
-
-                    <p>
-                        Fall into me… let it be<br>
-                        Let your guard fall quietly<br>
-                        If you want this, let me see<br>
-                        Fall into me… endlessly
-                    </p>
-
-                </section>
-
-
-                <section class="lyric-block">
-
-                    <p class="lyric-label">
-                        Bridge
-                    </p>
-
-                    <p>
-                        Let the night take over<br>
-                        Let your walls fall lower<br>
-                        If you lean, come closer<br>
-                        I’ll hold you till it’s over
-                    </p>
-
-                </section>
-
-
-                <section class="lyric-block">
-
-                    <p class="lyric-label">
-                        Final Chorus
-                    </p>
-
-                    <p>
-                        Fall into me… let it be<br>
-                        Let your guard fall quietly<br>
-                        If you want this, let me see<br>
-                        Fall into me… endlessly
-                    </p>
-
-                </section>
-
-
-            </div>
-
-        `;
+    if (fallDiscography) {
+        fallDiscography.hidden = false;
     }
 
 
-    // -----------------------------------------
+    // =====================================================
+    // UNLOCK FALL INTO ME LYRICS
+    // =====================================================
+
+    const fallLyricsLocked =
+        $("#fall-lyrics-locked");
+
+    const fallFullLyrics =
+        $("#fall-full-lyrics");
+
+
+    if (fallLyricsLocked) {
+        fallLyricsLocked.hidden = true;
+    }
+
+
+    if (fallFullLyrics) {
+        fallFullLyrics.hidden = false;
+    }
+
+
+    // =====================================================
     // META DESCRIPTION
-    // -----------------------------------------
+    // =====================================================
 
     const metaDescription =
         document.querySelector(
@@ -467,16 +368,48 @@ function unlockFallIntoMe() {
 }
 
 
-// Run immediately when page loads.
+// =========================================================
+// PREVIEW MODE
+// =========================================================
 
-unlockFallIntoMe();
+if (fallPreviewMode) {
+
+    activateFallIntoMeEra();
+
+}
 
 
-// Keep checking in case someone
-// has the website open when it releases.
+// =========================================================
+// ACTUAL RELEASE DAY
+// =========================================================
+
+function checkFallIntoMeRelease() {
+
+    if (fallEraActivated) {
+        return;
+    }
+
+
+    const now =
+        new Date();
+
+
+    if (
+        now >=
+        fallIntoMeReleaseTime
+    ) {
+
+        activateFallIntoMeEra();
+
+    }
+
+}
+
+
+checkFallIntoMeRelease();
 
 setInterval(
-    unlockFallIntoMe,
+    checkFallIntoMeRelease,
     30000
 );
 
@@ -494,9 +427,15 @@ if (
     !("IntersectionObserver" in window)
 ) {
 
-    revealElements.forEach((element) => {
-        element.classList.add("visible");
-    });
+    revealElements.forEach(
+        (element) => {
+
+            element.classList.add(
+                "visible"
+            );
+
+        }
+    );
 
 } else {
 
@@ -505,23 +444,27 @@ if (
 
             (entries, observer) => {
 
-                entries.forEach((entry) => {
+                entries.forEach(
+                    (entry) => {
 
-                    if (!entry.isIntersecting) {
-                        return;
+                        if (
+                            !entry.isIntersecting
+                        ) {
+                            return;
+                        }
+
+
+                        entry.target.classList.add(
+                            "visible"
+                        );
+
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
                     }
-
-
-                    entry.target.classList.add(
-                        "visible"
-                    );
-
-
-                    observer.unobserve(
-                        entry.target
-                    );
-
-                });
+                );
 
             },
 
@@ -532,16 +475,21 @@ if (
         );
 
 
-    revealElements.forEach((element) => {
-        revealObserver.observe(element);
-    });
+    revealElements.forEach(
+        (element) => {
+
+            revealObserver.observe(
+                element
+            );
+
+        }
+    );
 
 }
 
 
 // =========================================================
 // CURSOR GLOW
-// DESKTOP ONLY
 // =========================================================
 
 const cursorGlow =
@@ -590,16 +538,14 @@ if (
         "scroll",
         () => {
 
-            // Important:
-            // Let the Fall Into Me CSS animation
-            // control the hero instead.
-
             if (
                 document.body.classList.contains(
                     "fall-era"
                 )
             ) {
+
                 heroBg.style.transform = "";
+
                 return;
             }
 
@@ -629,7 +575,6 @@ if (
 
 // =========================================================
 // TILT CARDS
-// DESKTOP ONLY
 // =========================================================
 
 const tiltCards =
@@ -643,71 +588,74 @@ if (
     ).matches
 ) {
 
-    tiltCards.forEach((card) => {
+    tiltCards.forEach(
+        (card) => {
 
-        const image =
-            card.querySelector("img");
+            const image =
+                card.querySelector("img");
 
 
-        if (!image) {
-            return;
+            if (!image) {
+                return;
+            }
+
+
+            card.addEventListener(
+                "mousemove",
+                (event) => {
+
+                    const rect =
+                        card.getBoundingClientRect();
+
+
+                    const x =
+                        (
+                            event.clientX -
+                            rect.left
+                        ) /
+                        rect.width;
+
+
+                    const y =
+                        (
+                            event.clientY -
+                            rect.top
+                        ) /
+                        rect.height;
+
+
+                    const rotateY =
+                        (x - 0.5) * 6;
+
+
+                    const rotateX =
+                        (0.5 - y) * 6;
+
+
+                    image.style.transform =
+                        `
+                        perspective(1100px)
+                        rotateX(${rotateX}deg)
+                        rotateY(${rotateY}deg)
+                        scale(1.015)
+                        `;
+
+                }
+            );
+
+
+            card.addEventListener(
+                "mouseleave",
+                () => {
+
+                    image.style.transform =
+                        "";
+
+                }
+            );
+
         }
-
-
-        card.addEventListener(
-            "mousemove",
-            (event) => {
-
-                const rect =
-                    card.getBoundingClientRect();
-
-
-                const x =
-                    (
-                        event.clientX -
-                        rect.left
-                    ) /
-                    rect.width;
-
-
-                const y =
-                    (
-                        event.clientY -
-                        rect.top
-                    ) /
-                    rect.height;
-
-
-                const rotateY =
-                    (x - 0.5) * 6;
-
-
-                const rotateX =
-                    (0.5 - y) * 6;
-
-
-                image.style.transform =
-                    `
-                    perspective(1100px)
-                    rotateX(${rotateX}deg)
-                    rotateY(${rotateY}deg)
-                    scale(1.015)
-                    `;
-
-            }
-        );
-
-
-        card.addEventListener(
-            "mouseleave",
-            () => {
-
-                image.style.transform = "";
-
-            }
-        );
-
-    });
+    );
 
 }
 
@@ -723,59 +671,61 @@ const lyricsContents =
     $$(".lyrics-content");
 
 
-lyricsTabs.forEach((tab) => {
+lyricsTabs.forEach(
+    (tab) => {
 
-    tab.addEventListener(
-        "click",
-        () => {
+        tab.addEventListener(
+            "click",
+            () => {
 
-            const songId =
-                tab.dataset.song;
-
-
-            lyricsTabs.forEach(
-                (button) => {
-
-                    const active =
-                        button === tab;
+                const songId =
+                    tab.dataset.song;
 
 
-                    button.classList.toggle(
-                        "active",
-                        active
-                    );
+                lyricsTabs.forEach(
+                    (button) => {
+
+                        const active =
+                            button === tab;
 
 
-                    button.setAttribute(
-                        "aria-selected",
-                        active
-                            ? "true"
-                            : "false"
-                    );
-
-                }
-            );
+                        button.classList.toggle(
+                            "active",
+                            active
+                        );
 
 
-            lyricsContents.forEach(
-                (content) => {
+                        button.setAttribute(
+                            "aria-selected",
+                            active
+                                ? "true"
+                                : "false"
+                        );
 
-                    content.classList.toggle(
-                        "active",
-                        content.id === songId
-                    );
+                    }
+                );
 
-                }
-            );
 
-        }
-    );
+                lyricsContents.forEach(
+                    (content) => {
 
-});
+                        content.classList.toggle(
+                            "active",
+                            content.id === songId
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+    }
+);
 
 
 // =========================================================
-// MOBILE NAVIGATION
+// MOBILE NAV
 // =========================================================
 
 const menuToggle =
@@ -795,7 +745,10 @@ function closeMenu() {
     }
 
 
-    siteNav.classList.remove("open");
+    siteNav.classList.remove(
+        "open"
+    );
+
 
     menuToggle.setAttribute(
         "aria-expanded",
@@ -833,14 +786,16 @@ if (
 
     siteNav
         .querySelectorAll("a")
-        .forEach((link) => {
+        .forEach(
+            (link) => {
 
-            link.addEventListener(
-                "click",
-                closeMenu
-            );
+                link.addEventListener(
+                    "click",
+                    closeMenu
+                );
 
-        });
+            }
+        );
 
 
     window.addEventListener(
@@ -850,7 +805,9 @@ if (
             if (
                 window.innerWidth > 850
             ) {
+
                 closeMenu();
+
             }
 
         }
