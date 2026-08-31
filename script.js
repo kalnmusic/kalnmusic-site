@@ -2,26 +2,19 @@
 // KALN — MASTER SCRIPT
 // =========================================================
 
-const $ = (selector) =>
-    document.querySelector(selector);
-
-const $$ = (selector) =>
-    document.querySelectorAll(selector);
+const $ = (selector) => document.querySelector(selector);
+const $$ = (selector) => document.querySelectorAll(selector);
 
 const reducedMotion =
-    window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-    ).matches;
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 
 // =========================================================
-// FALL INTO ME
+// FALL INTO ME SETTINGS
 // =========================================================
 
 const siteParams =
-    new URLSearchParams(
-        window.location.search
-    );
+    new URLSearchParams(window.location.search);
 
 const fallPreviewMode =
     siteParams.get("fallpreview") === "1";
@@ -44,47 +37,27 @@ function updateFallCountdown() {
     const countdown =
         $("#fall-countdown");
 
-    if (!countdown) {
-        return;
-    }
+    if (!countdown) return;
 
     const distance =
-        fallIntoMeReleaseTime -
-        new Date();
-
+        fallIntoMeReleaseTime - new Date();
 
     if (distance <= 0) {
-
-        countdown.style.display =
-            "none";
-
+        countdown.style.display = "none";
         return;
     }
 
-
     const days =
-        Math.floor(
-            distance /
-            86400000
-        );
+        Math.floor(distance / 86400000);
 
     const hours =
-        Math.floor(
-            distance /
-            3600000
-        ) % 24;
+        Math.floor(distance / 3600000) % 24;
 
     const minutes =
-        Math.floor(
-            distance /
-            60000
-        ) % 60;
+        Math.floor(distance / 60000) % 60;
 
     const seconds =
-        Math.floor(
-            distance /
-            1000
-        ) % 60;
+        Math.floor(distance / 1000) % 60;
 
 
     if ($("#countdown-days")) {
@@ -106,9 +79,7 @@ function updateFallCountdown() {
         $("#countdown-seconds").textContent =
             String(seconds).padStart(2,"0");
     }
-
 }
-
 
 updateFallCountdown();
 
@@ -119,111 +90,112 @@ setInterval(
 
 
 // =========================================================
-// FALL ERA ACTIVATION
+// ACTIVATE FALL INTO ME ERA
 // =========================================================
 
 function activateFallIntoMeEra() {
 
-    if (fallEraActivated) {
-        return;
-    }
+    if (fallEraActivated) return;
 
     fallEraActivated = true;
 
-
-    document.body.classList.add(
-        "fall-era"
-    );
+    document.body.classList.add("fall-era");
 
 
-    // MARQUEE
+    // TOP MARQUEE
 
-    $$(".listen-group").forEach(
-        (group) => {
+    $$(".listen-group").forEach((group) => {
 
-            group.innerHTML = `
-                <span>FALL INTO ME — OUT NOW</span>
-                <span>•</span>
-                <span>STREAM EVERYWHERE</span>
-                <span>•</span>
-                <span>KALN</span>
-                <span>•</span>
-            `;
+        group.innerHTML = `
+            <span>FALL INTO ME — OUT NOW</span>
+            <span>•</span>
+            <span>STREAM EVERYWHERE</span>
+            <span>•</span>
+            <span>KALN</span>
+            <span>•</span>
+        `;
 
-        }
-    );
+    });
+
+
+    const marquee =
+        $(".listen-marquee");
+
+    if (marquee) {
+        marquee.setAttribute(
+            "aria-label",
+            "Fall Into Me is out now"
+        );
+    }
 
 
     // HERO
 
-    const eyebrow =
+    const heroEyebrow =
         $(".hero-eyebrow");
 
-    const tagline =
+    const heroTagline =
         $(".hero-tagline");
 
-    const primary =
+    const heroPrimary =
         $(".hero-primary");
 
 
-    if (eyebrow) {
-        eyebrow.textContent =
-            "New Release";
+    if (heroEyebrow) {
+        heroEyebrow.textContent =
+            "New Single";
     }
 
-    if (tagline) {
-        tagline.textContent =
+    if (heroTagline) {
+        heroTagline.textContent =
             "Fall Into Me is out now.";
     }
 
-    if (primary) {
+    if (heroPrimary) {
+        heroPrimary.textContent =
+            "Listen Now";
 
-        primary.textContent =
-            "Listen to Fall Into Me";
-
-        primary.href =
+        heroPrimary.href =
             fallIntoMeLink;
-
     }
 
 
     // NOW PLAYING
 
-    const cover =
+    const nowPlayingCover =
         $("#now-playing-cover");
 
-    if (cover) {
+    const nowPlayingTitle =
+        $("#now-playing-title");
 
-        cover.src =
+    const nowPlayingCopy =
+        $("#now-playing-copy");
+
+    const nowPlayingLink =
+        $("#now-playing-link");
+
+
+    if (nowPlayingCover) {
+        nowPlayingCover.src =
             "assets/images/fall-into-me-cover.png";
 
-        cover.alt =
+        nowPlayingCover.alt =
             "Fall Into Me cover art by KALN";
-
     }
 
-
-    if ($("#now-playing-title")) {
-
-        $("#now-playing-title").textContent =
+    if (nowPlayingTitle) {
+        nowPlayingTitle.textContent =
             "Fall Into Me";
-
     }
 
-
-    if ($("#now-playing-copy")) {
-
-        $("#now-playing-copy").textContent =
+    if (nowPlayingCopy) {
+        nowPlayingCopy.textContent =
             "A softer chapter, out now.";
-
     }
 
-
-    if ($("#now-playing-link")) {
-
-        $("#now-playing-link").href =
+    if (nowPlayingLink) {
+        nowPlayingLink.href =
             fallIntoMeLink;
-
     }
 
 
@@ -233,10 +205,8 @@ function activateFallIntoMeEra() {
         $(".next-section");
 
     if (comingSoon) {
-
         comingSoon.style.display =
             "none";
-
     }
 
 
@@ -246,21 +216,17 @@ function activateFallIntoMeEra() {
         $("#fall-into-me-discography");
 
     if (fallDiscography) {
-
-        fallDiscography.hidden =
-            false;
-
+        fallDiscography.hidden = false;
     }
 
 
-    // LYRICS
+    // UNLOCK FALL LYRICS
 
     const lockedLyrics =
         $("#fall-lyrics-locked");
 
     const fullLyrics =
         $("#fall-full-lyrics");
-
 
     if (lockedLyrics) {
         lockedLyrics.hidden = true;
@@ -270,31 +236,49 @@ function activateFallIntoMeEra() {
         fullLyrics.hidden = false;
     }
 
+
+    // META DESCRIPTION
+
+    const metaDescription =
+        document.querySelector(
+            'meta[name="description"]'
+        );
+
+    if (metaDescription) {
+        metaDescription.setAttribute(
+            "content",
+            "KALN — Fall Into Me is out now. Listen, read the lyrics, and explore the official website."
+        );
+    }
+
 }
 
 
-// PREVIEW
+// =========================================================
+// PREVIEW MODE
+// =========================================================
 
 if (fallPreviewMode) {
     activateFallIntoMeEra();
 }
 
 
-// ACTUAL RELEASE
+// =========================================================
+// ACTUAL RELEASE SWITCH
+// =========================================================
 
 function checkRelease() {
 
+    if (fallEraActivated) return;
+
     if (
-        !fallEraActivated &&
-        new Date() >= fallIntoMeReleaseTime
+        new Date() >=
+        fallIntoMeReleaseTime
     ) {
-
         activateFallIntoMeEra();
-
     }
 
 }
-
 
 checkRelease();
 
@@ -311,21 +295,14 @@ setInterval(
 const reveals =
     $$(".reveal");
 
-
 if (
     reducedMotion ||
     !("IntersectionObserver" in window)
 ) {
 
-    reveals.forEach(
-        (element) => {
-
-            element.classList.add(
-                "visible"
-            );
-
-        }
-    );
+    reveals.forEach((element) => {
+        element.classList.add("visible");
+    });
 
 } else {
 
@@ -333,25 +310,21 @@ if (
         new IntersectionObserver(
             (entries) => {
 
-                entries.forEach(
-                    (entry) => {
+                entries.forEach((entry) => {
 
-                        if (
-                            entry.isIntersecting
-                        ) {
-
-                            entry.target
-                                .classList
-                                .add("visible");
-
-                            observer.unobserve(
-                                entry.target
-                            );
-
-                        }
-
+                    if (!entry.isIntersecting) {
+                        return;
                     }
-                );
+
+                    entry.target
+                        .classList
+                        .add("visible");
+
+                    observer.unobserve(
+                        entry.target
+                    );
+
+                });
 
             },
             {
@@ -359,16 +332,9 @@ if (
             }
         );
 
-
-    reveals.forEach(
-        (element) => {
-
-            observer.observe(
-                element
-            );
-
-        }
-    );
+    reveals.forEach((element) => {
+        observer.observe(element);
+    });
 
 }
 
@@ -380,13 +346,10 @@ if (
 const cursorGlow =
     $(".cursor-glow");
 
-
 if (
     cursorGlow &&
     !reducedMotion &&
-    window.matchMedia(
-        "(pointer:fine)"
-    ).matches
+    window.matchMedia("(pointer:fine)").matches
 ) {
 
     window.addEventListener(
@@ -412,7 +375,6 @@ if (
 const heroBg =
     $(".hero-bg");
 
-
 if (
     heroBg &&
     !reducedMotion
@@ -427,19 +389,15 @@ if (
                     .classList
                     .contains("fall-era")
             ) {
-
                 heroBg.style.transform = "";
-
                 return;
             }
-
 
             const shift =
                 Math.min(
                     window.scrollY * .08,
                     55
                 );
-
 
             heroBg.style.transform =
                 `translate3d(0,${shift}px,0) scale(1.07)`;
@@ -459,68 +417,62 @@ if (
 
 if (
     !reducedMotion &&
-    window.matchMedia(
-        "(pointer:fine)"
-    ).matches
+    window.matchMedia("(pointer:fine)").matches
 ) {
 
-    $$(".tilt-card").forEach(
-        (card) => {
+    $$(".tilt-card").forEach((card) => {
 
-            const image =
-                card.querySelector("img");
+        const image =
+            card.querySelector("img");
 
-            if (!image) {
-                return;
+        if (!image) return;
+
+        card.addEventListener(
+            "mousemove",
+            (event) => {
+
+                const rect =
+                    card.getBoundingClientRect();
+
+                const x =
+                    (
+                        event.clientX -
+                        rect.left
+                    ) /
+                    rect.width;
+
+                const y =
+                    (
+                        event.clientY -
+                        rect.top
+                    ) /
+                    rect.height;
+
+                const rotateX =
+                    (0.5 - y) * 6;
+
+                const rotateY =
+                    (x - 0.5) * 6;
+
+                image.style.transform =
+                    `
+                    perspective(1100px)
+                    rotateX(${rotateX}deg)
+                    rotateY(${rotateY}deg)
+                    scale(1.015)
+                    `;
+
             }
+        );
 
+        card.addEventListener(
+            "mouseleave",
+            () => {
+                image.style.transform = "";
+            }
+        );
 
-            card.addEventListener(
-                "mousemove",
-                (event) => {
-
-                    const rect =
-                        card.getBoundingClientRect();
-
-                    const x =
-                        (
-                            event.clientX -
-                            rect.left
-                        ) /
-                        rect.width;
-
-                    const y =
-                        (
-                            event.clientY -
-                            rect.top
-                        ) /
-                        rect.height;
-
-
-                    image.style.transform =
-                        `
-                        perspective(1100px)
-                        rotateX(${(0.5-y)*6}deg)
-                        rotateY(${(x-0.5)*6}deg)
-                        scale(1.015)
-                        `;
-
-                }
-            );
-
-
-            card.addEventListener(
-                "mouseleave",
-                () => {
-
-                    image.style.transform =
-                        "";
-
-                }
-            );
-
-        }
-    );
+    });
 
 }
 
@@ -535,50 +487,49 @@ const tabs =
 const lyricPanels =
     $$(".lyrics-content");
 
+tabs.forEach((tab) => {
 
-tabs.forEach(
-    (tab) => {
+    tab.addEventListener(
+        "click",
+        () => {
 
-        tab.addEventListener(
-            "click",
-            () => {
+            const song =
+                tab.dataset.song;
 
-                const song =
-                    tab.dataset.song;
+            tabs.forEach((button) => {
 
+                const active =
+                    button === tab;
 
-                tabs.forEach(
-                    (button) => {
-
-                        button.classList.toggle(
-                            "active",
-                            button === tab
-                        );
-
-                    }
+                button.classList.toggle(
+                    "active",
+                    active
                 );
 
-
-                lyricPanels.forEach(
-                    (panel) => {
-
-                        panel.classList.toggle(
-                            "active",
-                            panel.id === song
-                        );
-
-                    }
+                button.setAttribute(
+                    "aria-selected",
+                    active ? "true" : "false"
                 );
 
-            }
-        );
+            });
 
-    }
-);
+            lyricPanels.forEach((panel) => {
+
+                panel.classList.toggle(
+                    "active",
+                    panel.id === song
+                );
+
+            });
+
+        }
+    );
+
+});
 
 
 // =========================================================
-// MOBILE MENU
+// MOBILE NAV
 // =========================================================
 
 const menuToggle =
@@ -587,6 +538,20 @@ const menuToggle =
 const siteNav =
     $(".site-nav");
 
+function closeMenu() {
+
+    if (!menuToggle || !siteNav) {
+        return;
+    }
+
+    siteNav.classList.remove("open");
+
+    menuToggle.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+
+}
 
 if (
     menuToggle &&
@@ -598,43 +563,36 @@ if (
         () => {
 
             const open =
-                siteNav.classList.toggle(
-                    "open"
-                );
+                siteNav.classList.toggle("open");
 
             menuToggle.setAttribute(
                 "aria-expanded",
-                open
-                    ? "true"
-                    : "false"
+                open ? "true" : "false"
             );
 
         }
     );
 
-
     siteNav
         .querySelectorAll("a")
-        .forEach(
-            (link) => {
+        .forEach((link) => {
 
-                link.addEventListener(
-                    "click",
-                    () => {
+            link.addEventListener(
+                "click",
+                closeMenu
+            );
 
-                        siteNav.classList.remove(
-                            "open"
-                        );
+        });
 
-                        menuToggle.setAttribute(
-                            "aria-expanded",
-                            "false"
-                        );
+    window.addEventListener(
+        "resize",
+        () => {
 
-                    }
-                );
-
+            if (window.innerWidth > 850) {
+                closeMenu();
             }
-        );
+
+        }
+    );
 
 }
