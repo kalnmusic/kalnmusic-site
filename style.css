@@ -1081,7 +1081,7 @@ button {
     display: grid;
 
     grid-template-columns:
-        repeat(3, 1fr);
+        repeat(2, 1fr);
 
     gap: 1px;
 
@@ -1375,14 +1375,12 @@ button {
 
     .site-footer {
         min-height: 250px;
-
         padding: 35px 16px 24px;
     }
 
     .footer-logo-window {
         width: 340px;
         max-width: 92vw;
-
         height: 145px;
     }
 
@@ -1393,9 +1391,13 @@ button {
     .site-footer::before {
         width: 450px;
         height: 190px;
-
         bottom: 45px;
     }
+
+    .visual-strip {
+        grid-template-columns: 1fr;
+    }
+
 }
 
 
