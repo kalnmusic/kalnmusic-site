@@ -12,7 +12,9 @@
 }
 
 
-/* BASE */
+/* =========================================================
+   BASE
+========================================================= */
 
 * {
     box-sizing: border-box;
@@ -45,7 +47,9 @@ button {
 }
 
 
-/* TEXTURE */
+/* =========================================================
+   TEXTURE
+========================================================= */
 
 .noise {
     position: fixed;
@@ -62,8 +66,10 @@ button {
 
 .cursor-glow {
     position: fixed;
+
     width: 420px;
     height: 420px;
+
     border-radius: 50%;
 
     background:
@@ -74,13 +80,16 @@ button {
         );
 
     pointer-events: none;
+
     z-index: 1;
 
     transform: translate(-50%,-50%);
 }
 
 
-/* LISTEN BAR */
+/* =========================================================
+   LISTEN BAR
+========================================================= */
 
 .listen-bar {
     position: fixed;
@@ -143,7 +152,9 @@ button {
 }
 
 
-/* HEADER */
+/* =========================================================
+   HEADER
+========================================================= */
 
 .site-header {
     position: fixed;
@@ -220,7 +231,9 @@ button {
 }
 
 
-/* HERO */
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero {
     position: relative;
@@ -351,7 +364,9 @@ button {
 }
 
 
-/* BUTTONS */
+/* =========================================================
+   BUTTONS
+========================================================= */
 
 .button {
     display: inline-flex;
@@ -402,7 +417,9 @@ button {
 }
 
 
-/* SECTIONS */
+/* =========================================================
+   SECTIONS
+========================================================= */
 
 .section {
     padding: 120px 6vw;
@@ -434,7 +451,9 @@ button {
 }
 
 
-/* NOW PLAYING */
+/* =========================================================
+   NOW PLAYING
+========================================================= */
 
 .release-feature {
     max-width: 1040px;
@@ -454,6 +473,7 @@ button {
 
 .release-art {
     position: relative;
+
     perspective: 1100px;
 }
 
@@ -567,7 +587,9 @@ button {
 }
 
 
-/* COMING SOON */
+/* =========================================================
+   COMING SOON
+========================================================= */
 
 .coming-wrap {
     max-width: 1050px;
@@ -634,7 +656,9 @@ button {
 }
 
 
-/* COUNTDOWN */
+/* =========================================================
+   COUNTDOWN
+========================================================= */
 
 .fim-countdown {
     display: flex;
@@ -669,7 +693,9 @@ button {
 }
 
 
-/* DISCOGRAPHY */
+/* =========================================================
+   DISCOGRAPHY
+========================================================= */
 
 .discography-grid {
     max-width: 980px;
@@ -727,7 +753,9 @@ button {
 }
 
 
-/* LYRICS */
+/* =========================================================
+   LYRICS
+========================================================= */
 
 .lyrics-section {
     display: grid;
@@ -801,6 +829,7 @@ button {
 
 .lyrics-tab.active {
     background: var(--ink);
+
     color: #111;
 }
 
@@ -836,6 +865,7 @@ button {
 
 .lyrics-sequence {
     max-width: 680px;
+
     margin: 0 auto;
 }
 
@@ -872,7 +902,9 @@ button {
 }
 
 
-/* ABOUT */
+/* =========================================================
+   ABOUT
+========================================================= */
 
 .about-grid {
     max-width: 1080px;
@@ -896,6 +928,7 @@ button {
 
 .about-photo-wrap img {
     aspect-ratio: 1;
+
     object-fit: cover;
 }
 
@@ -927,7 +960,9 @@ button {
 }
 
 
-/* VISUALS */
+/* =========================================================
+   VISUALS
+========================================================= */
 
 .visuals-section {
     padding: 120px 0 0;
@@ -935,6 +970,7 @@ button {
 
 .visuals-heading {
     padding-bottom: 55px;
+
     text-align: center;
 }
 
@@ -959,6 +995,7 @@ button {
 
 .visual-panel img {
     height: 100%;
+
     object-fit: cover;
 }
 
@@ -976,7 +1013,9 @@ button {
 }
 
 
-/* CONNECT */
+/* =========================================================
+   CONNECT
+========================================================= */
 
 .connect-section {
     padding: 130px 6vw;
@@ -1014,7 +1053,9 @@ button {
 }
 
 
-/* FOOTER */
+/* =========================================================
+   FOOTER
+========================================================= */
 
 .site-footer {
     position: relative;
@@ -1097,7 +1138,9 @@ button {
 }
 
 
-/* REVEALS */
+/* =========================================================
+   REVEALS
+========================================================= */
 
 .reveal {
     opacity: 0;
@@ -1111,6 +1154,7 @@ button {
 
 .reveal.visible {
     opacity: 1;
+
     transform: none;
 }
 
@@ -1134,7 +1178,9 @@ body.fall-era .hero-bg {
 }
 
 
-/* FALL SKY */
+/* =========================================================
+   FALL SKY
+========================================================= */
 
 body.fall-era .fall-hero-world {
     display: block;
@@ -1143,16 +1189,16 @@ body.fall-era .fall-hero-world {
 
     inset: 0;
 
-    overflow: hidden;
-
     z-index: 1;
+
+    overflow: hidden;
 
     background:
         linear-gradient(
             to bottom,
             #061328 0%,
-            #0a1d36 33%,
-            #112d49 67%,
+            #0a1d36 34%,
+            #112d49 68%,
             #07131f 100%
         );
 }
@@ -1164,24 +1210,26 @@ body.fall-era .fall-sky {
 
     background:
         radial-gradient(
-            ellipse at 47% 12%,
-            rgba(127,158,202,.20),
+            ellipse at 48% 13%,
+            rgba(135,166,207,.20),
             transparent 43%
         ),
         radial-gradient(
-            ellipse at 70% 38%,
-            rgba(72,107,153,.11),
-            transparent 40%
+            ellipse at 72% 38%,
+            rgba(79,112,155,.10),
+            transparent 42%
         );
 }
 
 
-/* STARS */
+/* =========================================================
+   STARS
+========================================================= */
 
 body.fall-era .stars {
     position: absolute;
 
-    inset: 0 0 35%;
+    inset: 0 0 34%;
 
     z-index: 1;
 
@@ -1189,20 +1237,27 @@ body.fall-era .stars {
 
     background:
         radial-gradient(circle at 7% 18%, #fff 0 1px, transparent 1.7px),
-        radial-gradient(circle at 16% 37%, #fff 0 1px, transparent 1.7px),
-        radial-gradient(circle at 28% 15%, #fff 0 1px, transparent 1.7px),
-        radial-gradient(circle at 39% 29%, #fff 0 1px, transparent 1.7px),
-        radial-gradient(circle at 51% 11%, #fff 0 1px, transparent 1.7px),
-        radial-gradient(circle at 62% 31%, #fff 0 1px, transparent 1.7px),
-        radial-gradient(circle at 74% 18%, #fff 0 1px, transparent 1.7px),
-        radial-gradient(circle at 86% 36%, #fff 0 1px, transparent 1.7px),
-        radial-gradient(circle at 94% 16%, #fff 0 1px, transparent 1.7px);
+        radial-gradient(circle at 15% 38%, #fff 0 1px, transparent 1.7px),
+        radial-gradient(circle at 24% 22%, #fff 0 1px, transparent 1.7px),
+        radial-gradient(circle at 31% 11%, #fff 0 1px, transparent 1.7px),
+        radial-gradient(circle at 40% 31%, #fff 0 1px, transparent 1.7px),
+        radial-gradient(circle at 50% 16%, #fff 0 1px, transparent 1.7px),
+        radial-gradient(circle at 61% 34%, #fff 0 1px, transparent 1.7px),
+        radial-gradient(circle at 71% 12%, #fff 0 1px, transparent 1.7px),
+        radial-gradient(circle at 82% 30%, #fff 0 1px, transparent 1.7px),
+        radial-gradient(circle at 93% 17%, #fff 0 1px, transparent 1.7px);
 
-    animation: starTwinkle 6s ease-in-out infinite;
+    animation:
+        starTwinkle
+        6s
+        ease-in-out
+        infinite;
 }
 
 
-/* CLOUDS */
+/* =========================================================
+   CLOUDS
+========================================================= */
 
 body.fall-era .cloud {
     position: absolute;
@@ -1222,295 +1277,193 @@ body.fall-era .cloud {
             transparent 75%
         );
 
-    filter: blur(26px);
+    filter: blur(27px);
 }
 
 body.fall-era .cloud-one {
     width: 62vw;
     height: 20vw;
 
-    top: 8%;
+    top: 7%;
     left: -17%;
 
     opacity: .45;
 
-    animation: cloudLeft 38s ease-in-out infinite alternate;
+    animation:
+        cloudLeft
+        38s
+        ease-in-out
+        infinite
+        alternate;
 }
 
 body.fall-era .cloud-two {
-    width: 65vw;
+    width: 67vw;
     height: 22vw;
 
-    top: 21%;
-    right: -23%;
+    top: 22%;
+    right: -24%;
 
     opacity: .30;
 
-    animation: cloudRight 48s ease-in-out infinite alternate;
+    animation:
+        cloudRight
+        48s
+        ease-in-out
+        infinite
+        alternate;
 }
 
 body.fall-era .cloud-three {
-    width: 48vw;
+    width: 49vw;
     height: 17vw;
 
-    top: 3%;
+    top: 2%;
     left: 48%;
 
-    opacity: .24;
+    opacity: .25;
 
-    animation: cloudLeft 55s ease-in-out infinite alternate;
+    animation:
+        cloudLeft
+        56s
+        ease-in-out
+        infinite
+        alternate;
 }
 
 body.fall-era .cloud-four {
-    width: 82vw;
+    width: 83vw;
     height: 24vw;
 
     top: 31%;
-    left: -26%;
+    left: -27%;
 
     opacity: .15;
 
-    animation: cloudRight 64s ease-in-out infinite alternate;
+    animation:
+        cloudRight
+        64s
+        ease-in-out
+        infinite
+        alternate;
 }
 
 
 /* =========================================================
-   FALL INTO ME SKYWRITING
+   SKYWRITING SVG
 ========================================================= */
 
-body.fall-era .skywriting {
+body.fall-era .skywriting-scene {
     position: absolute;
 
-    top: 14%;
+    top: 11%;
     left: 50%;
 
-    width: min(86vw, 1050px);
-    height: 220px;
+    width: min(92vw, 1180px);
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%)
+        rotate(-2.5deg);
 
     z-index: 8;
 
     pointer-events: none;
+}
+
+body.fall-era .skywriting-svg {
+    display: block;
+
+    width: 100%;
+    height: auto;
 
     overflow: visible;
 }
 
 
-/* TITLE */
+/* =========================================================
+   CLOUD WRITING
+========================================================= */
 
-body.fall-era .skywriting-title {
-    position: absolute;
+body.fall-era .cloud-writing-path,
+body.fall-era .cloud-writing-haze {
+    fill: none;
 
-    left: 50%;
-    top: 50%;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 
-    transform:
-        translate(-50%, -50%)
-        rotate(-3deg);
-
-    display: flex;
-    align-items: baseline;
-    justify-content: center;
-
-    white-space: nowrap;
-
-    font-family:
-        "Brush Script MT",
-        "Segoe Script",
-        "Lucida Handwriting",
-        cursive;
-
-    font-size: clamp(4.5rem,8.2vw,8.8rem);
-
-    line-height: .9;
-
-    z-index: 3;
-}
-
-body.fall-era .skywriting-title > span:not(.word-space) {
-    position: relative;
-
-    display: inline-block;
-
-    color: rgba(236,243,251,.88);
-
-    opacity: 0;
-
-    filter: blur(10px);
-
-    transform: scale(.88);
-
-    text-shadow:
-        0 0 8px rgba(255,255,255,.32),
-        0 0 18px rgba(220,233,248,.28),
-        0 0 38px rgba(181,207,237,.20);
-
-    animation:
-        cloudLetterCycle 16s ease-in-out infinite;
-
-    animation-delay:
-        var(--letter-delay);
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
 }
 
 
-/* cloudy halo on letters */
+/* actual visible writing */
 
-body.fall-era .skywriting-title > span:not(.word-space)::before,
-body.fall-era .skywriting-title > span:not(.word-space)::after {
-    content: "";
+body.fall-era .cloud-writing-path {
+    stroke:
+        rgba(239,245,253,.92);
 
-    position: absolute;
-
-    left: 50%;
-    top: 54%;
-
-    transform: translate(-50%,-50%);
-
-    border-radius: 50%;
-
-    pointer-events: none;
-
-    z-index: -1;
-}
-
-body.fall-era .skywriting-title > span:not(.word-space)::before {
-    width: 150%;
-    height: 125%;
-
-    background:
-        radial-gradient(
-            ellipse,
-            rgba(227,237,249,.28) 0%,
-            rgba(190,211,235,.18) 38%,
-            transparent 72%
-        );
-
-    filter: blur(11px);
-
-    opacity: .75;
-}
-
-body.fall-era .skywriting-title > span:not(.word-space)::after {
-    width: 190%;
-    height: 160%;
-
-    background:
-        radial-gradient(
-            ellipse,
-            rgba(197,216,239,.14),
-            transparent 70%
-        );
-
-    filter: blur(19px);
-
-    opacity: .55;
-}
-
-body.fall-era .word-space {
-    width: .26em;
-    flex: 0 0 .26em;
-}
-
-
-/* STAGGER LETTERS */
-
-body.fall-era .skywriting-title > span:nth-child(1)  { --letter-delay: 1.8s; }
-body.fall-era .skywriting-title > span:nth-child(2)  { --letter-delay: 2.05s; }
-body.fall-era .skywriting-title > span:nth-child(3)  { --letter-delay: 2.30s; }
-body.fall-era .skywriting-title > span:nth-child(4)  { --letter-delay: 2.55s; }
-
-body.fall-era .skywriting-title > span:nth-child(6)  { --letter-delay: 3.05s; }
-body.fall-era .skywriting-title > span:nth-child(7)  { --letter-delay: 3.30s; }
-body.fall-era .skywriting-title > span:nth-child(8)  { --letter-delay: 3.55s; }
-body.fall-era .skywriting-title > span:nth-child(9)  { --letter-delay: 3.80s; }
-
-body.fall-era .skywriting-title > span:nth-child(11) { --letter-delay: 4.30s; }
-body.fall-era .skywriting-title > span:nth-child(12) { --letter-delay: 4.55s; }
-
-
-/* PLANE */
-
-body.fall-era .skywriting-plane {
-    position: absolute;
-
-    left: -8%;
-    top: 50%;
-
-    z-index: 6;
-
-    font-size: 1.75rem;
-
-    color: rgba(244,248,253,.96);
-
-    transform:
-        translateY(-50%)
-        rotate(7deg);
-
-    text-shadow:
-        0 0 5px rgba(255,255,255,.32);
+    stroke-width: 6.5;
 
     filter:
-        drop-shadow(0 0 7px rgba(192,218,245,.40));
+        url(#cloud-softness)
+        drop-shadow(
+            0 0 4px
+            rgba(245,249,255,.48)
+        )
+        drop-shadow(
+            0 0 10px
+            rgba(217,231,247,.40)
+        )
+        drop-shadow(
+            0 0 22px
+            rgba(183,208,237,.28)
+        );
 
-    animation:
-        planeWriteAcross 16s ease-in-out infinite;
+    opacity: .94;
 }
 
 
-/* VAPOR TRAIL */
+/* soft vapor around writing */
 
-body.fall-era .skywriting-plane::before {
-    content: "";
+body.fall-era .cloud-writing-haze {
+    stroke:
+        rgba(204,220,240,.32);
 
-    position: absolute;
+    stroke-width: 18;
 
-    right: calc(100% + 2px);
-    top: 53%;
+    filter:
+        url(#cloud-haze);
 
-    width: 85px;
-    height: 4px;
-
-    transform: translateY(-50%);
-
-    border-radius: 50%;
-
-    background:
-        linear-gradient(
-            to left,
-            rgba(235,243,251,.72),
-            rgba(211,225,243,.38) 38%,
-            transparent
-        );
-
-    filter: blur(2px);
-
-    opacity: .75;
+    opacity: .52;
 }
 
-body.fall-era .skywriting-plane::after {
-    content: "";
 
-    position: absolute;
+/* =========================================================
+   TRACING PLANE
+========================================================= */
 
-    right: calc(100% + 22px);
-    top: 53%;
+body.fall-era .tracing-plane {
+    opacity: 0;
 
-    width: 110px;
-    height: 14px;
-
-    transform: translateY(-50%);
-
-    background:
-        radial-gradient(
-            ellipse,
-            rgba(218,230,244,.22),
-            transparent 68%
+    filter:
+        url(#plane-glow)
+        drop-shadow(
+            0 0 5px
+            rgba(214,233,252,.32)
         );
+}
 
-    filter: blur(7px);
+body.fall-era .plane-shape {
+    fill:
+        rgba(240,246,253,.96);
 
-    opacity: .75;
+    stroke:
+        rgba(255,255,255,.30);
+
+    stroke-width: .7;
+
+    vector-effect:
+        non-scaling-stroke;
 }
 
 
@@ -1540,58 +1493,72 @@ body.fall-era .city {
 
     clip-path: polygon(
         0 100%,
-        0 73%,
-        3% 73%,
-        3% 63%,
-        7% 63%,
-        7% 74%,
-        11% 74%,
-        11% 56%,
-        15% 56%,
-        15% 69%,
-        20% 69%,
-        20% 51%,
-        24% 51%,
-        24% 65%,
-        29% 65%,
-        29% 42%,
-        33% 42%,
-        33% 62%,
-        38% 62%,
-        38% 49%,
-        43% 49%,
-        43% 33%,
-        47% 33%,
-        47% 61%,
-        52% 61%,
-        52% 46%,
-        56% 46%,
-        56% 64%,
-        61% 64%,
-        61% 39%,
-        65% 39%,
-        65% 58%,
-        70% 58%,
-        70% 67%,
-        75% 67%,
-        75% 46%,
-        79% 46%,
-        79% 60%,
-        84% 60%,
-        84% 52%,
-        88% 52%,
-        88% 68%,
-        92% 68%,
-        92% 57%,
-        96% 57%,
-        96% 72%,
-        100% 72%,
+
+        0 74%,
+        3% 74%,
+        3% 64%,
+        7% 64%,
+        7% 75%,
+        11% 75%,
+
+        11% 57%,
+        15% 57%,
+        15% 70%,
+        20% 70%,
+
+        20% 52%,
+        24% 52%,
+        24% 66%,
+        29% 66%,
+
+        29% 44%,
+        33% 44%,
+        33% 63%,
+        38% 63%,
+
+        38% 51%,
+        43% 51%,
+        43% 35%,
+        47% 35%,
+        47% 62%,
+
+        52% 62%,
+        52% 47%,
+        56% 47%,
+        56% 65%,
+
+        61% 65%,
+        61% 41%,
+        65% 41%,
+        65% 59%,
+
+        70% 59%,
+        70% 68%,
+        75% 68%,
+
+        75% 47%,
+        79% 47%,
+        79% 61%,
+
+        84% 61%,
+        84% 53%,
+        88% 53%,
+        88% 69%,
+
+        92% 69%,
+        92% 58%,
+        96% 58%,
+        96% 73%,
+
+        100% 73%,
+
         100% 100%
     );
 
     filter:
         drop-shadow(
-            0 -8px 24px rgba(0,0,0,.35)
+            0 -8px 24px
+            rgba(0,0,0,.35)
         );
 }
 
@@ -1603,42 +1570,49 @@ body.fall-era .city::before {
 
     position: absolute;
 
-    inset: 28% 0 4%;
+    inset: 25% 0 3%;
 
     background:
-        radial-gradient(circle at 3% 72%, rgba(255,208,119,.95) 0 1.4px, transparent 2px),
-        radial-gradient(circle at 6% 51%, rgba(255,226,155,.80) 0 1px, transparent 1.8px),
-        radial-gradient(circle at 10% 64%, rgba(255,191,92,.90) 0 1.2px, transparent 1.9px),
-        radial-gradient(circle at 14% 46%, rgba(255,223,148,.95) 0 1.3px, transparent 2px),
-        radial-gradient(circle at 18% 69%, rgba(255,200,105,.85) 0 1px, transparent 1.8px),
-        radial-gradient(circle at 22% 43%, rgba(255,224,145,.92) 0 1.3px, transparent 2px),
-        radial-gradient(circle at 26% 63%, rgba(255,195,94,.85) 0 1.2px, transparent 1.8px),
-        radial-gradient(circle at 31% 39%, rgba(255,229,160,.95) 0 1.4px, transparent 2px),
-        radial-gradient(circle at 35% 67%, rgba(255,202,105,.88) 0 1.2px, transparent 2px),
-        radial-gradient(circle at 40% 47%, rgba(255,224,148,.90) 0 1.3px, transparent 2px),
-        radial-gradient(circle at 44% 59%, rgba(255,192,90,.84) 0 1px, transparent 1.8px),
-        radial-gradient(circle at 49% 35%, rgba(255,226,150,.96) 0 1.3px, transparent 2px),
-        radial-gradient(circle at 53% 64%, rgba(255,205,111,.88) 0 1.2px, transparent 2px),
-        radial-gradient(circle at 58% 44%, rgba(255,227,154,.93) 0 1.4px, transparent 2px),
-        radial-gradient(circle at 62% 69%, rgba(255,192,93,.85) 0 1px, transparent 1.8px),
-        radial-gradient(circle at 67% 42%, rgba(255,226,145,.95) 0 1.3px, transparent 2px),
-        radial-gradient(circle at 71% 57%, rgba(255,203,109,.88) 0 1.2px, transparent 2px),
-        radial-gradient(circle at 76% 39%, rgba(255,230,160,.95) 0 1.3px, transparent 2px),
-        radial-gradient(circle at 81% 65%, rgba(255,197,98,.90) 0 1.2px, transparent 2px),
-        radial-gradient(circle at 86% 48%, rgba(255,225,150,.94) 0 1.3px, transparent 2px),
-        radial-gradient(circle at 91% 69%, rgba(255,196,95,.86) 0 1px, transparent 1.8px),
-        radial-gradient(circle at 95% 51%, rgba(255,228,155,.96) 0 1.4px, transparent 2px),
-        radial-gradient(circle at 98% 72%, rgba(255,203,108,.88) 0 1.2px, transparent 2px);
+        radial-gradient(circle at 2% 71%, rgba(255,209,120,.94) 0 1.2px, transparent 1.9px),
+        radial-gradient(circle at 5% 58%, rgba(255,228,157,.75) 0 1px, transparent 1.8px),
+        radial-gradient(circle at 8% 69%, rgba(255,192,94,.92) 0 1.2px, transparent 1.9px),
+        radial-gradient(circle at 11% 49%, rgba(255,224,149,.96) 0 1.3px, transparent 2px),
+        radial-gradient(circle at 15% 67%, rgba(255,202,107,.85) 0 1px, transparent 1.8px),
+        radial-gradient(circle at 18% 52%, rgba(255,229,161,.88) 0 1.2px, transparent 2px),
+        radial-gradient(circle at 22% 71%, rgba(255,195,95,.90) 0 1.2px, transparent 1.9px),
+        radial-gradient(circle at 26% 47%, rgba(255,226,151,.96) 0 1.3px, transparent 2px),
+        radial-gradient(circle at 30% 66%, rgba(255,202,106,.87) 0 1.1px, transparent 1.9px),
+        radial-gradient(circle at 34% 38%, rgba(255,231,163,.96) 0 1.4px, transparent 2px),
+        radial-gradient(circle at 38% 62%, rgba(255,193,92,.84) 0 1px, transparent 1.8px),
+        radial-gradient(circle at 42% 47%, rgba(255,224,149,.93) 0 1.3px, transparent 2px),
+        radial-gradient(circle at 46% 66%, rgba(255,201,103,.85) 0 1.1px, transparent 1.9px),
+        radial-gradient(circle at 50% 39%, rgba(255,228,155,.97) 0 1.4px, transparent 2px),
+        radial-gradient(circle at 54% 59%, rgba(255,201,104,.86) 0 1.1px, transparent 1.9px),
+        radial-gradient(circle at 58% 46%, rgba(255,229,159,.94) 0 1.3px, transparent 2px),
+        radial-gradient(circle at 62% 70%, rgba(255,193,92,.87) 0 1px, transparent 1.8px),
+        radial-gradient(circle at 66% 44%, rgba(255,226,150,.96) 0 1.3px, transparent 2px),
+        radial-gradient(circle at 70% 59%, rgba(255,204,109,.89) 0 1.2px, transparent 2px),
+        radial-gradient(circle at 74% 38%, rgba(255,230,161,.96) 0 1.4px, transparent 2px),
+        radial-gradient(circle at 78% 64%, rgba(255,195,95,.91) 0 1.1px, transparent 1.9px),
+        radial-gradient(circle at 82% 48%, rgba(255,226,151,.94) 0 1.3px, transparent 2px),
+        radial-gradient(circle at 86% 68%, rgba(255,200,101,.88) 0 1.1px, transparent 1.9px),
+        radial-gradient(circle at 90% 51%, rgba(255,228,157,.96) 0 1.3px, transparent 2px),
+        radial-gradient(circle at 94% 70%, rgba(255,193,93,.85) 0 1px, transparent 1.8px),
+        radial-gradient(circle at 97% 54%, rgba(255,229,158,.96) 0 1.3px, transparent 2px);
 
     opacity: .95;
 
     filter:
         drop-shadow(
-            0 0 4px rgba(255,194,95,.45)
+            0 0 4px
+            rgba(255,194,95,.42)
         );
 
     animation:
-        cityLightTwinkle 5s ease-in-out infinite;
+        cityLightTwinkle
+        5s
+        ease-in-out
+        infinite;
 }
 
 
@@ -1654,21 +1628,21 @@ body.fall-era .city::after {
 
     bottom: -8px;
 
-    height: 50px;
+    height: 52px;
 
     background:
         radial-gradient(
-            ellipse at 18% 100%,
+            ellipse at 16% 100%,
             rgba(255,181,80,.10),
             transparent 30%
         ),
         radial-gradient(
-            ellipse at 46% 100%,
+            ellipse at 43% 100%,
             rgba(255,205,120,.12),
             transparent 31%
         ),
         radial-gradient(
-            ellipse at 73% 100%,
+            ellipse at 70% 100%,
             rgba(255,187,94,.10),
             transparent 31%
         ),
@@ -1682,7 +1656,9 @@ body.fall-era .city::after {
 }
 
 
-/* WATER */
+/* =========================================================
+   WATER
+========================================================= */
 
 body.fall-era .water-glow {
     position: absolute;
@@ -1713,27 +1689,44 @@ body.fall-era .water-glow::before {
     background:
         linear-gradient(
             90deg,
+
             transparent 0%,
+
             rgba(255,190,100,.05) 8%,
+
             transparent 15%,
+
             rgba(255,215,135,.06) 26%,
+
             transparent 34%,
+
             rgba(255,195,105,.05) 48%,
+
             transparent 57%,
+
             rgba(255,216,140,.06) 71%,
+
             transparent 80%,
+
             rgba(255,190,105,.05) 92%,
+
             transparent 100%
         );
 
     filter: blur(5px);
 
     animation:
-        waterReflection 9s ease-in-out infinite alternate;
+        waterReflection
+        9s
+        ease-in-out
+        infinite
+        alternate;
 }
 
 
-/* FALL HERO SHADE */
+/* =========================================================
+   FALL HERO SHADE
+========================================================= */
 
 body.fall-era .hero-shade {
     z-index: 5;
@@ -1741,22 +1734,28 @@ body.fall-era .hero-shade {
     background:
         linear-gradient(
             to bottom,
+
             rgba(2,7,15,.01),
-            rgba(2,7,15,.03) 40%,
-            rgba(3,8,15,.13) 72%,
+
+            rgba(2,7,15,.025) 42%,
+
+            rgba(3,8,15,.11) 73%,
+
             #06101d 100%
         );
 }
 
 
-/* LOWER HERO COPY */
+/* HERO COPY LOWER */
 
 body.fall-era .hero-copy {
-    padding-top: 59vh;
+    padding-top: 61vh;
 }
 
 
-/* FALL SECTIONS */
+/* =========================================================
+   FALL ERA SECTIONS
+========================================================= */
 
 body.fall-era .section,
 body.fall-era .lyrics-section,
@@ -1778,7 +1777,8 @@ body.fall-era .lyrics-panel {
 }
 
 body.fall-era .listen-bar {
-    background: rgba(5,13,25,.94);
+    background:
+        rgba(5,13,25,.94);
 }
 
 body.fall-era .site-header {
@@ -1797,27 +1797,48 @@ body.fall-era .site-header {
 
 @keyframes listenMove {
     to {
-        transform: translateX(-50%);
+        transform:
+            translateX(-50%);
     }
 }
 
+
 @keyframes footerGlow {
+
     0%,
     100% {
         filter:
-            drop-shadow(0 0 7px rgba(255,225,170,.36))
-            drop-shadow(0 0 16px rgba(181,135,80,.30));
+            drop-shadow(
+                0 0 7px
+                rgba(255,225,170,.36)
+            )
+            drop-shadow(
+                0 0 16px
+                rgba(181,135,80,.30)
+            );
     }
 
     50% {
         filter:
-            drop-shadow(0 0 12px rgba(255,225,170,.70))
-            drop-shadow(0 0 28px rgba(181,135,80,.55))
-            drop-shadow(0 0 48px rgba(181,135,80,.28));
+            drop-shadow(
+                0 0 12px
+                rgba(255,225,170,.70)
+            )
+            drop-shadow(
+                0 0 28px
+                rgba(181,135,80,.55)
+            )
+            drop-shadow(
+                0 0 48px
+                rgba(181,135,80,.28)
+            );
     }
+
 }
 
+
 @keyframes starTwinkle {
+
     0%,
     100% {
         opacity: .38;
@@ -1826,9 +1847,12 @@ body.fall-era .site-header {
     50% {
         opacity: .72;
     }
+
 }
 
+
 @keyframes cloudLeft {
+
     from {
         transform:
             translateX(-4%)
@@ -1840,9 +1864,12 @@ body.fall-era .site-header {
             translateX(22%)
             scale(1.07);
     }
+
 }
 
+
 @keyframes cloudRight {
+
     from {
         transform:
             translateX(8%)
@@ -1854,151 +1881,9 @@ body.fall-era .site-header {
             translateX(-20%)
             scale(1.08);
     }
+
 }
 
-
-/* PLANE */
-
-@keyframes planeWriteAcross {
-
-    0% {
-        left: -8%;
-        opacity: 0;
-    }
-
-    5% {
-        opacity: 1;
-    }
-
-    12% {
-        left: 3%;
-    }
-
-    20% {
-        left: 13%;
-    }
-
-    28% {
-        left: 23%;
-    }
-
-    36% {
-        left: 33%;
-    }
-
-    44% {
-        left: 43%;
-    }
-
-    52% {
-        left: 53%;
-    }
-
-    60% {
-        left: 63%;
-    }
-
-    68% {
-        left: 73%;
-    }
-
-    76% {
-        left: 83%;
-    }
-
-    84% {
-        left: 94%;
-    }
-
-    90% {
-        left: 108%;
-        opacity: 1;
-    }
-
-    94%,
-    100% {
-        left: 108%;
-        opacity: 0;
-    }
-}
-
-
-/* LETTERS */
-
-@keyframes cloudLetterCycle {
-
-    0%,
-    4% {
-        opacity: 0;
-
-        filter: blur(12px);
-
-        transform: scale(.88);
-    }
-
-    10% {
-        opacity: .24;
-
-        filter: blur(8px);
-
-        transform: scale(.94);
-    }
-
-    16% {
-        opacity: .65;
-
-        filter: blur(4px);
-
-        transform: scale(.98);
-    }
-
-    23% {
-        opacity: .92;
-
-        filter: blur(1.2px);
-
-        transform: scale(1);
-    }
-
-    68% {
-        opacity: .94;
-
-        filter: blur(.6px);
-
-        transform: scale(1);
-    }
-
-    76% {
-        opacity: .82;
-
-        filter: blur(1.7px);
-    }
-
-    84% {
-        opacity: .48;
-
-        filter: blur(5px);
-    }
-
-    92% {
-        opacity: .13;
-
-        filter: blur(10px);
-
-        transform: scale(1.03);
-    }
-
-    100% {
-        opacity: 0;
-
-        filter: blur(14px);
-
-        transform: scale(1.06);
-    }
-}
-
-
-/* CITY */
 
 @keyframes cityLightTwinkle {
 
@@ -2018,24 +1903,32 @@ body.fall-era .site-header {
     76% {
         opacity: 1;
     }
+
 }
 
+
 @keyframes waterReflection {
+
     from {
         opacity: .55;
 
-        transform: translateX(-1%);
+        transform:
+            translateX(-1%);
     }
 
     to {
         opacity: .88;
 
-        transform: translateX(1%);
+        transform:
+            translateX(1%);
     }
+
 }
 
 
-/* TABLET */
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media (max-width: 850px) {
 
@@ -2048,7 +1941,8 @@ body.fall-era .site-header {
 
         flex-direction: column;
 
-        background: rgba(8,8,8,.98);
+        background:
+            rgba(8,8,8,.98);
     }
 
     .site-nav.open {
@@ -2060,7 +1954,9 @@ body.fall-era .site-header {
 
         text-align: center;
 
-        border-top: 1px solid var(--line);
+        border-top:
+            1px solid
+            var(--line);
     }
 
     .menu-toggle {
@@ -2071,7 +1967,8 @@ body.fall-era .site-header {
     .release-feature,
     .about-grid,
     .coming-wrap {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
     }
 
     .release-info,
@@ -2096,11 +1993,13 @@ body.fall-era .site-header {
     }
 
     .discography-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
     }
 
     .lyrics-section {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
     }
 
     .lyrics-sticky .section-title {
@@ -2114,32 +2013,38 @@ body.fall-era .site-header {
     }
 
     .visual-strip {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
     }
 
 
-    body.fall-era .skywriting {
-        top: 15%;
-        width: 94vw;
+    body.fall-era .skywriting-scene {
+        top: 13%;
+
+        width: 96vw;
     }
 
     body.fall-era .hero-copy {
-        padding-top: 61vh;
+        padding-top: 63vh;
     }
 
 }
 
 
-/* MOBILE */
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 620px) {
 
     .site-header {
-        padding: 0 20px;
+        padding:
+            0 20px;
     }
 
     .section {
-        padding: 90px 20px;
+        padding:
+            90px 20px;
     }
 
     .cursor-glow {
@@ -2147,9 +2052,11 @@ body.fall-era .site-header {
     }
 
     .hero-actions {
-        flex-direction: column;
+        flex-direction:
+            column;
 
-        width: min(340px,100%);
+        width:
+            min(340px,100%);
     }
 
     .hero-actions .button {
@@ -2157,11 +2064,13 @@ body.fall-era .site-header {
     }
 
     .coming-media {
-        max-width: 310px;
+        max-width:
+            310px;
     }
 
     .discography-card {
-        grid-template-columns: 105px 1fr;
+        grid-template-columns:
+            105px 1fr;
     }
 
     .fim-countdown {
@@ -2169,34 +2078,35 @@ body.fall-era .site-header {
     }
 
     .fim-countdown > span:not(.fim-dot) {
-        min-width: 38px;
+        min-width:
+            38px;
 
-        font-size: 1.7rem;
+        font-size:
+            1.7rem;
     }
 
     .footer-logo {
-        width: min(270px,88vw);
+        width:
+            min(270px,88vw);
     }
 
 
-    body.fall-era .skywriting {
-        top: 16%;
+    body.fall-era .skywriting-scene {
+        top: 15%;
 
-        width: 96vw;
-        height: 160px;
+        width: 112vw;
+
+        transform:
+            translateX(-50%)
+            rotate(-2deg);
     }
 
-    body.fall-era .skywriting-title {
-        font-size:
-            clamp(3rem,10.5vw,4.8rem);
+    body.fall-era .cloud-writing-path {
+        stroke-width: 7.5;
     }
 
-    body.fall-era .skywriting-plane {
-        font-size: 1.3rem;
-    }
-
-    body.fall-era .skywriting-plane::before {
-        width: 45px;
+    body.fall-era .cloud-writing-haze {
+        stroke-width: 20;
     }
 
     body.fall-era .city {
@@ -2221,13 +2131,15 @@ body.fall-era .site-header {
     }
 
     body.fall-era .hero-copy {
-        padding-top: 61vh;
+        padding-top: 63vh;
     }
 
 }
 
 
-/* REDUCED MOTION */
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -2243,14 +2155,14 @@ body.fall-era .site-header {
         transform: none;
     }
 
-    body.fall-era .skywriting-title > span:not(.word-space) {
-        opacity: .9;
-        filter: blur(1px);
-        transform: none;
+
+    body.fall-era .cloud-writing-path,
+    body.fall-era .cloud-writing-haze {
+        stroke-dasharray: none;
+        stroke-dashoffset: 0;
     }
 
-    body.fall-era .skywriting-plane {
-        left: 88%;
+    body.fall-era .tracing-plane {
         opacity: .9;
     }
 
