@@ -2036,3 +2036,8 @@ button {
         transform: translateX(-60px) !important;
     }
 }
+@media (max-width: 620px) {
+    .footer-logo-window {
+        transform: translateX(-72px) !important;
+    }
+}
