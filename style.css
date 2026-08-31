@@ -2028,11 +2028,11 @@ button {
 }
 /* Center the KALN logo over the copyright */
 .footer-logo-window {
-    transform: translateX(-55px) !important;
+    transform: translateX(-90px) !important;
 }
 
 @media (max-width: 620px) {
     .footer-logo-window {
-        transform: translateX(-38px) !important;
+        transform: translateX(-60px) !important;
     }
 }
