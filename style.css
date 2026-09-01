@@ -47,13 +47,16 @@ button {
 }
 
 
-/* TEXTURE */
+/* =========================================================
+   TEXTURE
+========================================================= */
 
 .noise {
     position:fixed;
     inset:0;
     z-index:9999;
     pointer-events:none;
+
     opacity:.035;
 
     background-image:
@@ -64,8 +67,10 @@ button {
 
 .cursor-glow {
     position:fixed;
+
     width:420px;
     height:420px;
+
     border-radius:50%;
 
     background:
@@ -82,16 +87,21 @@ button {
 }
 
 
-/* LISTEN BAR */
+/* =========================================================
+   LISTEN BAR
+========================================================= */
 
 .listen-bar {
     position:fixed;
+
     top:0;
     left:0;
     right:0;
+
     z-index:1000;
 
     height:38px;
+
     overflow:hidden;
 
     border-bottom:1px solid var(--line);
@@ -104,17 +114,21 @@ button {
 
 .listen-marquee {
     height:100%;
+
     display:flex;
     align-items:center;
+
     overflow:hidden;
 }
 
 .listen-track {
     display:flex;
     align-items:center;
+
     width:max-content;
 
     text-transform:uppercase;
+
     letter-spacing:.22em;
     font-size:.61rem;
 
@@ -129,6 +143,7 @@ button {
     justify-content:space-around;
 
     gap:30px;
+
     padding:0 28px;
 }
 
@@ -137,13 +152,17 @@ button {
 }
 
 
-/* HEADER */
+/* =========================================================
+   HEADER
+========================================================= */
 
 .site-header {
     position:fixed;
+
     top:38px;
     left:0;
     right:0;
+
     z-index:900;
 
     height:72px;
@@ -164,6 +183,7 @@ button {
 
 .brand {
     text-decoration:none;
+
     font-family:Georgia,serif;
 
     letter-spacing:.38em;
@@ -172,6 +192,7 @@ button {
 
 .site-nav {
     display:flex;
+
     gap:30px;
 }
 
@@ -198,6 +219,7 @@ button {
     height:36px;
 
     padding:0;
+
     border:0;
 
     background:none;
@@ -217,7 +239,9 @@ button {
 }
 
 
-/* HERO */
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero {
     position:relative;
@@ -234,6 +258,7 @@ button {
 
 .hero-bg {
     position:absolute;
+
     inset:-4%;
 
     background:
@@ -246,9 +271,11 @@ button {
 
 .hero-shade {
     position:absolute;
+
     inset:0;
 
     z-index:2;
+
     pointer-events:none;
 
     background:
@@ -262,7 +289,8 @@ button {
 
 .hero-copy {
     position:relative;
-    z-index:4;
+
+    z-index:5;
 
     padding:120px 24px 90px;
 
@@ -305,7 +333,7 @@ button {
     left:50%;
     bottom:26px;
 
-    z-index:5;
+    z-index:7;
 
     transform:translateX(-50%);
 
@@ -337,7 +365,9 @@ button {
 }
 
 
-/* BUTTONS */
+/* =========================================================
+   BUTTONS
+========================================================= */
 
 .button {
     display:inline-flex;
@@ -381,16 +411,20 @@ button {
 
 .button-outline {
     border-color:rgba(240,235,226,.38);
+
     background:rgba(0,0,0,.14);
 }
 
 .button-outline:hover {
     border-color:var(--ink);
+
     background:rgba(255,255,255,.06);
 }
 
 
-/* GENERAL SECTIONS */
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
 
 .section {
     padding:120px 6vw;
@@ -422,7 +456,9 @@ button {
 }
 
 
-/* NOW PLAYING */
+/* =========================================================
+   NOW PLAYING
+========================================================= */
 
 .release-feature {
     max-width:1040px;
@@ -442,11 +478,13 @@ button {
 
 .release-art {
     position:relative;
+
     perspective:1100px;
 }
 
 .release-art img {
     aspect-ratio:1;
+
     object-fit:cover;
 
     box-shadow:
@@ -457,6 +495,7 @@ button {
 
 .art-reflection {
     position:absolute;
+
     inset:0;
 
     pointer-events:none;
@@ -534,6 +573,7 @@ button {
 
 .text-link span {
     margin-left:4px;
+
     color:var(--gold);
 }
 
@@ -558,7 +598,9 @@ button {
 }
 
 
-/* COMING SOON */
+/* =========================================================
+   COMING SOON
+========================================================= */
 
 .coming-wrap {
     max-width:1040px;
@@ -617,6 +659,7 @@ button {
 
 .coming-art img {
     aspect-ratio:1;
+
     object-fit:cover;
 
     box-shadow:
@@ -628,7 +671,9 @@ button {
 }
 
 
-/* COUNTDOWN */
+/* =========================================================
+   COUNTDOWN
+========================================================= */
 
 .fim-countdown {
     display:flex;
@@ -665,7 +710,9 @@ button {
 }
 
 
-/* DISCOGRAPHY */
+/* =========================================================
+   DISCOGRAPHY
+========================================================= */
 
 .discography-grid {
     width:min(1040px,100%);
@@ -698,6 +745,7 @@ button {
 
 .discography-art img {
     aspect-ratio:1;
+
     object-fit:cover;
 
     transition:transform .7s ease;
@@ -733,7 +781,9 @@ button {
 }
 
 
-/* LYRICS */
+/* =========================================================
+   LYRICS
+========================================================= */
 
 .lyrics-section {
     display:grid;
@@ -809,6 +859,7 @@ button {
 
 .lyrics-tab.active {
     background:var(--ink);
+
     color:#111;
 }
 
@@ -844,11 +895,13 @@ button {
 
 .lyrics-sequence {
     max-width:680px;
+
     margin:0 auto;
 }
 
 .lyric-block {
     padding:0 0 34px;
+
     margin:0 0 34px;
 
     border-bottom:1px solid var(--line);
@@ -900,7 +953,9 @@ button {
 }
 
 
-/* ABOUT */
+/* =========================================================
+   ABOUT
+========================================================= */
 
 .about-grid {
     max-width:1080px;
@@ -924,6 +979,7 @@ button {
 
 .about-photo-wrap img {
     aspect-ratio:1;
+
     object-fit:cover;
 
     box-shadow:
@@ -948,6 +1004,10 @@ button {
     font-size:.55rem;
 }
 
+.about-copy {
+    text-align:left;
+}
+
 .about-lead {
     margin:30px 0 20px;
 
@@ -969,7 +1029,9 @@ button {
 }
 
 
-/* VISUALS */
+/* =========================================================
+   VISUALS
+========================================================= */
 
 .visuals-section {
     padding:120px 0 0;
@@ -1010,6 +1072,7 @@ button {
 
 .visual-panel img {
     height:100%;
+
     object-fit:cover;
 
     transition:transform .7s ease;
@@ -1032,7 +1095,9 @@ button {
 }
 
 
-/* CONNECT */
+/* =========================================================
+   CONNECT
+========================================================= */
 
 .connect-section {
     padding:130px 6vw;
@@ -1073,7 +1138,9 @@ button {
 }
 
 
-/* FOOTER */
+/* =========================================================
+   FOOTER
+========================================================= */
 
 .site-footer {
     position:relative;
@@ -1148,6 +1215,7 @@ button {
 
 .footer-copy {
     position:relative;
+
     z-index:3;
 
     margin:4px 0 0;
@@ -1161,7 +1229,9 @@ button {
 }
 
 
-/* REVEALS */
+/* =========================================================
+   REVEALS
+========================================================= */
 
 .reveal {
     opacity:0;
@@ -1181,7 +1251,7 @@ button {
 
 
 /* =========================================================
-   FALL INTO ME HERO
+   FALL INTO ME ERA
 ========================================================= */
 
 body.fall-era {
@@ -1198,8 +1268,14 @@ body.fall-era .hero-bg {
     opacity:0;
 }
 
+
+/* =========================================================
+   FALL HERO
+========================================================= */
+
 .fall-scene {
     position:absolute;
+
     inset:0;
 
     z-index:0;
@@ -1220,41 +1296,232 @@ body.fall-era .fall-scene {
 }
 
 
-/*
-   BLURRED FULL-WIDTH VERSION OF YOUR ACTUAL CANVAS.
-   This fills the desktop edges instead of inventing fake buildings.
-*/
+/* =========================================================
+   FULL-WIDTH CANVAS ATMOSPHERE
+========================================================= */
 
 .fall-canvas-backdrop {
     position:absolute;
 
-    inset:-12%;
+    inset:-6%;
+
+    z-index:0;
 
     background:
+        linear-gradient(
+            to bottom,
+            rgba(8,18,35,.10),
+            rgba(4,10,20,.18)
+        ),
         url("assets/images/fall-into-me-canvas-poster.jpg")
-        center 59% / cover
+        center 38% / cover
         no-repeat;
 
-    transform:scale(1.06);
+    transform:scale(1.04);
 
     filter:
-        blur(24px)
-        brightness(.48)
-        saturate(.92);
+        blur(7px)
+        brightness(.74)
+        saturate(1.08)
+        contrast(1.02);
 
-    opacity:.94;
+    opacity:1;
 }
 
 
 /*
-   ACTUAL MOVING CANVAS
+    Additional blue atmosphere over the edges.
+    Much lighter than the old giant dark blur.
 */
+
+.fall-canvas-backdrop::after {
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 14%,
+            rgba(95,137,203,.13),
+            transparent 44%
+        ),
+        linear-gradient(
+            to right,
+            rgba(3,9,18,.34),
+            transparent 24%,
+            transparent 76%,
+            rgba(3,9,18,.34)
+        );
+}
+
+
+/* =========================================================
+   MOVING CLOUDS — WHOLE SCREEN
+========================================================= */
+
+.fall-clouds {
+    position:absolute;
+
+    left:-15%;
+
+    width:130%;
+
+    pointer-events:none;
+
+    mix-blend-mode:screen;
+
+    will-change:transform;
+}
+
+.fall-clouds-back {
+    top:-4%;
+
+    z-index:1;
+
+    height:62%;
+
+    opacity:.38;
+
+    filter:blur(19px);
+
+    background:
+        radial-gradient(
+            ellipse at 3% 35%,
+            rgba(219,229,244,.25),
+            transparent 42%
+        ),
+        radial-gradient(
+            ellipse at 18% 26%,
+            rgba(217,228,245,.27),
+            transparent 39%
+        ),
+        radial-gradient(
+            ellipse at 36% 42%,
+            rgba(207,222,243,.24),
+            transparent 42%
+        ),
+        radial-gradient(
+            ellipse at 54% 25%,
+            rgba(224,233,247,.29),
+            transparent 40%
+        ),
+        radial-gradient(
+            ellipse at 72% 41%,
+            rgba(211,224,243,.25),
+            transparent 43%
+        ),
+        radial-gradient(
+            ellipse at 90% 27%,
+            rgba(221,231,246,.27),
+            transparent 41%
+        );
+
+    animation:
+        fallCloudBack
+        54s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+.fall-clouds-front {
+    top:10%;
+
+    z-index:3;
+
+    height:55%;
+
+    opacity:.25;
+
+    filter:blur(26px);
+
+    background:
+        radial-gradient(
+            ellipse at 8% 46%,
+            rgba(238,243,251,.26),
+            transparent 42%
+        ),
+        radial-gradient(
+            ellipse at 29% 28%,
+            rgba(231,239,249,.27),
+            transparent 39%
+        ),
+        radial-gradient(
+            ellipse at 49% 52%,
+            rgba(235,241,250,.24),
+            transparent 42%
+        ),
+        radial-gradient(
+            ellipse at 69% 30%,
+            rgba(232,239,249,.27),
+            transparent 40%
+        ),
+        radial-gradient(
+            ellipse at 91% 47%,
+            rgba(237,242,250,.25),
+            transparent 42%
+        );
+
+    animation:
+        fallCloudFront
+        70s
+        ease-in-out
+        infinite
+        alternate-reverse;
+}
+
+
+/* =========================================================
+   STARS
+========================================================= */
+
+.fall-stars {
+    position:absolute;
+
+    inset:0;
+
+    z-index:2;
+
+    opacity:.78;
+
+    background:
+        radial-gradient(circle at 4% 12%, rgba(255,255,255,.75) 0 1px, transparent 2px),
+        radial-gradient(circle at 9% 27%, rgba(255,255,255,.45) 0 1px, transparent 2px),
+        radial-gradient(circle at 15% 8%, rgba(255,255,255,.68) 0 1px, transparent 2px),
+        radial-gradient(circle at 22% 21%, rgba(255,255,255,.58) 0 1px, transparent 2px),
+        radial-gradient(circle at 29% 11%, rgba(255,255,255,.82) 0 1px, transparent 2px),
+        radial-gradient(circle at 35% 29%, rgba(255,255,255,.52) 0 1px, transparent 2px),
+        radial-gradient(circle at 42% 7%, rgba(255,255,255,.72) 0 1px, transparent 2px),
+        radial-gradient(circle at 47% 20%, rgba(255,255,255,.92) 0 1.3px, transparent 2.3px),
+        radial-gradient(circle at 53% 11%, rgba(255,255,255,.58) 0 1px, transparent 2px),
+        radial-gradient(circle at 60% 26%, rgba(255,255,255,.75) 0 1px, transparent 2px),
+        radial-gradient(circle at 67% 9%, rgba(255,255,255,.88) 0 1.3px, transparent 2.3px),
+        radial-gradient(circle at 72% 19%, rgba(255,255,255,.52) 0 1px, transparent 2px),
+        radial-gradient(circle at 79% 29%, rgba(255,255,255,.76) 0 1px, transparent 2px),
+        radial-gradient(circle at 86% 12%, rgba(255,255,255,.65) 0 1px, transparent 2px),
+        radial-gradient(circle at 93% 23%, rgba(255,255,255,.86) 0 1px, transparent 2px),
+        radial-gradient(circle at 97% 8%, rgba(255,255,255,.54) 0 1px, transparent 2px);
+
+    animation:
+        fallStars
+        5.4s
+        ease-in-out
+        infinite;
+}
+
+
+/* =========================================================
+   REAL MOVING CANVAS
+========================================================= */
 
 .fall-video-frame {
     position:absolute;
+
     inset:0;
 
-    z-index:1;
+    z-index:2;
 
     display:flex;
     align-items:center;
@@ -1263,26 +1530,43 @@ body.fall-era .fall-scene {
     overflow:hidden;
 }
 
+
+/*
+    Keep the real Canvas clear in the middle.
+    It remains vertical, but its sides dissolve into
+    the full-screen clouds/poster instead of obvious blur.
+*/
+
 .fall-canvas-video {
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
     height:114%;
     width:auto;
+
     max-width:none;
+
+    transform:translate(-50%,-50%);
 
     object-fit:contain;
 
     filter:
-        brightness(.84)
-        saturate(.97)
-        contrast(1.03);
+        brightness(.92)
+        saturate(1.05)
+        contrast(1.02);
 
     -webkit-mask-image:
         linear-gradient(
             to right,
             transparent 0%,
-            rgba(0,0,0,.18) 5%,
-            #000 16%,
-            #000 84%,
-            rgba(0,0,0,.18) 95%,
+            rgba(0,0,0,.08) 3%,
+            rgba(0,0,0,.72) 11%,
+            #000 21%,
+            #000 79%,
+            rgba(0,0,0,.72) 89%,
+            rgba(0,0,0,.08) 97%,
             transparent 100%
         );
 
@@ -1290,119 +1574,232 @@ body.fall-era .fall-scene {
         linear-gradient(
             to right,
             transparent 0%,
-            rgba(0,0,0,.18) 5%,
-            #000 16%,
-            #000 84%,
-            rgba(0,0,0,.18) 95%,
+            rgba(0,0,0,.08) 3%,
+            rgba(0,0,0,.72) 11%,
+            #000 21%,
+            #000 79%,
+            rgba(0,0,0,.72) 89%,
+            rgba(0,0,0,.08) 97%,
             transparent 100%
         );
 }
 
+
+/* =========================================================
+   VIDEO BLOOM
+========================================================= */
+
 .fall-video-bloom {
     position:absolute;
+
     inset:0;
 
-    z-index:2;
+    z-index:4;
 
     background:
         radial-gradient(
-            ellipse at 50% 70%,
-            rgba(236,184,105,.08),
-            transparent 30%
+            ellipse at 50% 71%,
+            rgba(242,188,104,.10),
+            transparent 25%
         ),
         radial-gradient(
-            ellipse at 50% 20%,
-            rgba(112,149,204,.10),
-            transparent 44%
+            ellipse at 50% 18%,
+            rgba(123,160,218,.10),
+            transparent 40%
         );
-}
 
-.fall-video-vignette {
-    position:absolute;
-    inset:0;
-
-    z-index:3;
-
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(3,8,16,.09) 0%,
-            rgba(3,8,16,.01) 35%,
-            rgba(3,8,16,.06) 58%,
-            rgba(3,8,16,.31) 82%,
-            #06111f 100%
-        ),
-        radial-gradient(
-            ellipse at center,
-            transparent 38%,
-            rgba(2,7,14,.20) 78%,
-            rgba(2,7,14,.48) 100%
-        );
+    mix-blend-mode:screen;
 }
 
 
-/*
-   REAL COVER LETTERING
-*/
+/* =========================================================
+   EXACT COVER TITLE
+========================================================= */
 
 .fall-title-wrap {
     position:absolute;
 
-    top:12%;
+    top:9%;
     left:50%;
 
-    z-index:5;
+    z-index:7;
 
-    width:min(880px,68vw);
+    width:min(1000px,74vw);
 
     transform:translateX(-50%);
+
+    pointer-events:none;
+}
+
+
+/*
+    Soft halo behind the actual writing.
+*/
+
+.fall-title-wrap::before {
+    content:"";
+
+    position:absolute;
+
+    inset:5% 5% 3%;
+
+    z-index:-1;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(211,227,250,.23),
+            rgba(164,193,232,.08) 42%,
+            transparent 72%
+        );
+
+    filter:blur(25px);
+
+    animation:
+        titleAura
+        4.8s
+        ease-in-out
+        infinite;
+}
+
+
+/*
+    Sparkle sweep across the title.
+*/
+
+.fall-title-wrap::after {
+    content:"";
+
+    position:absolute;
+
+    top:3%;
+
+    left:-18%;
+
+    width:14%;
+    height:96%;
+
+    opacity:0;
+
+    transform:skewX(-17deg);
+
+    background:
+        linear-gradient(
+            110deg,
+            transparent 0%,
+            rgba(255,255,255,0) 26%,
+            rgba(255,255,255,.52) 48%,
+            rgba(255,255,255,.08) 60%,
+            transparent 78%
+        );
+
+    filter:blur(4px);
+
+    mix-blend-mode:screen;
+
+    animation:
+        titleSparkleSweep
+        6.8s
+        ease-in-out
+        infinite;
 }
 
 .fall-title-art {
     width:100%;
     height:auto;
 
-    opacity:.94;
+    opacity:.97;
 
     filter:
-        drop-shadow(0 0 3px rgba(255,255,255,.48))
-        drop-shadow(0 0 10px rgba(235,242,252,.34))
-        drop-shadow(0 0 26px rgba(187,207,238,.18));
+        brightness(1.10)
+        drop-shadow(0 0 3px rgba(255,255,255,.74))
+        drop-shadow(0 0 8px rgba(255,255,255,.55))
+        drop-shadow(0 0 17px rgba(224,235,253,.42))
+        drop-shadow(0 0 34px rgba(171,200,240,.25));
 
-    animation:fallTitleGlow 6s ease-in-out infinite;
+    animation:
+        fallTitleGlow
+        4.8s
+        ease-in-out
+        infinite;
 }
 
 
-/*
-   HERO CONTENT
-*/
+/* =========================================================
+   VIGNETTE
+========================================================= */
 
-body.fall-era .hero-shade {
-    z-index:3;
+.fall-video-vignette {
+    position:absolute;
+
+    inset:0;
+
+    z-index:5;
 
     background:
         linear-gradient(
             to bottom,
-            rgba(2,7,14,.02) 0%,
-            rgba(2,7,14,.01) 42%,
-            rgba(3,9,18,.10) 60%,
-            rgba(3,9,18,.38) 83%,
+            rgba(2,7,14,.03) 0%,
+            rgba(2,7,14,.01) 36%,
+            rgba(2,7,14,.03) 56%,
+            rgba(3,9,18,.18) 76%,
+            rgba(3,9,18,.52) 93%,
+            #06111f 100%
+        ),
+        radial-gradient(
+            ellipse at center,
+            transparent 54%,
+            rgba(2,7,14,.12) 79%,
+            rgba(2,7,14,.30) 100%
+        );
+}
+
+
+/* =========================================================
+   FALL HERO COPY
+========================================================= */
+
+body.fall-era .hero-shade {
+    z-index:5;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 0%,
+            transparent 50%,
+            rgba(3,9,18,.08) 66%,
+            rgba(3,9,18,.27) 87%,
             #06111f 100%
         );
 }
 
 body.fall-era .hero-copy {
-    z-index:6;
+    z-index:8;
 
-    margin-top:36vh;
+    margin-top:37vh;
 }
 
 body.fall-era .scroll-indicator {
-    z-index:6;
+    z-index:8;
+}
+
+body.fall-era .hero-copy .eyebrow {
+    color:#c9aa79;
+}
+
+body.fall-era .hero-tagline {
+    color:rgba(239,243,250,.92);
+
+    text-shadow:
+        0 2px 16px rgba(0,0,0,.52);
 }
 
 
-/* FALL SITE COLORS */
+/* =========================================================
+   FALL SITE COLORS
+========================================================= */
 
 body.fall-era .section,
 body.fall-era .lyrics-section,
@@ -1436,7 +1833,9 @@ body.fall-era .site-footer {
 }
 
 
-/* ANIMATIONS */
+/* =========================================================
+   ANIMATIONS
+========================================================= */
 
 @keyframes listenMove {
     to {
@@ -1460,37 +1859,123 @@ body.fall-era .site-footer {
 @keyframes footerGlow {
     0%,
     100% {
-        opacity:.85;
+        opacity:.86;
     }
 
     50% {
         opacity:1;
+    }
+}
+
+@keyframes fallCloudBack {
+    from {
+        transform:
+            translate3d(-4%,0,0)
+            scale(1.02);
+    }
+
+    to {
+        transform:
+            translate3d(7%,2%,0)
+            scale(1.08);
+    }
+}
+
+@keyframes fallCloudFront {
+    from {
+        transform:
+            translate3d(6%,0,0)
+            scale(1.04);
+    }
+
+    to {
+        transform:
+            translate3d(-6%,-1%,0)
+            scale(1.10);
+    }
+}
+
+@keyframes fallStars {
+    0%,
+    100% {
+        opacity:.62;
+    }
+
+    50% {
+        opacity:.92;
     }
 }
 
 @keyframes fallTitleGlow {
     0%,
     100% {
-        opacity:.87;
+        opacity:.90;
 
         filter:
-            drop-shadow(0 0 3px rgba(255,255,255,.42))
-            drop-shadow(0 0 9px rgba(235,242,252,.28))
-            drop-shadow(0 0 20px rgba(187,207,238,.13));
+            brightness(1.05)
+            drop-shadow(0 0 3px rgba(255,255,255,.62))
+            drop-shadow(0 0 7px rgba(255,255,255,.43))
+            drop-shadow(0 0 16px rgba(224,235,253,.32))
+            drop-shadow(0 0 28px rgba(171,200,240,.18));
     }
 
     50% {
         opacity:1;
 
         filter:
-            drop-shadow(0 0 5px rgba(255,255,255,.70))
-            drop-shadow(0 0 14px rgba(238,244,252,.45))
-            drop-shadow(0 0 32px rgba(187,207,238,.24));
+            brightness(1.18)
+            drop-shadow(0 0 4px rgba(255,255,255,.82))
+            drop-shadow(0 0 10px rgba(255,255,255,.66))
+            drop-shadow(0 0 23px rgba(224,235,253,.48))
+            drop-shadow(0 0 44px rgba(171,200,240,.30));
+    }
+}
+
+@keyframes titleAura {
+    0%,
+    100% {
+        opacity:.58;
+
+        transform:scale(.97);
+    }
+
+    50% {
+        opacity:1;
+
+        transform:scale(1.04);
+    }
+}
+
+@keyframes titleSparkleSweep {
+    0% {
+        left:-18%;
+        opacity:0;
+    }
+
+    16% {
+        opacity:0;
+    }
+
+    27% {
+        opacity:.92;
+    }
+
+    49% {
+        left:104%;
+        opacity:.22;
+    }
+
+    55%,
+    100% {
+        left:104%;
+        opacity:0;
     }
 }
 
 
-/* TABLET */
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media (max-width:850px) {
 
@@ -1562,6 +2047,7 @@ body.fall-era .site-footer {
 
     .lyrics-sticky .section-title {
         position:static;
+
         text-align:center;
     }
 
@@ -1572,9 +2058,9 @@ body.fall-era .site-footer {
     }
 
     .fall-title-wrap {
-        top:15%;
+        top:13%;
 
-        width:min(760px,84vw);
+        width:84vw;
     }
 
     .fall-canvas-video {
@@ -1582,12 +2068,14 @@ body.fall-era .site-footer {
     }
 
     body.fall-era .hero-copy {
-        margin-top:32vh;
+        margin-top:34vh;
     }
 }
 
 
-/* MOBILE */
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width:620px) {
 
@@ -1625,14 +2113,21 @@ body.fall-era .site-footer {
         font-size:1.7rem;
     }
 
+    /*
+        Phone can use Canvas nearly full-screen because
+        its native vertical shape already matches.
+    */
+
     .fall-canvas-backdrop {
-        opacity:.35;
+        opacity:.48;
+
+        filter:
+            blur(8px)
+            brightness(.65)
+            saturate(1.05);
     }
 
     .fall-canvas-video {
-        position:absolute;
-        inset:0;
-
         width:100%;
         height:100%;
 
@@ -1643,19 +2138,29 @@ body.fall-era .site-footer {
         mask-image:none;
     }
 
-    .fall-title-wrap {
-        top:16%;
+    .fall-clouds-back {
+        opacity:.27;
+    }
 
-        width:90vw;
+    .fall-clouds-front {
+        opacity:.18;
+    }
+
+    .fall-title-wrap {
+        top:14%;
+
+        width:91vw;
     }
 
     body.fall-era .hero-copy {
-        margin-top:31vh;
+        margin-top:32vh;
     }
 }
 
 
-/* REDUCED MOTION */
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
 
 @media (prefers-reduced-motion:reduce) {
 
@@ -1668,6 +2173,7 @@ body.fall-era .site-footer {
 
     .reveal {
         opacity:1;
+
         transform:none;
     }
 
