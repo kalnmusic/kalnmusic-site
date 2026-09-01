@@ -108,7 +108,19 @@ function activateFallIntoMeEra() {
     if (fallDiscographyCard) {
         fallDiscographyCard.hidden = false;
     }
+const fallLyricsLocked =
+    $("#fall-lyrics-locked");
 
+const fallFullLyrics =
+    $("#fall-full-lyrics");
+
+if (fallLyricsLocked) {
+    fallLyricsLocked.hidden = true;
+}
+
+if (fallFullLyrics) {
+    fallFullLyrics.hidden = false;
+}
     const metaDescription =
         $('meta[name="description"]');
 
