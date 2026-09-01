@@ -40,15 +40,8 @@
 
 <body>
 
-    <div
-        class="noise"
-        aria-hidden="true"
-    ></div>
-
-    <div
-        class="cursor-glow"
-        aria-hidden="true"
-    ></div>
+    <div class="noise" aria-hidden="true"></div>
+    <div class="cursor-glow" aria-hidden="true"></div>
 
     <!-- TOP MARQUEE -->
 
@@ -92,10 +85,7 @@
 
     <header class="site-header">
 
-        <a
-            class="brand"
-            href="#top"
-        >
+        <a class="brand" href="#top">
             KALN
         </a>
 
@@ -112,31 +102,12 @@
             class="site-nav"
             aria-label="Primary navigation"
         >
-
-            <a href="#music">
-                Music
-            </a>
-
-            <a href="#discography">
-                Discography
-            </a>
-
-            <a href="#lyrics">
-                Lyrics
-            </a>
-
-            <a href="#about">
-                About
-            </a>
-
-            <a href="#visuals">
-                Visuals
-            </a>
-
-            <a href="#connect">
-                Connect
-            </a>
-
+            <a href="#music">Music</a>
+            <a href="#discography">Discography</a>
+            <a href="#lyrics">Lyrics</a>
+            <a href="#about">About</a>
+            <a href="#visuals">Visuals</a>
+            <a href="#connect">Connect</a>
         </nav>
 
     </header>
@@ -145,46 +116,57 @@
 
         <!-- HERO -->
 
-        <section
-            class="hero"
-            id="hero"
-        >
+        <section class="hero" id="hero">
+
+            <!-- NORMAL KALN ERA -->
 
             <div
                 class="hero-bg"
                 aria-hidden="true"
             ></div>
 
-            <!-- FALL INTO ME ERA WORLD -->
+            <!-- FALL INTO ME ERA -->
 
             <div
                 class="fall-scene"
                 aria-hidden="true"
             >
 
-                <div class="fall-sky"></div>
+                <div class="fall-canvas-backdrop"></div>
 
-                <div class="fall-stars"></div>
+                <div class="fall-video-frame">
 
-                <div class="fall-clouds fall-clouds-back"></div>
-                <div class="fall-clouds fall-clouds-mid"></div>
-                <div class="fall-clouds fall-clouds-front"></div>
+                    <video
+                        class="fall-canvas-video"
+                        autoplay
+                        muted
+                        loop
+                        playsinline
+                        preload="auto"
+                        poster="assets/images/fall-into-me-canvas-poster.jpg"
+                    >
 
-                <div class="fall-title-wrap">
+                        <source
+                            src="assets/images/Fall_Into_Me_canvas_mp4.mp4"
+                            type="video/mp4"
+                        >
 
-                    <div class="fall-sky-title">
-                        Fall Into Me
-                    </div>
+                    </video>
 
                 </div>
 
-                <div class="fall-horizon-glow"></div>
+                <div class="fall-video-bloom"></div>
+                <div class="fall-video-vignette"></div>
 
-                <div class="fall-city"></div>
+                <div class="fall-title-wrap">
 
-                <div class="fall-city-lights"></div>
+                    <img
+                        class="fall-title-art"
+                        src="assets/images/fall_into_me_title.png.png"
+                        alt=""
+                    >
 
-                <div class="fall-water"></div>
+                </div>
 
             </div>
 
@@ -229,13 +211,8 @@
                 class="scroll-indicator"
                 aria-hidden="true"
             >
-
-                <span>
-                    Scroll
-                </span>
-
+                <span>Scroll</span>
                 <i></i>
-
             </div>
 
         </section>
@@ -318,7 +295,10 @@
 
                     </div>
 
-                    <div class="platform-row">
+                    <div
+                        class="platform-row"
+                        id="now-playing-platforms"
+                    >
 
                         <a
                             href="https://open.spotify.com/artist/1I97Z1wZc37Bp7zMpgpxWk"
@@ -352,7 +332,7 @@
 
         </section>
 
-        <!-- FALL INTO ME COMING SOON -->
+        <!-- COMING SOON -->
 
         <section class="section next-section">
 
@@ -381,35 +361,16 @@
                         id="fall-countdown"
                         aria-label="Countdown to Fall Into Me"
                     >
+                        <span id="countdown-days">00</span>
+                        <span class="fim-dot">·</span>
 
-                        <span id="countdown-days">
-                            00
-                        </span>
+                        <span id="countdown-hours">00</span>
+                        <span class="fim-dot">·</span>
 
-                        <span class="fim-dot">
-                            ·
-                        </span>
+                        <span id="countdown-minutes">00</span>
+                        <span class="fim-dot">·</span>
 
-                        <span id="countdown-hours">
-                            00
-                        </span>
-
-                        <span class="fim-dot">
-                            ·
-                        </span>
-
-                        <span id="countdown-minutes">
-                            00
-                        </span>
-
-                        <span class="fim-dot">
-                            ·
-                        </span>
-
-                        <span id="countdown-seconds">
-                            00
-                        </span>
-
+                        <span id="countdown-seconds">00</span>
                     </div>
 
                 </div>
@@ -459,7 +420,10 @@
 
             </div>
 
-            <div class="discography-grid">
+            <div
+                class="discography-grid"
+                id="discography-grid"
+            >
 
                 <article
                     class="discography-card reveal"
@@ -500,7 +464,7 @@
                 </article>
 
                 <article
-                    class="discography-card reveal fall-discography-card"
+                    class="discography-card reveal"
                     id="fall-into-me-discography"
                     hidden
                 >
@@ -573,6 +537,7 @@
 
                 <div
                     class="lyrics-tabs"
+                    id="lyrics-tabs"
                     role="tablist"
                 >
 
@@ -596,6 +561,8 @@
 
                 </div>
 
+                <!-- LOST COUNT -->
+
                 <article
                     class="lyrics-content active"
                     id="lost-count"
@@ -617,10 +584,7 @@
                     <div class="lyrics-sequence">
 
                         <section class="lyric-block">
-
-                            <p class="lyric-label">
-                                Verse 1
-                            </p>
+                            <p class="lyric-label">Verse 1</p>
 
                             <p>
                                 Your drink’s been sweating on the counter<br>
@@ -632,14 +596,10 @@
                                 Every time you say you’re leaving<br>
                                 Your body says you’re staying now
                             </p>
-
                         </section>
 
                         <section class="lyric-block">
-
-                            <p class="lyric-label">
-                                Pre-Chorus
-                            </p>
+                            <p class="lyric-label">Pre-Chorus</p>
 
                             <p>
                                 Forget the minutes<br>
@@ -647,14 +607,10 @@
                                 Keep the lights low<br>
                                 I can hear it in you now
                             </p>
-
                         </section>
 
                         <section class="lyric-block">
-
-                            <p class="lyric-label">
-                                Chorus
-                            </p>
+                            <p class="lyric-label">Chorus</p>
 
                             <p>
                                 I’ma make you lose count<br>
@@ -668,14 +624,10 @@
                                 I’ma make you lose count<br>
                                 Lose count
                             </p>
-
                         </section>
 
                         <section class="lyric-block">
-
-                            <p class="lyric-label">
-                                Verse 2
-                            </p>
+                            <p class="lyric-label">Verse 2</p>
 
                             <p>
                                 Your nails are keeping rhythm<br>
@@ -687,116 +639,13 @@
                                 You don’t have to tell me what you want<br>
                                 I can hear it when you breathe
                             </p>
-
-                        </section>
-
-                        <section class="lyric-block">
-
-                            <p class="lyric-label">
-                                Pre-Chorus
-                            </p>
-
-                            <p>
-                                Forget the minutes<br>
-                                I’ll give you something else to count<br>
-                                If you lose your place, baby<br>
-                                We can start it over now
-                            </p>
-
-                        </section>
-
-                        <section class="lyric-block">
-
-                            <p class="lyric-label">
-                                Chorus
-                            </p>
-
-                            <p>
-                                I’ma make you lose count<br>
-                                Lose count<br>
-                                Every time you think we’re done<br>
-                                I’ma slow it back down<br>
-                                Back down<br>
-                                Make you start again at one<br>
-                                Got the whole room spinning ’round<br>
-                                You don’t wanna leave me now<br>
-                                I’ma make you lose count<br>
-                                Lose count
-                            </p>
-
-                        </section>
-
-                        <section class="lyric-block">
-
-                            <p class="lyric-label">
-                                Bridge
-                            </p>
-
-                            <p>
-                                Don’t tell me what number you’re on<br>
-                                You forgot that a while ago<br>
-                                You stopped using words around three<br>
-                                Now you’re pulling me in for more<br>
-                                Don’t worry ’bout what comes next<br>
-                                We can let the moment take control<br>
-                                If you lose yourself again<br>
-                                I’ll be right here when you let go
-                            </p>
-
-                            <p>
-                                One for the way you pull me closer<br>
-                                Two for the way you grip the sheets<br>
-                                Three when your legs start shaking<br>
-                                Four when you can barely speak<br>
-                                Let the clock keep moving forward<br>
-                                We can make the whole night stretch<br>
-                                By the time the morning finds us<br>
-                                You won’t know what number’s next
-                            </p>
-
-                        </section>
-
-                        <section class="lyric-block">
-
-                            <p class="lyric-label">
-                                Final Chorus
-                            </p>
-
-                            <p>
-                                You already lost count<br>
-                                Lost count<br>
-                                Still you ask me for one more<br>
-                                Let me slow it back down<br>
-                                Back down<br>
-                                Take you right back to one<br>
-                                Now the sun is coming out<br>
-                                And you’re pulling down the shades<br>
-                                Baby, you already lost count<br>
-                                Lost count
-                            </p>
-
-                        </section>
-
-                        <section class="lyric-block">
-
-                            <p class="lyric-label">
-                                Outro
-                            </p>
-
-                            <p>
-                                Tell me where you left off<br>
-                                Tell me where you left off
-                            </p>
-
-                            <p>
-                                Then let’s start again
-                            </p>
-
                         </section>
 
                     </div>
 
                 </article>
+
+                <!-- FALL INTO ME -->
 
                 <article
                     class="lyrics-content"
@@ -1045,9 +894,15 @@
 
             </div>
 
-            <div class="visual-strip">
+            <div
+                class="visual-strip"
+                id="visual-strip"
+            >
 
-                <figure class="visual-panel">
+                <figure
+                    class="visual-panel"
+                    id="lost-count-visual"
+                >
 
                     <img
                         src="assets/images/lost-count-cover.png"
@@ -1060,7 +915,10 @@
 
                 </figure>
 
-                <figure class="visual-panel">
+                <figure
+                    class="visual-panel"
+                    id="fall-into-me-visual"
+                >
 
                     <img
                         src="assets/images/fall-into-me-cover.png"
@@ -1101,15 +959,8 @@
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-
-                        <span>
-                            Instagram
-                        </span>
-
-                        <b>
-                            ↗
-                        </b>
-
+                        <span>Instagram</span>
+                        <b>↗</b>
                     </a>
 
                     <a
@@ -1117,15 +968,8 @@
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-
-                        <span>
-                            Spotify
-                        </span>
-
-                        <b>
-                            ↗
-                        </b>
-
+                        <span>Spotify</span>
+                        <b>↗</b>
                     </a>
 
                     <a
@@ -1133,15 +977,8 @@
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-
-                        <span>
-                            YouTube
-                        </span>
-
-                        <b>
-                            ↗
-                        </b>
-
+                        <span>YouTube</span>
+                        <b>↗</b>
                     </a>
 
                 </div>

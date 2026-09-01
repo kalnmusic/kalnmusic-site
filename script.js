@@ -3,16 +3,23 @@
 // MASTER SCRIPT.JS
 // =========================================================
 
-const $ = (selector) => document.querySelector(selector);
-const $$ = (selector) => document.querySelectorAll(selector);
+const $ =
+    (selector) =>
+        document.querySelector(selector);
 
-const reducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-).matches;
+const $$ =
+    (selector) =>
+        document.querySelectorAll(selector);
+
+
+const reducedMotion =
+    window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
 
 
 // =========================================================
-// FALL INTO ME — PREVIEW + RELEASE SWITCH
+// FALL INTO ME
 // =========================================================
 
 const siteParams =
@@ -23,16 +30,28 @@ const siteParams =
 const fallPreviewMode =
     siteParams.get("fallpreview") === "1";
 
+
 const fallIntoMeReleaseTime =
     new Date(
         "2026-09-17T11:00:00Z"
     );
 
+
 const fallIntoMeLink =
     "https://release.landr.com/991048944886";
 
-let fallEraActivated = false;
 
+const spotifyArtistLink =
+    "https://open.spotify.com/artist/1I97Z1wZc37Bp7zMpgpxWk";
+
+
+let fallEraActivated =
+    false;
+
+
+// =========================================================
+// ACTIVATE FALL ERA
+// =========================================================
 
 function activateFallIntoMeEra() {
 
@@ -40,35 +59,38 @@ function activateFallIntoMeEra() {
         return;
     }
 
-    fallEraActivated = true;
+
+    fallEraActivated =
+        true;
+
 
     document.body
         .classList
-        .add("fall-era");
+        .add(
+            "fall-era"
+        );
 
 
-    // =====================================================
-    // TOP MARQUEE
-    // =====================================================
+    // MARQUEE
 
     $$(".listen-group")
-        .forEach((group) => {
+        .forEach(
+            (group) => {
 
-            group.innerHTML = `
-                <span>FALL INTO ME — OUT NOW</span>
-                <span>•</span>
-                <span>STREAM EVERYWHERE</span>
-                <span>•</span>
-                <span>KALN</span>
-                <span>•</span>
-            `;
+                group.innerHTML = `
+                    <span>FALL INTO ME — OUT NOW</span>
+                    <span>•</span>
+                    <span>STREAM EVERYWHERE</span>
+                    <span>•</span>
+                    <span>KALN</span>
+                    <span>•</span>
+                `;
 
-        });
+            }
+        );
 
 
-    // =====================================================
     // HERO
-    // =====================================================
 
     const heroEyebrow =
         $(".hero-eyebrow");
@@ -76,7 +98,7 @@ function activateFallIntoMeEra() {
     const heroTagline =
         $(".hero-tagline");
 
-    const heroPrimaryButton =
+    const heroPrimary =
         $(".hero-primary");
 
 
@@ -92,20 +114,18 @@ function activateFallIntoMeEra() {
     }
 
 
-    if (heroPrimaryButton) {
+    if (heroPrimary) {
 
-        heroPrimaryButton.textContent =
+        heroPrimary.textContent =
             "Listen Now";
 
-        heroPrimaryButton.href =
+        heroPrimary.href =
             fallIntoMeLink;
 
     }
 
 
-    // =====================================================
     // NOW PLAYING
-    // =====================================================
 
     const nowPlayingCover =
         $("#now-playing-cover");
@@ -122,6 +142,9 @@ function activateFallIntoMeEra() {
     const nowPlayingLink =
         $("#now-playing-link");
 
+    const nowPlayingPlatforms =
+        $("#now-playing-platforms");
+
 
     if (nowPlayingCover) {
 
@@ -135,73 +158,104 @@ function activateFallIntoMeEra() {
 
 
     if (nowPlayingKicker) {
-
         nowPlayingKicker.textContent =
             "Single · 2026";
-
     }
 
 
     if (nowPlayingTitle) {
-
         nowPlayingTitle.textContent =
             "Fall Into Me";
-
     }
 
 
     if (nowPlayingCopy) {
-
         nowPlayingCopy.textContent =
             "A softer chapter, out now.";
-
     }
 
 
     if (nowPlayingLink) {
 
-        nowPlayingLink.textContent =
-            "Listen Now";
-
         nowPlayingLink.href =
             fallIntoMeLink;
+
+        nowPlayingLink.textContent =
+            "Listen Now";
 
     }
 
 
-    // =====================================================
+    if (nowPlayingPlatforms) {
+
+        nowPlayingPlatforms.innerHTML = `
+
+            <a
+                href="${fallIntoMeLink}"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                All Platforms
+            </a>
+
+            <a
+                href="${spotifyArtistLink}"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Spotify
+            </a>
+
+        `;
+
+    }
+
+
     // HIDE COMING SOON
-    // =====================================================
 
     const nextSection =
         $(".next-section");
 
-    if (nextSection) {
 
+    if (nextSection) {
         nextSection.hidden =
             true;
-
     }
 
 
-    // =====================================================
-    // SHOW FALL INTO ME IN DISCOGRAPHY
-    // =====================================================
+    // DISCOGRAPHY — FALL FIRST
 
-    const fallDiscographyCard =
+    const discographyGrid =
+        $("#discography-grid");
+
+    const fallDiscography =
         $("#fall-into-me-discography");
 
-    if (fallDiscographyCard) {
+    const lostDiscography =
+        $("#lost-count-discography");
 
-        fallDiscographyCard.hidden =
+
+    if (fallDiscography) {
+        fallDiscography.hidden =
             false;
+    }
+
+
+    if (
+        discographyGrid &&
+        fallDiscography &&
+        lostDiscography
+    ) {
+
+        discographyGrid.insertBefore(
+            fallDiscography,
+            lostDiscography
+        );
 
     }
 
 
-    // =====================================================
-    // UNLOCK FALL INTO ME LYRICS
-    // =====================================================
+    // LYRICS — UNLOCK FALL
 
     const fallLyricsLocked =
         $("#fall-lyrics-locked");
@@ -211,24 +265,141 @@ function activateFallIntoMeEra() {
 
 
     if (fallLyricsLocked) {
-
         fallLyricsLocked.hidden =
             true;
-
     }
 
 
     if (fallFullLyrics) {
-
         fallFullLyrics.hidden =
             false;
+    }
+
+
+    // LYRICS — FALL TAB FIRST
+
+    const lyricsTabs =
+        $("#lyrics-tabs");
+
+    const fallTab =
+        $(
+            '.lyrics-tab[data-song="fall-into-me"]'
+        );
+
+    const lostTab =
+        $(
+            '.lyrics-tab[data-song="lost-count"]'
+        );
+
+
+    if (
+        lyricsTabs &&
+        fallTab &&
+        lostTab
+    ) {
+
+        lyricsTabs.insertBefore(
+            fallTab,
+            lostTab
+        );
 
     }
 
 
-    // =====================================================
-    // META DESCRIPTION
-    // =====================================================
+    // LYRICS — FALL CONTENT FIRST
+
+    const fallLyricsContent =
+        $("#fall-into-me");
+
+    const lostLyricsContent =
+        $("#lost-count");
+
+
+    if (
+        fallLyricsContent &&
+        lostLyricsContent &&
+        fallLyricsContent.parentNode
+    ) {
+
+        fallLyricsContent
+            .parentNode
+            .insertBefore(
+                fallLyricsContent,
+                lostLyricsContent
+            );
+
+    }
+
+
+    // LYRICS — FALL ACTIVE
+
+    $$(".lyrics-tab")
+        .forEach(
+            (tab) => {
+
+                const active =
+                    tab.dataset.song ===
+                    "fall-into-me";
+
+
+                tab.classList.toggle(
+                    "active",
+                    active
+                );
+
+
+                tab.setAttribute(
+                    "aria-selected",
+                    active
+                        ? "true"
+                        : "false"
+                );
+
+            }
+        );
+
+
+    $$(".lyrics-content")
+        .forEach(
+            (content) => {
+
+                content.classList.toggle(
+                    "active",
+                    content.id ===
+                    "fall-into-me"
+                );
+
+            }
+        );
+
+
+    // VISUALS — FALL FIRST
+
+    const visualStrip =
+        $("#visual-strip");
+
+    const fallVisual =
+        $("#fall-into-me-visual");
+
+    const lostVisual =
+        $("#lost-count-visual");
+
+
+    if (
+        visualStrip &&
+        fallVisual &&
+        lostVisual
+    ) {
+
+        visualStrip.insertBefore(
+            fallVisual,
+            lostVisual
+        );
+
+    }
+
+
+    // META
 
     const metaDescription =
         $(
@@ -249,7 +420,7 @@ function activateFallIntoMeEra() {
 
 
 // =========================================================
-// CHECK RELEASE STATUS
+// RELEASE CHECK
 // =========================================================
 
 function checkFallRelease() {
@@ -310,10 +481,8 @@ function updateFallCountdown() {
     if (distance <= 0) {
 
         if (fallCountdown) {
-
             fallCountdown.hidden =
                 true;
-
         }
 
         return;
@@ -368,50 +537,38 @@ function updateFallCountdown() {
 
 
     if (countdownDays) {
-
         countdownDays.textContent =
-            String(days)
-                .padStart(
-                    2,
-                    "0"
-                );
-
+            String(days).padStart(
+                2,
+                "0"
+            );
     }
 
 
     if (countdownHours) {
-
         countdownHours.textContent =
-            String(hours)
-                .padStart(
-                    2,
-                    "0"
-                );
-
+            String(hours).padStart(
+                2,
+                "0"
+            );
     }
 
 
     if (countdownMinutes) {
-
         countdownMinutes.textContent =
-            String(minutes)
-                .padStart(
-                    2,
-                    "0"
-                );
-
+            String(minutes).padStart(
+                2,
+                "0"
+            );
     }
 
 
     if (countdownSeconds) {
-
         countdownSeconds.textContent =
-            String(seconds)
-                .padStart(
-                    2,
-                    "0"
-                );
-
+            String(seconds).padStart(
+                2,
+                "0"
+            );
     }
 
 }
@@ -427,7 +584,7 @@ setInterval(
 
 
 // =========================================================
-// REVEAL ANIMATIONS
+// REVEALS
 // =========================================================
 
 const revealElements =
@@ -446,9 +603,9 @@ if (
         .forEach(
             (element) => {
 
-                element
-                    .classList
-                    .add("visible");
+                element.classList.add(
+                    "visible"
+                );
 
             }
         );
@@ -458,41 +615,36 @@ if (
     const revealObserver =
         new IntersectionObserver(
 
-            (
-                entries,
-                observer
-            ) => {
+            (entries,observer) => {
 
-                entries
-                    .forEach(
-                        (entry) => {
+                entries.forEach(
+                    (entry) => {
 
-                            if (
-                                !entry
-                                    .isIntersecting
-                            ) {
-                                return;
-                            }
-
-
-                            entry
-                                .target
-                                .classList
-                                .add("visible");
-
-
-                            observer
-                                .unobserve(
-                                    entry.target
-                                );
-
+                        if (
+                            !entry.isIntersecting
+                        ) {
+                            return;
                         }
-                    );
+
+
+                        entry.target
+                            .classList
+                            .add(
+                                "visible"
+                            );
+
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    }
+                );
 
             },
 
             {
-                threshold: 0.14
+                threshold:.14
             }
 
         );
@@ -502,10 +654,9 @@ if (
         .forEach(
             (element) => {
 
-                revealObserver
-                    .observe(
-                        element
-                    );
+                revealObserver.observe(
+                    element
+                );
 
             }
         );
@@ -514,7 +665,7 @@ if (
 
 
 // =========================================================
-// CURSOR GLOW — DESKTOP ONLY
+// CURSOR GLOW
 // =========================================================
 
 const cursorGlow =
@@ -546,7 +697,7 @@ if (
 
 
 // =========================================================
-// HERO PARALLAX — NORMAL ERA ONLY
+// NORMAL HERO PARALLAX
 // =========================================================
 
 const heroBg =
@@ -581,7 +732,7 @@ if (
             const shift =
                 Math.min(
                     window.scrollY *
-                    0.08,
+                    .08,
                     55
                 );
 
@@ -598,7 +749,7 @@ if (
 
         },
         {
-            passive: true
+            passive:true
         }
     );
 
@@ -606,7 +757,7 @@ if (
 
 
 // =========================================================
-// TILT CARDS — DESKTOP ONLY
+// TILT CARDS
 // =========================================================
 
 const tiltCards =
@@ -620,84 +771,77 @@ if (
     ).matches
 ) {
 
-    tiltCards
-        .forEach(
-            (card) => {
+    tiltCards.forEach(
+        (card) => {
 
-                const image =
-                    card.querySelector(
-                        "img"
-                    );
-
-
-                if (!image) {
-                    return;
-                }
-
-
-                card.addEventListener(
-                    "mousemove",
-                    (event) => {
-
-                        const rect =
-                            card
-                                .getBoundingClientRect();
-
-
-                        const x =
-                            (
-                                event.clientX -
-                                rect.left
-                            ) /
-                            rect.width;
-
-
-                        const y =
-                            (
-                                event.clientY -
-                                rect.top
-                            ) /
-                            rect.height;
-
-
-                        const rotateY =
-                            (x - 0.5) *
-                            6;
-
-
-                        const rotateX =
-                            (0.5 - y) *
-                            6;
-
-
-                        image
-                            .style
-                            .transform =
-                            `
-                            perspective(1100px)
-                            rotateX(${rotateX}deg)
-                            rotateY(${rotateY}deg)
-                            scale(1.015)
-                            `;
-
-                    }
+            const image =
+                card.querySelector(
+                    "img"
                 );
 
 
-                card.addEventListener(
-                    "mouseleave",
-                    () => {
-
-                        image
-                            .style
-                            .transform =
-                            "";
-
-                    }
-                );
-
+            if (!image) {
+                return;
             }
-        );
+
+
+            card.addEventListener(
+                "mousemove",
+                (event) => {
+
+                    const rect =
+                        card
+                            .getBoundingClientRect();
+
+
+                    const x =
+                        (
+                            event.clientX -
+                            rect.left
+                        ) /
+                        rect.width;
+
+
+                    const y =
+                        (
+                            event.clientY -
+                            rect.top
+                        ) /
+                        rect.height;
+
+
+                    const rotateY =
+                        (x - .5) * 6;
+
+
+                    const rotateX =
+                        (.5 - y) * 6;
+
+
+                    image.style.transform =
+                        `
+                        perspective(1100px)
+                        rotateX(${rotateX}deg)
+                        rotateY(${rotateY}deg)
+                        scale(1.015)
+                        `;
+
+                }
+            );
+
+
+            card.addEventListener(
+                "mouseleave",
+                () => {
+
+                    image.style.transform =
+                        "";
+
+                }
+            );
+
+        }
+    );
 
 }
 
@@ -706,14 +850,56 @@ if (
 // LYRICS TABS
 // =========================================================
 
-const lyricsTabs =
-    $$(".lyrics-tab");
+function activateLyricsTab(
+    selectedTab
+) {
 
-const lyricsContents =
-    $$(".lyrics-content");
+    const songId =
+        selectedTab.dataset.song;
 
 
-lyricsTabs
+    $$(".lyrics-tab")
+        .forEach(
+            (tab) => {
+
+                const active =
+                    tab === selectedTab;
+
+
+                tab.classList.toggle(
+                    "active",
+                    active
+                );
+
+
+                tab.setAttribute(
+                    "aria-selected",
+                    active
+                        ? "true"
+                        : "false"
+                );
+
+            }
+        );
+
+
+    $$(".lyrics-content")
+        .forEach(
+            (content) => {
+
+                content.classList.toggle(
+                    "active",
+                    content.id ===
+                    songId
+                );
+
+            }
+        );
+
+}
+
+
+$$(".lyrics-tab")
     .forEach(
         (tab) => {
 
@@ -721,53 +907,9 @@ lyricsTabs
                 "click",
                 () => {
 
-                    const songId =
-                        tab.dataset.song;
-
-
-                    lyricsTabs
-                        .forEach(
-                            (button) => {
-
-                                const active =
-                                    button ===
-                                    tab;
-
-
-                                button
-                                    .classList
-                                    .toggle(
-                                        "active",
-                                        active
-                                    );
-
-
-                                button
-                                    .setAttribute(
-                                        "aria-selected",
-                                        active
-                                            ? "true"
-                                            : "false"
-                                    );
-
-                            }
-                        );
-
-
-                    lyricsContents
-                        .forEach(
-                            (content) => {
-
-                                content
-                                    .classList
-                                    .toggle(
-                                        "active",
-                                        content.id ===
-                                            songId
-                                    );
-
-                            }
-                        );
+                    activateLyricsTab(
+                        tab
+                    );
 
                 }
             );
@@ -777,7 +919,7 @@ lyricsTabs
 
 
 // =========================================================
-// MOBILE NAVIGATION
+// MOBILE NAV
 // =========================================================
 
 const menuToggle =
@@ -797,18 +939,15 @@ function closeMenu() {
     }
 
 
-    siteNav
-        .classList
-        .remove(
-            "open"
-        );
+    siteNav.classList.remove(
+        "open"
+    );
 
 
-    menuToggle
-        .setAttribute(
-            "aria-expanded",
-            "false"
-        );
+    menuToggle.setAttribute(
+        "aria-expanded",
+        "false"
+    );
 
 }
 
@@ -818,29 +957,25 @@ if (
     siteNav
 ) {
 
-    menuToggle
-        .addEventListener(
-            "click",
-            () => {
+    menuToggle.addEventListener(
+        "click",
+        () => {
 
-                const menuOpen =
-                    siteNav
-                        .classList
-                        .toggle(
-                            "open"
-                        );
+            const open =
+                siteNav.classList.toggle(
+                    "open"
+                );
 
 
-                menuToggle
-                    .setAttribute(
-                        "aria-expanded",
-                        menuOpen
-                            ? "true"
-                            : "false"
-                    );
+            menuToggle.setAttribute(
+                "aria-expanded",
+                open
+                    ? "true"
+                    : "false"
+            );
 
-            }
-        );
+        }
+    );
 
 
     siteNav
@@ -848,11 +983,10 @@ if (
         .forEach(
             (link) => {
 
-                link
-                    .addEventListener(
-                        "click",
-                        closeMenu
-                    );
+                link.addEventListener(
+                    "click",
+                    closeMenu
+                );
 
             }
         );
@@ -866,9 +1000,7 @@ if (
                 window.innerWidth >
                 850
             ) {
-
                 closeMenu();
-
             }
 
         }
