@@ -124,7 +124,7 @@
             id="hero"
         >
 
-            <!-- NORMAL KALN ERA -->
+            <!-- NORMAL ERA -->
 
             <div
                 class="hero-bg"
@@ -138,47 +138,15 @@
                 aria-hidden="true"
             >
 
-                <!-- Wide atmospheric version of Canvas still -->
-
-                <div class="fall-canvas-backdrop"></div>
-
-                <!-- Clouds fill the whole hero -->
-
-                <div class="fall-clouds fall-clouds-back"></div>
-                <div class="fall-clouds fall-clouds-front"></div>
-
-                <!-- Stars across whole hero -->
+                <div class="fall-sky"></div>
 
                 <div class="fall-stars"></div>
 
-                <!-- Real moving Canvas -->
+                <div class="fall-clouds fall-clouds-far"></div>
 
-                <div class="fall-video-frame">
+                <div class="fall-clouds fall-clouds-mid"></div>
 
-                    <video
-                        class="fall-canvas-video"
-                        autoplay
-                        muted
-                        loop
-                        playsinline
-                        preload="auto"
-                        poster="assets/images/fall-into-me-canvas-poster.jpg"
-                    >
-
-                        <source
-                            src="assets/images/Fall_Into_Me_canvas_mp4.mp4"
-                            type="video/mp4"
-                        >
-
-                    </video>
-
-                </div>
-
-                <!-- Blend the center video into the atmosphere -->
-
-                <div class="fall-video-bloom"></div>
-
-                <!-- Exact title from the real cover -->
+                <div class="fall-clouds fall-clouds-near"></div>
 
                 <div class="fall-title-wrap">
 
@@ -190,9 +158,7 @@
 
                 </div>
 
-                <!-- Final cinematic shading -->
-
-                <div class="fall-video-vignette"></div>
+                <div class="fall-horizon-haze"></div>
 
             </div>
 
@@ -358,7 +324,7 @@
 
         </section>
 
-        <!-- FALL INTO ME COMING SOON -->
+        <!-- COMING SOON -->
 
         <section class="section next-section">
 
@@ -385,7 +351,6 @@
                     <div
                         class="fim-countdown"
                         id="fall-countdown"
-                        aria-label="Countdown to Fall Into Me"
                     >
                         <span id="countdown-days">00</span>
                         <span class="fim-dot">·</span>
@@ -564,14 +529,11 @@
                 <div
                     class="lyrics-tabs"
                     id="lyrics-tabs"
-                    role="tablist"
                 >
 
                     <button
                         class="lyrics-tab active"
                         data-song="lost-count"
-                        role="tab"
-                        aria-selected="true"
                     >
                         Lost Count
                     </button>
@@ -579,20 +541,15 @@
                     <button
                         class="lyrics-tab"
                         data-song="fall-into-me"
-                        role="tab"
-                        aria-selected="false"
                     >
                         Fall Into Me
                     </button>
 
                 </div>
 
-                <!-- LOST COUNT -->
-
                 <article
                     class="lyrics-content active"
                     id="lost-count"
-                    role="tabpanel"
                 >
 
                     <div class="lyrics-heading">
@@ -683,120 +640,13 @@
 
                         </section>
 
-                        <section class="lyric-block">
-
-                            <p class="lyric-label">
-                                Pre-Chorus
-                            </p>
-
-                            <p>
-                                Forget the minutes<br>
-                                I’ll give you something else to count<br>
-                                If you lose your place, baby<br>
-                                We can start it over now
-                            </p>
-
-                        </section>
-
-                        <section class="lyric-block">
-
-                            <p class="lyric-label">
-                                Chorus
-                            </p>
-
-                            <p>
-                                I’ma make you lose count<br>
-                                Lose count<br>
-                                Every time you think we’re done<br>
-                                I’ma slow it back down<br>
-                                Back down<br>
-                                Make you start again at one<br>
-                                Got the whole room spinning ’round<br>
-                                You don’t wanna leave me now<br>
-                                I’ma make you lose count<br>
-                                Lose count
-                            </p>
-
-                        </section>
-
-                        <section class="lyric-block">
-
-                            <p class="lyric-label">
-                                Bridge
-                            </p>
-
-                            <p>
-                                Don’t tell me what number you’re on<br>
-                                You forgot that a while ago<br>
-                                You stopped using words around three<br>
-                                Now you’re pulling me in for more<br>
-                                Don’t worry ’bout what comes next<br>
-                                We can let the moment take control<br>
-                                If you lose yourself again<br>
-                                I’ll be right here when you let go
-                            </p>
-
-                            <p>
-                                One for the way you pull me closer<br>
-                                Two for the way you grip the sheets<br>
-                                Three when your legs start shaking<br>
-                                Four when you can barely speak<br>
-                                Let the clock keep moving forward<br>
-                                We can make the whole night stretch<br>
-                                By the time the morning finds us<br>
-                                You won’t know what number’s next
-                            </p>
-
-                        </section>
-
-                        <section class="lyric-block">
-
-                            <p class="lyric-label">
-                                Final Chorus
-                            </p>
-
-                            <p>
-                                You already lost count<br>
-                                Lost count<br>
-                                Still you ask me for one more<br>
-                                Let me slow it back down<br>
-                                Back down<br>
-                                Take you right back to one<br>
-                                Now the sun is coming out<br>
-                                And you’re pulling down the shades<br>
-                                Baby, you already lost count<br>
-                                Lost count
-                            </p>
-
-                        </section>
-
-                        <section class="lyric-block">
-
-                            <p class="lyric-label">
-                                Outro
-                            </p>
-
-                            <p>
-                                Tell me where you left off<br>
-                                Tell me where you left off
-                            </p>
-
-                            <p>
-                                Then let’s start again
-                            </p>
-
-                        </section>
-
                     </div>
 
                 </article>
 
-                <!-- FALL INTO ME -->
-
                 <article
                     class="lyrics-content"
                     id="fall-into-me"
-                    role="tabpanel"
                 >
 
                     <div
@@ -816,19 +666,9 @@
                             Lyrics will appear here with the release.
                         </p>
 
-                        <a
-                            class="button button-outline"
-                            href="https://release.landr.com/991048944886"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Pre-Save
-                        </a>
-
                     </div>
 
                     <div
-                        class="fall-full-lyrics"
                         id="fall-full-lyrics"
                         hidden
                     >
@@ -873,73 +713,6 @@
 
                                 <p class="lyric-label">
                                     Chorus
-                                </p>
-
-                                <p>
-                                    Fall into me… let it be<br>
-                                    Let your guard fall quietly<br>
-                                    If you want this, let me see<br>
-                                    Fall into me… endlessly
-                                </p>
-
-                            </section>
-
-                            <section class="lyric-block">
-
-                                <p class="lyric-label">
-                                    Verse 2
-                                </p>
-
-                                <p>
-                                    Your touch is sinking in<br>
-                                    Soft like summer wind<br>
-                                    You pull me close again<br>
-                                    I feel you under my skin
-                                </p>
-
-                                <p>
-                                    I’m drifting where you move<br>
-                                    Falling into you<br>
-                                    If you want me too<br>
-                                    I’ll give all of me to you
-                                </p>
-
-                            </section>
-
-                            <section class="lyric-block">
-
-                                <p class="lyric-label">
-                                    Chorus
-                                </p>
-
-                                <p>
-                                    Fall into me… let it be<br>
-                                    Let your guard fall quietly<br>
-                                    If you want this, let me see<br>
-                                    Fall into me… endlessly
-                                </p>
-
-                            </section>
-
-                            <section class="lyric-block">
-
-                                <p class="lyric-label">
-                                    Bridge
-                                </p>
-
-                                <p>
-                                    Let the night take over<br>
-                                    Let your walls fall lower<br>
-                                    If you lean, come closer<br>
-                                    I’ll hold you till it’s over
-                                </p>
-
-                            </section>
-
-                            <section class="lyric-block">
-
-                                <p class="lyric-label">
-                                    Final Chorus
                                 </p>
 
                                 <p>
@@ -1103,7 +876,6 @@
                     <a
                         href="https://www.instagram.com/kalnmusic/"
                         target="_blank"
-                        rel="noopener noreferrer"
                     >
                         <span>Instagram</span>
                         <b>↗</b>
@@ -1112,7 +884,6 @@
                     <a
                         href="https://open.spotify.com/artist/1I97Z1wZc37Bp7zMpgpxWk"
                         target="_blank"
-                        rel="noopener noreferrer"
                     >
                         <span>Spotify</span>
                         <b>↗</b>
@@ -1121,7 +892,6 @@
                     <a
                         href="https://www.youtube.com/@KALNmusicc"
                         target="_blank"
-                        rel="noopener noreferrer"
                     >
                         <span>YouTube</span>
                         <b>↗</b>
@@ -1134,8 +904,6 @@
         </section>
 
     </main>
-
-    <!-- FOOTER -->
 
     <footer class="site-footer">
 
