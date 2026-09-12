@@ -33,7 +33,7 @@ const fallPreviewMode =
 
 const fallIntoMeReleaseTime =
     new Date(
-        "2026-09-17T11:00:00Z"
+        "2026-09-30T11:00:00Z"
     );
 
 
