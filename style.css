@@ -36,7 +36,9 @@ a {
 }
 
 
-/* TEXTURE */
+/* =========================================================
+   TEXTURE
+========================================================= */
 
 .noise {
     position:fixed;
@@ -71,11 +73,15 @@ a {
 
     pointer-events:none;
 
+    z-index:1;
+
     transform:translate(-50%,-50%);
 }
 
 
-/* LISTEN BAR */
+/* =========================================================
+   LISTEN BAR
+========================================================= */
 
 .listen-bar {
     position:fixed;
@@ -132,7 +138,9 @@ a {
 }
 
 
-/* HEADER */
+/* =========================================================
+   HEADER
+========================================================= */
 
 .site-header {
     position:fixed;
@@ -181,14 +189,42 @@ a {
 
     letter-spacing:.16em;
     font-size:.64rem;
+
+    transition:color .2s ease;
+}
+
+.site-nav a:hover {
+    color:var(--ink);
 }
 
 .menu-toggle {
     display:none;
+
+    width:36px;
+    height:36px;
+
+    padding:0;
+
+    border:0;
+
+    background:none;
+}
+
+.menu-toggle span {
+    display:block;
+
+    width:24px;
+    height:1px;
+
+    margin:6px auto;
+
+    background:var(--ink);
 }
 
 
-/* HERO */
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero {
     position:relative;
@@ -199,6 +235,8 @@ a {
     place-items:center;
 
     overflow:hidden;
+
+    background:var(--bg);
 }
 
 .hero-bg {
@@ -210,6 +248,10 @@ a {
         url("assets/images/kaln-youtube-banner.png")
         center / cover
         no-repeat;
+
+    transform:scale(1.04);
+
+    will-change:transform;
 }
 
 .hero-shade {
@@ -266,6 +308,8 @@ a {
     justify-content:center;
 
     gap:12px;
+
+    flex-wrap:wrap;
 }
 
 .scroll-indicator {
@@ -278,14 +322,33 @@ a {
 
     transform:translateX(-50%);
 
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    gap:10px;
+
+    color:rgba(240,235,226,.45);
+
     text-transform:uppercase;
 
     letter-spacing:.2em;
     font-size:.56rem;
 }
 
+.scroll-indicator i {
+    width:1px;
+    height:38px;
 
-/* BUTTONS */
+    background:currentColor;
+
+    animation:scrollPulse 1.8s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
 
 .button {
     display:inline-flex;
@@ -303,6 +366,15 @@ a {
     font-size:.66rem;
 
     border:1px solid transparent;
+
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        border-color .2s ease;
+}
+
+.button:hover {
+    transform:translateY(-2px);
 }
 
 .button-light {
@@ -317,7 +389,9 @@ a {
 }
 
 
-/* SECTIONS */
+/* =========================================================
+   SECTIONS
+========================================================= */
 
 .section {
     padding:120px 6vw;
@@ -345,7 +419,9 @@ a {
 }
 
 
-/* NOW PLAYING */
+/* =========================================================
+   NOW PLAYING
+========================================================= */
 
 .release-feature {
     max-width:1040px;
@@ -363,6 +439,10 @@ a {
     align-items:center;
 }
 
+.release-art {
+    position:relative;
+}
+
 .release-art img {
     aspect-ratio:1;
 
@@ -370,6 +450,42 @@ a {
 
     box-shadow:
         0 35px 110px rgba(0,0,0,.58);
+
+    transition:transform .2s ease;
+}
+
+.art-reflection {
+    position:absolute;
+
+    left:6%;
+    right:6%;
+    bottom:-12%;
+
+    height:18%;
+
+    opacity:.2;
+
+    filter:blur(16px);
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(240,235,226,.15),
+            transparent
+        );
+
+    pointer-events:none;
+}
+
+.release-kicker {
+    margin:0;
+
+    color:var(--gold);
+
+    text-transform:uppercase;
+
+    letter-spacing:.18em;
+    font-size:.62rem;
 }
 
 .release-info h3 {
@@ -382,6 +498,17 @@ a {
     font-weight:400;
 }
 
+.release-label {
+    margin:12px 0 0;
+
+    color:rgba(240,235,226,.52);
+
+    text-transform:uppercase;
+
+    letter-spacing:.17em;
+    font-size:.56rem;
+}
+
 .release-copy {
     max-width:410px;
 
@@ -390,6 +517,8 @@ a {
     color:var(--muted);
 
     font-family:Georgia,serif;
+
+    line-height:1.7;
 }
 
 .release-actions,
@@ -415,75 +544,32 @@ a {
 
     letter-spacing:.15em;
     font-size:.62rem;
+
+    transition:color .2s ease;
+}
+
+.platform-row a:hover,
+.text-link:hover {
+    color:var(--ink);
+}
+
+.text-link span {
+    color:var(--gold);
 }
 
 
-/* COMING */
-
-.coming-wrap {
-    max-width:1040px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:.9fr 1.1fr;
-
-    gap:70px;
-
-    align-items:center;
-}
-
-.coming-copy h2 {
-    font-family:Georgia,serif;
-
-    font-size:clamp(3.2rem,7vw,6.5rem);
-
-    font-weight:400;
-}
-
-.coming-media {
-    max-width:440px;
-
-    margin:auto;
-}
-
-.coming-presave {
-    width:100%;
-
-    margin-top:16px;
-}
-
-
-/* COUNTDOWN */
-
-.fim-countdown {
-    display:flex;
-
-    gap:12px;
-
-    width:fit-content;
-
-    margin-top:28px;
-
-    font-family:Georgia,serif;
-}
-
-.fim-countdown > span:not(.fim-dot) {
-    font-size:2.4rem;
-}
-
-
-/* DISCOGRAPHY */
+/* =========================================================
+   DISCOGRAPHY
+========================================================= */
 
 .discography-grid {
-    width:min(1040px,100%);
+    width:min(520px,100%);
 
     margin:auto;
 
     display:grid;
 
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:1fr;
 
     gap:1px;
 }
@@ -492,6 +578,8 @@ a {
     padding:30px;
 
     background:var(--bg);
+
+    border:1px solid var(--line);
 }
 
 .discography-art img {
@@ -500,7 +588,31 @@ a {
     object-fit:cover;
 }
 
+.discography-info {
+    padding-top:24px;
+}
+
+.discography-meta {
+    color:var(--muted);
+
+    text-transform:uppercase;
+
+    letter-spacing:.15em;
+    font-size:.58rem;
+}
+
+.discography-label {
+    color:rgba(240,235,226,.48);
+
+    text-transform:uppercase;
+
+    letter-spacing:.14em;
+    font-size:.54rem;
+}
+
 .discography-info h3 {
+    margin:10px 0 18px;
+
     font-family:Georgia,serif;
 
     font-size:3rem;
@@ -509,7 +621,9 @@ a {
 }
 
 
-/* LYRICS */
+/* =========================================================
+   LYRICS
+========================================================= */
 
 .lyrics-section {
     display:grid;
@@ -517,10 +631,30 @@ a {
     grid-template-columns:.72fr 1.28fr;
 
     min-height:100vh;
+
+    border-bottom:1px solid var(--line);
 }
 
 .lyrics-sticky {
     padding:120px 5vw;
+}
+
+.lyrics-sticky .section-title {
+    position:sticky;
+
+    top:160px;
+
+    text-align:left;
+}
+
+.lyrics-intro {
+    max-width:300px;
+
+    margin:18px 0 0;
+
+    color:var(--muted);
+
+    line-height:1.7;
 }
 
 .lyrics-panel {
@@ -545,6 +679,13 @@ a {
     background:transparent;
 
     color:var(--muted);
+
+    cursor:pointer;
+
+    text-transform:uppercase;
+
+    letter-spacing:.13em;
+    font-size:.59rem;
 }
 
 .lyrics-tab.active {
@@ -561,12 +702,35 @@ a {
     display:block;
 }
 
+.lyrics-heading {
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+
+    gap:20px;
+
+    padding-bottom:28px;
+
+    margin-bottom:38px;
+
+    border-bottom:1px solid var(--line);
+}
+
 .lyrics-heading h3 {
+    margin:0;
+
     font-family:Georgia,serif;
 
     font-size:4rem;
 
     font-weight:400;
+}
+
+.lyrics-heading span {
+    color:var(--muted);
+
+    letter-spacing:.15em;
+    font-size:.6rem;
 }
 
 .lyric-block {
@@ -575,6 +739,10 @@ a {
     margin-bottom:34px;
 
     border-bottom:1px solid var(--line);
+}
+
+.lyric-block:last-child {
+    border-bottom:0;
 }
 
 .lyric-block p:not(.lyric-label) {
@@ -594,7 +762,9 @@ a {
 }
 
 
-/* ABOUT */
+/* =========================================================
+   ABOUT
+========================================================= */
 
 .about-grid {
     max-width:1080px;
@@ -610,33 +780,85 @@ a {
     align-items:center;
 }
 
+.about-photo-wrap {
+    position:relative;
+}
+
 .about-photo-wrap img {
     aspect-ratio:1;
 
     object-fit:cover;
 }
 
+.photo-caption {
+    position:absolute;
+
+    left:18px;
+    bottom:16px;
+
+    padding:7px 10px;
+
+    background:rgba(8,8,8,.72);
+
+    color:rgba(240,235,226,.76);
+
+    text-transform:uppercase;
+
+    letter-spacing:.16em;
+    font-size:.55rem;
+}
+
+.about-copy > p:not(.eyebrow):not(.about-lead):not(.contact) {
+    color:var(--muted);
+
+    line-height:1.75;
+}
+
 .about-lead {
     font-family:Georgia,serif;
 
     font-size:1.6rem;
+
+    line-height:1.55;
+}
+
+.contact {
+    margin-top:34px;
+
+    color:var(--muted);
+
+    font-size:.8rem;
+}
+
+.contact a {
+    color:var(--ink);
 }
 
 
-/* VISUALS */
+/* =========================================================
+   VISUALS
+========================================================= */
 
 .visuals-section {
     padding:120px 0 0;
+
+    border-bottom:1px solid var(--line);
 }
 
 .visuals-heading {
+    padding:0 20px 54px;
+
     text-align:center;
 }
 
 .visual-strip {
+    width:min(720px,100%);
+
+    margin:auto;
+
     display:grid;
 
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:1fr;
 }
 
 .visual-panel {
@@ -653,13 +875,41 @@ a {
     height:100%;
 
     object-fit:cover;
+
+    transition:transform .45s ease;
+}
+
+.visual-panel:hover img {
+    transform:scale(1.025);
+}
+
+.visual-panel figcaption {
+    position:absolute;
+
+    left:22px;
+    bottom:20px;
+
+    padding:8px 11px;
+
+    background:rgba(8,8,8,.70);
+
+    backdrop-filter:blur(8px);
+
+    text-transform:uppercase;
+
+    letter-spacing:.16em;
+    font-size:.58rem;
 }
 
 
-/* CONNECT */
+/* =========================================================
+   CONNECT
+========================================================= */
 
 .connect-section {
     padding:130px 6vw;
+
+    border-bottom:1px solid var(--line);
 }
 
 .connect-inner {
@@ -675,16 +925,47 @@ a {
 .social-grid a {
     display:flex;
     justify-content:space-between;
+    align-items:center;
 
     padding:22px;
 
     border-bottom:1px solid var(--line);
 
     text-decoration:none;
+
+    transition:
+        background .2s ease,
+        padding .2s ease;
+}
+
+.social-grid a:first-child {
+    border-top:1px solid var(--line);
+}
+
+.social-grid a:hover {
+    padding-left:28px;
+    padding-right:28px;
+
+    background:rgba(255,255,255,.025);
+}
+
+.social-grid span {
+    text-transform:uppercase;
+
+    letter-spacing:.15em;
+    font-size:.65rem;
+}
+
+.social-grid b {
+    color:var(--gold);
+
+    font-weight:400;
 }
 
 
-/* FOOTER */
+/* =========================================================
+   FOOTER
+========================================================= */
 
 .site-footer {
     min-height:280px;
@@ -694,7 +975,21 @@ a {
     align-items:center;
     justify-content:center;
 
+    gap:12px;
+
+    padding:34px 20px 26px;
+
     background:#080808;
+}
+
+.footer-logo-window {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    width:min(390px,94vw);
+
+    overflow:hidden;
 }
 
 .footer-logo {
@@ -707,8 +1002,21 @@ a {
         drop-shadow(0 0 28px rgba(181,135,80,.45));
 }
 
+.footer-copy {
+    margin:0;
 
-/* REVEALS */
+    color:rgba(240,235,226,.45);
+
+    text-transform:uppercase;
+
+    letter-spacing:.18em;
+    font-size:.54rem;
+}
+
+
+/* =========================================================
+   REVEALS
+========================================================= */
 
 .reveal {
     opacity:0;
@@ -726,373 +1034,8 @@ a {
 
 
 /* =========================================================
-   FALL INTO ME ERA
+   ANIMATIONS
 ========================================================= */
-
-body.fall-era {
-    --bg:#06111f;
-    --ink:#edf3ff;
-    --muted:#9daabc;
-    --gold:#c9aa79;
-
-    background:#06111f;
-}
-
-body.fall-era .hero-bg {
-    opacity:0;
-}
-
-
-/* FALL SCENE */
-
-.fall-scene {
-    position:absolute;
-
-    inset:0;
-
-    z-index:0;
-
-    overflow:hidden;
-
-    opacity:0;
-    visibility:hidden;
-
-    background:#07182c;
-}
-
-body.fall-era .fall-scene {
-    opacity:1;
-    visibility:visible;
-}
-
-
-/* NIGHT SKY */
-
-.fall-sky {
-    position:absolute;
-
-    inset:0;
-
-    background:
-        radial-gradient(
-            ellipse at 50% 16%,
-            rgba(90,127,185,.20),
-            transparent 40%
-        ),
-        radial-gradient(
-            ellipse at 22% 30%,
-            rgba(50,79,127,.11),
-            transparent 39%
-        ),
-        radial-gradient(
-            ellipse at 78% 29%,
-            rgba(50,79,127,.11),
-            transparent 39%
-        ),
-        linear-gradient(
-            180deg,
-            #10243d 0%,
-            #0c2039 35%,
-            #091a30 67%,
-            #061321 100%
-        );
-}
-
-
-/* STARS */
-
-.fall-stars {
-    position:absolute;
-
-    inset:0;
-
-    z-index:1;
-
-    background:
-        radial-gradient(circle at 7% 13%, rgba(255,255,255,.60) 0 1px, transparent 2px),
-        radial-gradient(circle at 14% 25%, rgba(255,255,255,.35) 0 1px, transparent 2px),
-        radial-gradient(circle at 21% 8%, rgba(255,255,255,.50) 0 1px, transparent 2px),
-        radial-gradient(circle at 29% 19%, rgba(255,255,255,.42) 0 1px, transparent 2px),
-        radial-gradient(circle at 37% 11%, rgba(255,255,255,.63) 0 1px, transparent 2px),
-        radial-gradient(circle at 46% 25%, rgba(255,255,255,.38) 0 1px, transparent 2px),
-        radial-gradient(circle at 53% 8%, rgba(255,255,255,.60) 0 1px, transparent 2px),
-        radial-gradient(circle at 61% 20%, rgba(255,255,255,.42) 0 1px, transparent 2px),
-        radial-gradient(circle at 69% 11%, rgba(255,255,255,.60) 0 1px, transparent 2px),
-        radial-gradient(circle at 78% 26%, rgba(255,255,255,.38) 0 1px, transparent 2px),
-        radial-gradient(circle at 86% 9%, rgba(255,255,255,.54) 0 1px, transparent 2px),
-        radial-gradient(circle at 94% 21%, rgba(255,255,255,.45) 0 1px, transparent 2px);
-
-    opacity:.72;
-
-    animation:
-        fallStarsTwinkle
-        7s
-        ease-in-out
-        infinite;
-}
-
-
-/* MUTED CLOUD SYSTEM */
-
-.fall-clouds {
-    position:absolute;
-
-    left:-20%;
-    width:140%;
-
-    pointer-events:none;
-
-    will-change:transform;
-}
-
-
-/* distant */
-
-.fall-clouds-far {
-    top:-6%;
-
-    height:76%;
-
-    z-index:2;
-
-    opacity:.42;
-
-    filter:blur(22px);
-
-    background:
-        radial-gradient(ellipse at 4% 37%, rgba(194,208,228,.34), transparent 43%),
-        radial-gradient(ellipse at 19% 25%, rgba(207,219,235,.32), transparent 41%),
-        radial-gradient(ellipse at 36% 46%, rgba(185,202,226,.31), transparent 43%),
-        radial-gradient(ellipse at 52% 23%, rgba(211,222,237,.34), transparent 41%),
-        radial-gradient(ellipse at 70% 45%, rgba(190,205,226,.31), transparent 43%),
-        radial-gradient(ellipse at 88% 27%, rgba(209,220,236,.33), transparent 42%);
-
-    animation:
-        fallCloudFar
-        72s
-        ease-in-out
-        infinite
-        alternate;
-}
-
-
-/* middle */
-
-.fall-clouds-mid {
-    top:4%;
-
-    height:72%;
-
-    z-index:3;
-
-    opacity:.31;
-
-    filter:blur(27px);
-
-    background:
-        radial-gradient(ellipse at 3% 45%, rgba(220,230,242,.30), transparent 43%),
-        radial-gradient(ellipse at 20% 31%, rgba(209,222,238,.29), transparent 42%),
-        radial-gradient(ellipse at 39% 51%, rgba(219,229,242,.29), transparent 44%),
-        radial-gradient(ellipse at 58% 29%, rgba(209,222,237,.29), transparent 42%),
-        radial-gradient(ellipse at 77% 49%, rgba(220,230,243,.29), transparent 44%),
-        radial-gradient(ellipse at 96% 32%, rgba(208,220,236,.28), transparent 41%);
-
-    animation:
-        fallCloudMid
-        58s
-        ease-in-out
-        infinite
-        alternate-reverse;
-}
-
-
-/* foreground wisps */
-
-.fall-clouds-near {
-    top:24%;
-
-    height:64%;
-
-    z-index:4;
-
-    opacity:.22;
-
-    filter:blur(34px);
-
-    background:
-        radial-gradient(ellipse at 7% 52%, rgba(235,240,248,.27), transparent 42%),
-        radial-gradient(ellipse at 31% 34%, rgba(224,233,244,.25), transparent 41%),
-        radial-gradient(ellipse at 53% 58%, rgba(235,241,249,.25), transparent 43%),
-        radial-gradient(ellipse at 77% 35%, rgba(224,232,244,.25), transparent 41%),
-        radial-gradient(ellipse at 96% 55%, rgba(234,240,248,.26), transparent 42%);
-
-    animation:
-        fallCloudNear
-        46s
-        ease-in-out
-        infinite
-        alternate;
-}
-
-/* TITLE — SAME SIZE, LOWER */
-
-.fall-title-wrap {
-    position:absolute;
-
-    top:14%;
-
-    left:50%;
-
-    z-index:7;
-
-    width:min(1000px,74vw);
-
-    transform:translateX(-50%);
-
-    pointer-events:none;
-}
-
-
-/* glow only — NO SWEEP */
-
-.fall-title-wrap::before {
-    content:"";
-
-    position:absolute;
-
-    inset:-6% -4%;
-
-    z-index:-1;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            ellipse,
-            rgba(229,239,255,.25) 0%,
-            rgba(183,207,239,.10) 40%,
-            transparent 73%
-        );
-
-    filter:blur(31px);
-
-    animation:
-        titleAura
-        5s
-        ease-in-out
-        infinite;
-}
-
-
-.fall-title-art {
-    width:100%;
-
-    height:auto;
-
-    opacity:.98;
-
-    filter:
-        brightness(1.13)
-        drop-shadow(0 0 4px rgba(255,255,255,.80))
-        drop-shadow(0 0 10px rgba(255,255,255,.59))
-        drop-shadow(0 0 22px rgba(227,237,253,.43))
-        drop-shadow(0 0 42px rgba(170,201,242,.29));
-
-    animation:
-        fallTitleGlow
-        5s
-        ease-in-out
-        infinite;
-}
-
-
-/* subtle lower haze */
-
-.fall-horizon-haze {
-    position:absolute;
-
-    left:-10%;
-    right:-10%;
-
-    bottom:-2%;
-
-    z-index:5;
-
-    height:39%;
-
-    background:
-        linear-gradient(
-            to bottom,
-            transparent,
-            rgba(4,13,26,.22) 45%,
-            rgba(4,11,21,.67) 79%,
-            #06111f
-        );
-}
-
-
-/* FALL HERO COPY */
-
-body.fall-era .hero-shade {
-    z-index:6;
-
-    background:
-        linear-gradient(
-            to bottom,
-            transparent 0%,
-            transparent 52%,
-            rgba(3,9,18,.06) 69%,
-            rgba(3,9,18,.28) 87%,
-            #06111f 100%
-        );
-}
-
-body.fall-era .hero-copy {
-    z-index:8;
-
-    margin-top:38vh;
-}
-
-body.fall-era .hero-copy .eyebrow {
-    color:#c9aa79;
-}
-
-body.fall-era .hero-tagline {
-    color:rgba(239,243,250,.92);
-
-    text-shadow:
-        0 2px 18px rgba(0,0,0,.45);
-}
-
-
-/* FALL SECTIONS */
-
-body.fall-era .section,
-body.fall-era .lyrics-section,
-body.fall-era .visuals-section,
-body.fall-era .connect-section {
-    background:
-        linear-gradient(
-            to bottom,
-            #06111f,
-            #050c18
-        );
-}
-
-body.fall-era .discography-card {
-    background:#06111f;
-}
-
-body.fall-era .lyrics-panel {
-    background:#050c18;
-}
-
-body.fall-era .site-footer {
-    background:#06111f;
-}
-
-
-/* ANIMATIONS */
 
 @keyframes listenMove {
     to {
@@ -1101,112 +1044,20 @@ body.fall-era .site-footer {
 }
 
 @keyframes scrollPulse {
+    0%,
+    100% {
+        opacity:.35;
+    }
+
     50% {
         opacity:1;
     }
 }
 
-@keyframes fallStarsTwinkle {
 
-    0%,
-    100% {
-        opacity:.58;
-    }
-
-    50% {
-        opacity:.78;
-    }
-}
-
-@keyframes fallCloudFar {
-
-    from {
-        transform:
-            translate3d(-4%,0,0)
-            scale(1.02);
-    }
-
-    to {
-        transform:
-            translate3d(7%,2%,0)
-            scale(1.08);
-    }
-}
-
-@keyframes fallCloudMid {
-
-    from {
-        transform:
-            translate3d(7%,1%,0)
-            scale(1.03);
-    }
-
-    to {
-        transform:
-            translate3d(-7%,-2%,0)
-            scale(1.09);
-    }
-}
-
-@keyframes fallCloudNear {
-
-    from {
-        transform:
-            translate3d(-7%,0,0)
-            scale(1.04);
-    }
-
-    to {
-        transform:
-            translate3d(8%,3%,0)
-            scale(1.11);
-    }
-}
-
-@keyframes fallTitleGlow {
-
-    0%,
-    100% {
-        opacity:.93;
-
-        filter:
-            brightness(1.08)
-            drop-shadow(0 0 4px rgba(255,255,255,.68))
-            drop-shadow(0 0 9px rgba(255,255,255,.47))
-            drop-shadow(0 0 19px rgba(227,237,253,.34))
-            drop-shadow(0 0 34px rgba(170,201,242,.21));
-    }
-
-    50% {
-        opacity:1;
-
-        filter:
-            brightness(1.18)
-            drop-shadow(0 0 5px rgba(255,255,255,.88))
-            drop-shadow(0 0 13px rgba(255,255,255,.70))
-            drop-shadow(0 0 29px rgba(227,237,253,.52))
-            drop-shadow(0 0 54px rgba(170,201,242,.34));
-    }
-}
-
-@keyframes titleAura {
-
-    0%,
-    100% {
-        opacity:.56;
-
-        transform:scale(.98);
-    }
-
-    50% {
-        opacity:.92;
-
-        transform:scale(1.04);
-    }
-}
-
-
-/* TABLET */
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media (max-width:850px) {
 
@@ -1219,11 +1070,25 @@ body.fall-era .site-footer {
 
         flex-direction:column;
 
-        background:#080808;
+        padding:10px 20px 20px;
+
+        background:rgba(8,8,8,.98);
+
+        border-bottom:1px solid var(--line);
     }
 
     .site-nav.open {
         display:flex;
+    }
+
+    .site-nav a {
+        padding:16px 0;
+
+        border-bottom:1px solid var(--line);
+    }
+
+    .site-nav a:last-child {
+        border-bottom:0;
     }
 
     .menu-toggle {
@@ -1231,38 +1096,70 @@ body.fall-era .site-footer {
     }
 
     .release-feature,
-    .about-grid,
-    .coming-wrap {
+    .about-grid {
         grid-template-columns:1fr;
     }
 
     .release-info,
-    .about-copy,
-    .coming-copy {
+    .about-copy {
         text-align:center;
     }
 
-    .discography-grid,
-    .visual-strip,
+    .release-copy {
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .release-actions,
+    .platform-row {
+        justify-content:center;
+    }
+
     .lyrics-section {
         grid-template-columns:1fr;
     }
 
-    .fall-title-wrap {
-        top:17%;
-
-        width:84vw;
+    .lyrics-sticky {
+        padding:
+            90px
+            24px
+            35px;
     }
 
-    body.fall-era .hero-copy {
-        margin-top:35vh;
+    .lyrics-sticky .section-title {
+        position:static;
+
+        text-align:center;
     }
+
+    .lyrics-intro {
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .lyrics-panel {
+        padding:
+            55px
+            24px
+            90px;
+
+        border-left:0;
+
+        border-top:1px solid var(--line);
+    }
+
 }
 
 
-/* MOBILE */
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width:620px) {
+
+    .cursor-glow {
+        display:none;
+    }
 
     .site-header {
         padding:0 20px;
@@ -1274,33 +1171,65 @@ body.fall-era .site-footer {
 
     .hero-actions {
         flex-direction:column;
+
+        width:min(340px,100%);
+
+        margin:auto;
     }
 
-    .fall-title-wrap {
-        top:19%;
-
-        width:92vw;
+    .hero-actions .button {
+        width:100%;
     }
 
-    .fall-clouds-far {
-        opacity:.20;
+    .release-info h3 {
+        font-size:clamp(3rem,16vw,5rem);
     }
 
-    .fall-clouds-mid {
-        opacity:.14;
+    .lyrics-tabs {
+        overflow-x:auto;
     }
 
-    .fall-clouds-near {
-        opacity:.08;
+    .lyrics-heading {
+        align-items:flex-start;
+
+        flex-direction:column;
     }
 
-    body.fall-era .hero-copy {
-        margin-top:34vh;
+    .lyrics-heading h3 {
+        font-size:3rem;
     }
+
+    .visuals-section {
+        padding-top:90px;
+    }
+
+    .site-footer {
+        min-height:225px;
+
+        padding:
+            28px
+            14px
+            20px;
+    }
+
+    .footer-logo-window {
+        width:min(310px,94vw);
+    }
+
+    .footer-logo {
+        width:min(295px,88vw);
+    }
+
+    .footer-copy {
+        font-size:.5rem;
+    }
+
 }
 
 
-/* REDUCED MOTION */
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
 
 @media (prefers-reduced-motion:reduce) {
 
@@ -1308,6 +1237,10 @@ body.fall-era .site-footer {
     *::before,
     *::after {
         animation:none !important;
+
+        transition:none !important;
+
+        scroll-behavior:auto !important;
     }
 
     .reveal {
@@ -1315,4 +1248,5 @@ body.fall-era .site-footer {
 
         transform:none;
     }
+
 }
