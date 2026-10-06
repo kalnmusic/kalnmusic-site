@@ -3,110 +3,94 @@
 // SCRIPT.JS
 // =========================================================
 
+const $ = (selector) =>
+    document.querySelector(selector);
 
-// ---------------------------------------------------------
-// HELPERS
-// ---------------------------------------------------------
+const $$ = (selector) =>
+    document.querySelectorAll(selector);
 
-const $ = (selector) => document.querySelector(selector);
-const $$ = (selector) => document.querySelectorAll(selector);
 
-const reducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-).matches;
+const reducedMotion =
+    window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
 
 
 // =========================================================
-// MOBILE MENU
+// REVEALS
 // =========================================================
 
-const menuToggle = $(".menu-toggle");
-const siteNav = $(".site-nav");
-
-if (menuToggle && siteNav) {
-
-    menuToggle.addEventListener("click", () => {
-
-        const isOpen = siteNav.classList.toggle("open");
-
-        menuToggle.setAttribute(
-            "aria-expanded",
-            String(isOpen)
-        );
-
-        menuToggle.setAttribute(
-            "aria-label",
-            isOpen
-                ? "Close menu"
-                : "Open menu"
-        );
-
-    });
+const revealElements =
+    $$(".reveal");
 
 
-    $$(".site-nav a").forEach((link) => {
+if (
+    reducedMotion ||
+    !(
+        "IntersectionObserver"
+        in window
+    )
+) {
 
-        link.addEventListener("click", () => {
+    revealElements.forEach(
+        (element) => {
 
-            siteNav.classList.remove("open");
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
+            element.classList.add(
+                "visible"
             );
 
-            menuToggle.setAttribute(
-                "aria-label",
-                "Open menu"
-            );
-
-        });
-
-    });
-
-}
-
-
-// =========================================================
-// REVEAL ON SCROLL
-// =========================================================
-
-const revealElements = $$(".reveal");
-
-if (reducedMotion) {
-
-    revealElements.forEach((element) => {
-        element.classList.add("visible");
-    });
+        }
+    );
 
 } else {
 
-    const revealObserver = new IntersectionObserver(
+    const revealObserver =
+        new IntersectionObserver(
 
-        (entries, observer) => {
+            (entries, observer) => {
 
-            entries.forEach((entry) => {
+                entries.forEach(
+                    (entry) => {
 
-                if (!entry.isIntersecting) return;
+                        if (
+                            !entry.isIntersecting
+                        ) {
+                            return;
+                        }
 
-                entry.target.classList.add("visible");
 
-                observer.unobserve(entry.target);
+                        entry.target
+                            .classList
+                            .add(
+                                "visible"
+                            );
 
-            });
 
-        },
+                        observer.unobserve(
+                            entry.target
+                        );
 
-        {
-            threshold: 0.14
+                    }
+                );
+
+            },
+
+            {
+                threshold: .14
+            }
+
+        );
+
+
+    revealElements.forEach(
+        (element) => {
+
+            revealObserver.observe(
+                element
+            );
+
         }
-
     );
-
-
-    revealElements.forEach((element) => {
-        revealObserver.observe(element);
-    });
 
 }
 
@@ -115,12 +99,16 @@ if (reducedMotion) {
 // CURSOR GLOW
 // =========================================================
 
-const cursorGlow = $(".cursor-glow");
+const cursorGlow =
+    $(".cursor-glow");
+
 
 if (
     cursorGlow &&
     !reducedMotion &&
-    window.matchMedia("(pointer: fine)").matches
+    window.matchMedia(
+        "(pointer: fine)"
+    ).matches
 ) {
 
     window.addEventListener(
@@ -143,62 +131,131 @@ if (
 
 
 // =========================================================
-// HERO BACKGROUND MOVEMENT
+// HERO PARALLAX
 // =========================================================
 
-const hero = $(".hero");
-const heroBackground = $(".hero-bg");
+const heroBg =
+    $(".hero-bg");
+
 
 if (
-    hero &&
-    heroBackground &&
-    !reducedMotion &&
-    window.matchMedia("(pointer: fine)").matches
+    heroBg &&
+    !reducedMotion
 ) {
 
-    hero.addEventListener(
-        "pointermove",
-        (event) => {
-
-            const rect =
-                hero.getBoundingClientRect();
-
-            const x =
-                (
-                    event.clientX -
-                    rect.left
-                )
-                / rect.width
-                - .5;
-
-            const y =
-                (
-                    event.clientY -
-                    rect.top
-                )
-                / rect.height
-                - .5;
-
-
-            heroBackground.style.transform =
-                `
-                scale(1.05)
-                translate(
-                    ${x * -8}px,
-                    ${y * -8}px
-                )
-                `;
-
-        }
-    );
-
-
-    hero.addEventListener(
-        "pointerleave",
+    window.addEventListener(
+        "scroll",
         () => {
 
-            heroBackground.style.transform =
-                "scale(1.04)";
+            const shift =
+                Math.min(
+                    window.scrollY * .08,
+                    55
+                );
+
+
+            heroBg.style.transform =
+                `
+                translate3d(
+                    0,
+                    ${shift}px,
+                    0
+                )
+                scale(1.07)
+                `;
+
+        },
+        {
+            passive: true
+        }
+    );
+
+}
+
+
+// =========================================================
+// TILT CARDS
+// =========================================================
+
+const tiltCards =
+    $$(".tilt-card");
+
+
+if (
+    !reducedMotion &&
+    window.matchMedia(
+        "(pointer: fine)"
+    ).matches
+) {
+
+    tiltCards.forEach(
+        (card) => {
+
+            const image =
+                card.querySelector(
+                    "img"
+                );
+
+
+            if (!image) {
+                return;
+            }
+
+
+            card.addEventListener(
+                "mousemove",
+                (event) => {
+
+                    const rect =
+                        card
+                            .getBoundingClientRect();
+
+
+                    const x =
+                        (
+                            event.clientX -
+                            rect.left
+                        ) /
+                        rect.width;
+
+
+                    const y =
+                        (
+                            event.clientY -
+                            rect.top
+                        ) /
+                        rect.height;
+
+
+                    const rotateY =
+                        (x - .5) * 6;
+
+
+                    const rotateX =
+                        (.5 - y) * 6;
+
+
+                    image.style.transform =
+                        `
+                        perspective(1100px)
+                        rotateX(${rotateX}deg)
+                        rotateY(${rotateY}deg)
+                        scale(1.015)
+                        `;
+
+                }
+            );
+
+
+            card.addEventListener(
+                "mouseleave",
+                () => {
+
+                    image.style.transform =
+                        "";
+
+                }
+            );
 
         }
     );
@@ -207,301 +264,158 @@ if (
 
 
 // =========================================================
-// RELEASE ART TILT
+// LYRICS TABS
 // =========================================================
 
-const tiltCards = $$(".tilt-card");
-
-if (
-    !reducedMotion &&
-    window.matchMedia("(pointer: fine)").matches
+function activateLyricsTab(
+    selectedTab
 ) {
 
-    tiltCards.forEach((card) => {
-
-        card.addEventListener(
-            "pointermove",
-            (event) => {
-
-                const rect =
-                    card.getBoundingClientRect();
-
-                const x =
-                    (
-                        event.clientX -
-                        rect.left
-                    )
-                    / rect.width
-                    - .5;
-
-                const y =
-                    (
-                        event.clientY -
-                        rect.top
-                    )
-                    / rect.height
-                    - .5;
+    const songId =
+        selectedTab.dataset.song;
 
 
-                card.style.transform =
-                    `
-                    perspective(900px)
-                    rotateX(${y * -4}deg)
-                    rotateY(${x * 4}deg)
-                    translateY(-3px)
-                    `;
+    $$(".lyrics-tab").forEach(
+        (tab) => {
 
-            }
-        );
+            const active =
+                tab === selectedTab;
 
 
-        card.addEventListener(
-            "pointerleave",
-            () => {
+            tab.classList.toggle(
+                "active",
+                active
+            );
 
-                card.style.transform =
-                    "";
 
-            }
-        );
+            tab.setAttribute(
+                "aria-selected",
+                active
+                    ? "true"
+                    : "false"
+            );
 
-    });
+        }
+    );
+
+
+    $$(".lyrics-content").forEach(
+        (content) => {
+
+            content.classList.toggle(
+                "active",
+                content.id === songId
+            );
+
+        }
+    );
 
 }
 
 
+$$(".lyrics-tab").forEach(
+    (tab) => {
+
+        tab.addEventListener(
+            "click",
+            () => {
+
+                activateLyricsTab(
+                    tab
+                );
+
+            }
+        );
+
+    }
+);
+
+
 // =========================================================
-// LYRICS DRAWER
+// MOBILE NAV
 // =========================================================
 
-const lyricsDrawer = $("#lyrics-drawer");
-const lyricsOpenButton = $(".lyric-open");
-const lyricsCloseButtons = $$("[data-close-lyrics]");
-const lyricsSheet = $(".lyrics-sheet");
+const menuToggle =
+    $(".menu-toggle");
 
-let previousFocusedElement = null;
+const siteNav =
+    $(".site-nav");
 
 
-function openLyrics() {
+function closeMenu() {
 
-    if (!lyricsDrawer) return;
+    if (
+        !menuToggle ||
+        !siteNav
+    ) {
+        return;
+    }
 
-    previousFocusedElement =
-        document.activeElement;
 
-    lyricsDrawer.classList.add("open");
+    siteNav.classList.remove(
+        "open"
+    );
 
-    lyricsDrawer.setAttribute(
-        "aria-hidden",
+
+    menuToggle.setAttribute(
+        "aria-expanded",
         "false"
     );
 
-    document.body.classList.add(
-        "lyrics-open"
-    );
-
-
-    if (lyricsOpenButton) {
-
-        lyricsOpenButton.setAttribute(
-            "aria-expanded",
-            "true"
-        );
-
-    }
-
-
-    const closeButton =
-        $(".lyrics-close");
-
-    if (closeButton) {
-
-        window.setTimeout(
-            () => {
-                closeButton.focus();
-            },
-            50
-        );
-
-    }
-
 }
 
 
-function closeLyrics() {
+if (
+    menuToggle &&
+    siteNav
+) {
 
-    if (!lyricsDrawer) return;
-
-    lyricsDrawer.classList.remove("open");
-
-    lyricsDrawer.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-
-    document.body.classList.remove(
-        "lyrics-open"
-    );
-
-
-    if (lyricsOpenButton) {
-
-        lyricsOpenButton.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-    }
-
-
-    if (
-        previousFocusedElement &&
-        typeof previousFocusedElement.focus
-            === "function"
-    ) {
-
-        previousFocusedElement.focus();
-
-    }
-
-}
-
-
-if (lyricsOpenButton) {
-
-    lyricsOpenButton.addEventListener(
+    menuToggle.addEventListener(
         "click",
-        openLyrics
-    );
+        () => {
 
-}
+            const open =
+                siteNav.classList.toggle(
+                    "open"
+                );
 
-
-lyricsCloseButtons.forEach((button) => {
-
-    button.addEventListener(
-        "click",
-        closeLyrics
-    );
-
-});
-
-
-document.addEventListener(
-    "keydown",
-    (event) => {
-
-        if (
-            event.key === "Escape" &&
-            lyricsDrawer &&
-            lyricsDrawer.classList.contains(
-                "open"
-            )
-        ) {
-
-            closeLyrics();
-
-        }
-
-    }
-);
-
-
-// =========================================================
-// SIMPLE FOCUS TRAP FOR LYRICS DRAWER
-// =========================================================
-
-document.addEventListener(
-    "keydown",
-    (event) => {
-
-        if (
-            event.key !== "Tab" ||
-            !lyricsDrawer ||
-            !lyricsDrawer.classList.contains(
-                "open"
-            ) ||
-            !lyricsSheet
-        ) {
-            return;
-        }
-
-
-        const focusableElements =
-            lyricsSheet.querySelectorAll(
-                `
-                a[href],
-                button:not([disabled]),
-                [tabindex]:not([tabindex="-1"])
-                `
-            );
-
-
-        if (!focusableElements.length) {
-            return;
-        }
-
-
-        const first =
-            focusableElements[0];
-
-        const last =
-            focusableElements[
-                focusableElements.length - 1
-            ];
-
-
-        if (
-            event.shiftKey &&
-            document.activeElement === first
-        ) {
-
-            event.preventDefault();
-
-            last.focus();
-
-        } else if (
-            !event.shiftKey &&
-            document.activeElement === last
-        ) {
-
-            event.preventDefault();
-
-            first.focus();
-
-        }
-
-    }
-);
-
-
-// =========================================================
-// CLOSE MOBILE MENU IF WINDOW GETS LARGE AGAIN
-// =========================================================
-
-window.addEventListener(
-    "resize",
-    () => {
-
-        if (
-            window.innerWidth > 900 &&
-            siteNav &&
-            menuToggle
-        ) {
-
-            siteNav.classList.remove("open");
 
             menuToggle.setAttribute(
                 "aria-expanded",
-                "false"
-            );
-
-            menuToggle.setAttribute(
-                "aria-label",
-                "Open menu"
+                open
+                    ? "true"
+                    : "false"
             );
 
         }
+    );
 
-    }
-);
+
+    siteNav
+        .querySelectorAll("a")
+        .forEach(
+            (link) => {
+
+                link.addEventListener(
+                    "click",
+                    closeMenu
+                );
+
+            }
+        );
+
+
+    window.addEventListener(
+        "resize",
+        () => {
+
+            if (
+                window.innerWidth > 850
+            ) {
+                closeMenu();
+            }
+
+        }
+    );
+
+}
